@@ -3,7 +3,8 @@
   "name": "1-diploma-front-end",
   "description": "Diploma UC - Front ends",
   "scripts": {
-    "lint:js": "eslint .",
+    "bootstrap": "lerna bootstrap",
+    "lint:js": "lerna run lint:js",
     "lint": "npm run lint:js && npm run prettier-lint",
     "prettier-lint": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "start": "node src/index.js",
@@ -17,7 +18,9 @@
   },
   "license": "EUPL-1.2",
   "devDependencies": {
+    "eslint": "^6.7.2",
     "husky": "^3.1.0",
+    "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1"
   },
@@ -27,7 +30,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{json,css,scss,md}": [
       "prettier --write",
       "git add"
     ]

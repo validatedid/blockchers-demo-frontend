@@ -12,6 +12,12 @@ Install the dependencies:
 npm install
 ```
 
+Bootstrap the front ends:
+
+```sh
+npm run bootstrap
+```
+
 Start the server:
 
 ```sh
