@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "1-diploma-front-end",
+  "description": "Diploma UC - Front ends",
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint": "npm run lint:js && npm run prettier-lint",
+    "prettier-lint": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ec.europa.eu/cefdigital/code/scm/ebsi/1-diploma-front-end.git"
+  },
+  "license": "EUPL-1.2",
+  "devDependencies": {
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
