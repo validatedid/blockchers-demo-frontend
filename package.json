@@ -3,7 +3,7 @@
   "name": "1-diploma-front-end",
   "description": "Diploma UC - Front ends",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "lint:js": "lerna run lint:js",
     "lint": "npm run lint:js && npm run prettier-lint",
     "prettier-lint": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
@@ -32,6 +32,8 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
+      "eslint",
+      "exit 1",
       "git add"
     ],
     "*.{json,css,scss,md}": [
