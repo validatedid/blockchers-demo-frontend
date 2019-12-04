@@ -3,10 +3,8 @@ import "./Main.css";
 import { Button, ButtonGroup, Toast } from "react-bootstrap";
 import logo from "../../assets/images/Flemish.png";
 import axios from "axios";
-import queryString from "query-string";
 
 const API_URL = "http://localhost:3002";
-const INSTITUTION = "Flemish Government";
 
 class Main extends Component {
   componentDidMount() {

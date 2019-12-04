@@ -18,48 +18,24 @@ Bootstrap the front ends:
 npm run bootstrap
 ```
 
-Start the server:
+Basically, this command will run `npm install` in every packages and link the packages together (useful for shared packages).
 
-```sh
-npm start
-```
+## Testing
 
-You can also start a dev server with nodemon so you can make changes without restarting the server:
+When reviewing PRs for this repository, make sure the following commands don't return errors.
 
-```sh
-npm run start:dev
-```
-
-You can change the default port (3000) by setting the `PORT` environment variable:
-
-```sh
-PORT=3003 npm start
-```
-
-## Export OpenAPI specification
-
-```sh
-npm run export:swagger
-```
-
-## Lint
-
-Run ESLint and Prettier (`--check`) with:
+### Linting
 
 ```sh
 npm run lint
 ```
 
-## Test
+This command will run the `lint:js` script from all the packages and `prettier --check`.
 
-Run Jest tests with:
+### Jest
 
 ```sh
 npm test
 ```
 
-You can also get the test coverage with:
-
-```sh
-npm test -- --coverage
-```
+This command runs `npm test` in every packages.

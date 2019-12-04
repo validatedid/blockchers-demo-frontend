@@ -1,4 +1,4 @@
-# university-example
+# 1-diploma-front-end-flemish-gov
 
 This repo contains an implementation of a University to demostrate the flow with the EBSI Wallet.
 
@@ -6,26 +6,15 @@ This repo contains an implementation of a University to demostrate the flow with
 
 - React
 
-## Run university-example Docker
+## Run 1-diploma-front-end-flemish-gov Docker
 
-```sh
-cd test-university-example
-```
-
-Clone the repository and move to the project directory
-
-```sh
-git clone https://github.com/validatedid/university-example
-cd university-example
-```
-
-Build Docker Image
+Build Docker image:
 
 ```sh
 docker build -t sample:dev .
 ```
 
-Run Docker Container
+Run Docker container:
 
 ```sh
 docker run -v ${PWD}:/app -v /app/node_modules -p 3003:3003 --rm sample:dev
@@ -33,26 +22,13 @@ docker run -v ${PWD}:/app -v /app/node_modules -p 3003:3003 --rm sample:dev
 
 ## Run the project locally
 
-Move to the base directory (example: `test-university-example`)
-
-```sh
-cd test-university-example
-```
-
-Clone the repository and move to the project directory
-
-```sh
-git clone https://github.com/validatedid/university-example
-cd university-example
-```
-
-Install the required libraries and packages dependencies
+Install the required libraries and packages dependencies. If you ran `npm run bootstrap` from the root folder, you can skip this step.
 
 ```sh
 npm install
 ```
 
-Run the app
+Run the app:
 
 ```sh
 npm run start

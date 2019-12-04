@@ -1,4 +1,4 @@
-# university-master-example
+# 1-diploma-front-end-spanish-university
 
 This repo contains an implementation of a University where the user wants to enroll into a Master, to demostrate the flow with the EBSI Wallet.
 
@@ -6,15 +6,15 @@ This repo contains an implementation of a University where the user wants to enr
 
 - React
 
-## Run university-master-example Docker
+## Run 1-diploma-front-end-spanish-university Docker
 
-Build Docker Image
+Build Docker image:
 
 ```sh
 docker build -t sample:dev .
 ```
 
-Run Docker Container
+Run Docker container:
 
 ```sh
 docker run -v ${PWD}:/app -v /app/node_modules -p 3008:3008 --rm sample:dev
@@ -22,32 +22,19 @@ docker run -v ${PWD}:/app -v /app/node_modules -p 3008:3008 --rm sample:dev
 
 ## Run the project locally
 
-Move to the base directory (example: `test-university-master-example`)
-
-```sh
-cd test-university-master-example
-```
-
-Clone the repository and move to the project directory
-
-```sh
-git clone https://github.com/validatedid/university-master-example
-cd university-master-example
-```
-
-Install the required libraries and packages dependencies
+Install the required libraries and packages dependencies. If you ran `npm run bootstrap` from the root folder, you can skip this step.
 
 ```sh
 npm install
 ```
 
-Run the app
+Run the app:
 
 ```sh
 npm run start
 ```
 
-This command starts the web app at '<http://localhost:3008gi/>' where you can play with the EBSI Wallet.
+This command starts the web app at '<http://localhost:3008/>' where you can play with the EBSI Wallet.
 
 ## Testing
 
