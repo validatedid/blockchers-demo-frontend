@@ -2,22 +2,30 @@
 
 This repo contains an implementation of a University to demostrate the flow with the EBSI Wallet.
 
-### Required libraries
+## Run 1-diploma-front-end-flemish-gov with Docker
 
-- React
-
-## Run 1-diploma-front-end-flemish-gov Docker
+### Dev mode
 
 Build Docker image:
 
 ```sh
-docker build -t sample:dev .
+docker build -f Dockerfile.dev -t ebsi:1-diploma-front-end-flemish-gov .
 ```
 
 Run Docker container:
 
 ```sh
-docker run -v ${PWD}:/app -v /app/node_modules -p 3003:3003 --rm sample:dev
+docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3003:3003 --rm ebsi:1-diploma-front-end-flemish-gov
+```
+
+### Production mode
+
+```sh
+docker build -t ebsi:1-diploma-front-end-flemish-gov .
+```
+
+```sh
+docker run -p 3003:80 ebsi:1-diploma-front-end-flemish-gov
 ```
 
 ## Run the project locally
@@ -34,7 +42,7 @@ Run the app:
 npm run start
 ```
 
-This command starts the web app at '<http://localhost:3003/>' where you can play with the EBSI Wallet.
+This command starts the web app at '<http://localhost:3003/>'.
 
 ## Testing
 

@@ -24,6 +24,14 @@ Basically, this command will run `npm install` in every packages and link the pa
 
 When reviewing PRs for this repository, make sure the following commands don't return errors.
 
+### Dependencies audit
+
+Run the following command in the root folder and in every packages.
+
+```sh
+npm audit
+```
+
 ### Linting
 
 ```sh
