@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  reverseproxy:
+    build: .
+    ports:
+      - 8080:8080
+    restart: always
+  belgium-gov:
+    build:
+      context: ./packages/belgium-gov
+      args:
+        PUBLIC_URL: http://localhost:8080/diploma/belgium-gov
+  entrypoint:
+    build:
+      context: ./packages/entrypoint
+      args:
+        PUBLIC_URL: http://localhost:8080/diploma
+  flemish-gov:
+    build:
+      context: ./packages/flemish-gov
+      args:
+        PUBLIC_URL: http://localhost:8080/diploma/flemish-gov
+  spanish-university:
+    build:
+      context: ./packages/spanish-university
+      args:
+        PUBLIC_URL: http://localhost:8080/diploma/spanish-university

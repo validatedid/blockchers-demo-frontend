@@ -2,6 +2,8 @@
 
 This repo contains an implementation of a University to demostrate the flow with the EBSI Wallet.
 
+URL: https://app.ebsi.xyz/diploma/flemish-gov | https://app.ebsi.tech.ec.europa.eu/diploma/flemish-gov
+
 ## Run 1-diploma-front-end-flemish-gov with Docker
 
 ### Dev mode

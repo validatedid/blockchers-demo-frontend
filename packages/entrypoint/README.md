@@ -2,6 +2,8 @@
 
 This repo contains the home page of the Diploma UC.
 
+URL: https://app.ebsi.xyz/diploma | https://app.ebsi.tech.ec.europa.eu/diploma
+
 ## Run 1-diploma-front-end-entrypoint with Docker
 
 ### Dev mode

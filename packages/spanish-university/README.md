@@ -2,6 +2,8 @@
 
 This repo contains an implementation of a University where the user wants to enroll into a Master, to demostrate the flow with the EBSI Wallet.
 
+URL: https://app.ebsi.xyz/diploma/spanish-university | https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university
+
 ## Run 1-diploma-front-end-spanish-university with Docker
 
 ### Dev mode

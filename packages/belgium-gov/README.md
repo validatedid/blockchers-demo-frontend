@@ -2,6 +2,8 @@
 
 This repo contains an implementation of a Government to demostrate the flow with the EBSI Wallet.
 
+URL: https://app.ebsi.xyz/diploma/belgium-gov | https://app.ebsi.tech.ec.europa.eu/diploma/belgium-gov
+
 ## Run 1-diploma-front-end-belgium-gov with Docker
 
 ### Dev mode
