@@ -5,7 +5,8 @@ import Main from "../components/Main/Main";
 import Login from "../components/Login/Login";
 import { Col, Container, Row } from "react-bootstrap";
 
-const basename = new URL(process.env.PUBLIC_URL).pathname;
+const publicUrl = process.env.PUBLIC_URL;
+const basename = publicUrl ? new URL(publicUrl).pathname : "";
 
 class App extends Component {
   render() {

@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  reverseproxy:
+  reverse-proxy:
     build: .
     ports:
       - 8080:8080
@@ -11,18 +11,22 @@ services:
       context: ./packages/belgium-gov
       args:
         PUBLIC_URL: http://localhost:8080/diploma/belgium-gov
-  entrypoint:
+        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
+  entry-point:
     build:
-      context: ./packages/entrypoint
+      context: ./packages/entry-point
       args:
         PUBLIC_URL: http://localhost:8080/diploma
+        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
   flemish-gov:
     build:
       context: ./packages/flemish-gov
       args:
         PUBLIC_URL: http://localhost:8080/diploma/flemish-gov
+        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
   spanish-university:
     build:
       context: ./packages/spanish-university
       args:
         PUBLIC_URL: http://localhost:8080/diploma/spanish-university
+        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet

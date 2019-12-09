@@ -1,10 +1,11 @@
 ## Stage 1: build
 FROM node:12-alpine AS builder
-ARG PUBLIC_URL
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm ci
 COPY . /usr/src/app/
+ARG PUBLIC_URL
+ARG REACT_APP_WALLET_API
 RUN npm run build
 
 # Stage 2: run nginx
