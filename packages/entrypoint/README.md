@@ -51,3 +51,13 @@ Run the tests
 ```sh
 npm run test
 ```
+
+## Customization
+
+You can customize the links displayed by the page by setting these environment variables:
+
+- `REACT_APP_ECAS_URL`
+- `REACT_APP_WALLET_URL`
+- `REACT_APP_BELGIUM_GOV_URL`
+- `REACT_APP_FLEMISH_GOV_URL`
+- `REACT_APP_SPANISH_UNIVERSITY_URL`
