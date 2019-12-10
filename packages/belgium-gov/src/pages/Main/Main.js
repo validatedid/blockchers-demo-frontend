@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
 import { Button } from "react-bootstrap";
-import logo from "../../assets/images/belgium.png";
 import axios from "axios";
 
 const API_URL = "http://localhost:3002";
@@ -84,7 +83,6 @@ class Main extends Component {
             {" "}
             <b>Hi</b> {this.state.username}{" "}
           </p>
-          <img src={logo} className="App-logo" alt="logo" />
           <p>Belgium Government</p>
           <Button
             className="view-button"

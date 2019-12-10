@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import "./Login.css";
+import "./Connect.css";
 import { Button } from "react-bootstrap";
-import logo from "../../assets/images/belgium.png";
 import axios from "axios";
 import queryString from "query-string";
 
 const API_URL = "http://localhost:3002";
 const INSTITUTION = "Belgium Government";
 
-class Main extends Component {
+class Connect extends Component {
   componentDidMount() {
     if (
       sessionStorage.getItem("BondId") === null ||
@@ -39,7 +38,7 @@ class Main extends Component {
   }
 
   manageConnectionWithBackend() {
-    //generate request (Part hardcoded now)
+    //generate request (Part hard-coded now)
     var request = {
       enterpriseName: "Belgium Government",
       front_endpoint: "http://localhost:3004"
@@ -109,14 +108,13 @@ class Main extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>Belgium Government</p>
           <Button
             className="view-button"
             variant="info"
             onClick={() => this.connectionWallets()}
           >
-            Login
+            Connect wallet
           </Button>
         </header>
       </div>
@@ -124,4 +122,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Connect;
