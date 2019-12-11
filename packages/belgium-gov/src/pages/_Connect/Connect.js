@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Connect.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import queryString from "query-string";
@@ -106,18 +105,12 @@ class Connect extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>Belgium Government</p>
-          <Button
-            className="view-button"
-            variant="info"
-            onClick={() => this.connectionWallets()}
-          >
-            Connect wallet
-          </Button>
-        </header>
-      </div>
+      <>
+        <p>Belgium Government</p>
+        <Button variant="info" onClick={() => this.connectionWallets()}>
+          Connect wallet
+        </Button>
+      </>
     );
   }
 }

@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import "./Main.css";
+import "./RequestVC.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import { H1 } from "../../components/Typography/Typography";
 
 const API_URL = "http://localhost:3002";
 
-class Main extends Component {
-  componentDidMount() {
-    this.retrieveUserName();
-  }
-
+class RequestVC extends Component {
   constructor(props) {
     super(props);
 
@@ -21,8 +18,12 @@ class Main extends Component {
     };
   }
 
+  componentDidMount() {
+    this.retrieveUserName();
+  }
+
   retrieveUserName() {
-    //generate request (Part hardcoded now)
+    // Generate request (Part hard-coded now)
     var connection_id = sessionStorage.getItem("ConnectionId");
     this.getUserDataFromTheWallet(connection_id).then(res => {
       this.setState({
@@ -30,6 +31,7 @@ class Main extends Component {
       });
     });
   }
+
   getUserDataFromTheWallet(connection_id) {
     return new Promise(function(resolve, reject) {
       axios
@@ -43,8 +45,8 @@ class Main extends Component {
     });
   }
 
-  requestVerifableID() {
-    //generate request (Part hardcoded now)
+  requestVerifiableID() {
+    // Generate request (Part hard-coded now)
     var request = {
       "@connection_id": sessionStorage.getItem("ConnectionId"),
       did: sessionStorage.getItem("UserDid"),
@@ -60,6 +62,7 @@ class Main extends Component {
       window.location.href = res.callback_url;
     });
   }
+
   requestToTheWallet(request) {
     return new Promise(function(resolve, reject) {
       axios
@@ -77,24 +80,14 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            {" "}
-            <b>Hi</b> {this.state.username}{" "}
-          </p>
-          <p>Belgium Government</p>
-          <Button
-            className="view-button"
-            variant="info"
-            onClick={() => this.requestVerifableID()}
-          >
-            Request Verifiable ID
-          </Button>
-        </header>
-      </div>
+      <>
+        <H1>Request eID VC</H1>
+        <Button variant="info" onClick={() => this.requestVerifiableID()}>
+          Collect the eID VC with your SSI App
+        </Button>
+      </>
     );
   }
 }
 
-export default Main;
+export default RequestVC;

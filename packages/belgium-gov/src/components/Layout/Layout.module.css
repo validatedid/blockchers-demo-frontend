@@ -14,7 +14,7 @@
   pointer-events: none;
 }
 
-.ribbon span {
+.ribbon div {
   position: absolute;
   display: block;
   width: 225px;

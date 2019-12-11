@@ -11,7 +11,7 @@ export function Layout({ children }) {
         </Row>
       </Container>
       <div className={styles.ribbon}>
-        <span>EBSI DEMO</span>
+        <div>EBSI DEMO</div>
       </div>
     </>
   );
