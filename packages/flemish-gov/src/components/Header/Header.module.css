@@ -1,0 +1,75 @@
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  margin: 0 auto;
+  height: 44px;
+  border-bottom: 1px solid #cbd2da;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+.logoContainer {
+  color: #3b3b3c;
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer:active,
+.logoContainer:focus,
+.logoContainer:hover {
+  text-decoration: none;
+  transition: all, 0s;
+  outline: 0;
+  color: #06c;
+}
+
+.logo {
+  position: relative;
+  display: inline-block;
+  background-color: #ffe615;
+  height: 100%;
+  vertical-align: top;
+  width: 44px;
+  padding: 6.5px 9px 6.5px 0;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+
+.logo:after {
+  display: block;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 43px solid #fff;
+  border-left: 14.71px solid #0000;
+}
+
+.logoImg {
+  display: inline-block;
+  height: 31px;
+  width: 21px;
+  margin: 0 auto;
+  fill: #3b3b3c;
+  transition: fill 0.2s;
+}
+
+.logoImg:after {
+  display: block;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 43px solid #fff;
+  border-left: 14.71px solid #0000;
+}
+
+.label {
+  display: inline-block;
+  font-size: 19px;
+  vertical-align: top;
+}

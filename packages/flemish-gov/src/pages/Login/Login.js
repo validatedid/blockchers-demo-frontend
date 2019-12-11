@@ -4,25 +4,25 @@ import { Button } from "react-bootstrap";
 import { AuthContext } from "../../components/Auth/Auth";
 import { H1, P } from "../../components/Typography/Typography";
 
-function Logout() {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+function Login() {
+  const { isAuthenticated, login } = useContext(AuthContext);
 
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
     return <Redirect to="/" />;
   }
 
   return (
     <>
-      <H1>Log out</H1>
+      <H1>Log in</H1>
       <P>
-        You are about to log out from the *fake* authentication system of the
-        Belgian Federal Government.
+        This pages acts as a demonstrator to simulate the Trusted Identity
+        Provider.
       </P>
-      <Button variant="primary" onClick={logout}>
-        Log out
+      <Button variant="primary" onClick={login}>
+        Log in
       </Button>
     </>
   );
 }
 
-export default Logout;
+export default Login;
