@@ -21,6 +21,7 @@
   line-height: 1.5;
   margin: 0 0 1.125rem 0;
   padding: 0;
+  max-width: 80ch;
 }
 
 .ul,

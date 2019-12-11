@@ -46,13 +46,13 @@ function Homepage() {
         <>
           <H2>Step 2: issue Bachelor Diploma Verifiable Attestation</H2>
           <P>
-            You are now logged in. The Belgian Federal Government can now create
-            your eID VC and use eIDAS Bridge to eSeal it.
+            You are now logged in. The Flemish Government can now issue your
+            Bachelor Diploma Verifiable Attestation.
           </P>
           <P>
             Now go to the{" "}
-            <Link to="/request-vc" className={typographyStyles.a}>
-              eID VC request page
+            <Link to="/request-va" className={typographyStyles.a}>
+              Bachelor Diploma page
             </Link>{" "}
             or{" "}
             <Link to="/logout" className={typographyStyles.a}>

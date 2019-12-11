@@ -1,14 +1,11 @@
 .header {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   display: flex;
   margin: 0 auto;
   height: 44px;
   border-bottom: 1px solid #cbd2da;
   white-space: nowrap;
   background-color: #fff;
+  width: 100%;
 }
 
 .logoContainer {

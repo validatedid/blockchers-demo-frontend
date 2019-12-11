@@ -2,6 +2,8 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Layout.module.css";
 
+const DEMONSTRATOR_URL = "http://localhost:3004/";
+
 export function Layout({ children }) {
   return (
     <>
@@ -11,7 +13,9 @@ export function Layout({ children }) {
         </Row>
       </Container>
       <div className={styles.ribbon}>
-        <div>EBSI DEMO</div>
+        <a className={styles.ribbonText} href={DEMONSTRATOR_URL}>
+          EBSI DEMO
+        </a>
       </div>
     </>
   );

@@ -49,6 +49,10 @@ function Homepage() {
             Now go to the{" "}
             <Link to="/request-vc" className={typographyStyles.a}>
               eID VC request page
+            </Link>{" "}
+            or{" "}
+            <Link to="/logout" className={typographyStyles.a}>
+              log out
             </Link>
             .
           </P>

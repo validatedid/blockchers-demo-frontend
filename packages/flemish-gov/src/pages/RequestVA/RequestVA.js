@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
 import axios from "axios";
-import { H1 } from "../../components/Typography/Typography";
+import { Button } from "../../components/Button/Button";
+import { H1, H2, P } from "../../components/Typography/Typography";
 
 const API_URL = "http://localhost:3002";
 
-class RequestVC extends Component {
+class RequestVA extends Component {
   constructor(props) {
     super(props);
 
@@ -80,13 +80,26 @@ class RequestVC extends Component {
   render() {
     return (
       <>
-        <H1>Request eID VC</H1>
+        <H1>Bachelor Diploma</H1>
+        <P>Congratulations, your Bachelor Diploma is now available!</P>
+        <H2>Issue Bachelor Diploma Verifiable Attestation</H2>
+        <P>
+          When you click on the button below, the Flemish Government generates a
+          request for your eID VC. You will be redirected to your wallet where
+          you will be asked to share your eID VC with the Flemish Government.
+        </P>
         <Button variant="primary" onClick={() => this.requestVerifiableID()}>
-          Collect the eID VC with your SSI App
+          Issue Bachelor Diploma Verifiable Attestation
         </Button>
+        <P>
+          If you agree to share your eID VC and if it passes the validation
+          process, the Flemish Government will create your Bachelor Diploma VA.
+          It uses the eIDAS Bridge to eSeal it. When it's ready, you will
+          receive a notification in your wallet.
+        </P>
       </>
     );
   }
 }
 
-export default RequestVC;
+export default RequestVA;

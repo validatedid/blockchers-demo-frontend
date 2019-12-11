@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { AuthContext } from "../../components/Auth/Auth";
+import { Button } from "../../components/Button/Button";
 import { H1, P } from "../../components/Typography/Typography";
 
 function Login() {
