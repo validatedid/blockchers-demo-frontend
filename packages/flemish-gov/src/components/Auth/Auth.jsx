@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 export const AuthContext = React.createContext({});
 
 export default function Auth({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    sessionStorage.getItem("Ticket") !== null
+  );
 
   useEffect(() => {
     checkAuth();
