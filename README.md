@@ -6,6 +6,29 @@
 
 ## Getting started
 
+### With Docker Compose
+
+To start and serve the 4 front ends, run:
+
+```sh
+docker-compose up
+```
+
+Now, you can navigate to:
+
+- the entry point: http://localhost:8080/diploma/
+- the Belgium Government website: http://localhost:8080/diploma/belgium-gov/
+- the Flemish Government website: http://localhost:8080/diploma/flemish-gov/
+- the Spanish University website: http://localhost:8080/diploma/spanish-university/
+
+Note that if you change the `ARG`s in your `docker-compose.yml` file, you may need to rebuild the images (without cache):
+
+```sh
+docker-compose build --no-cache
+```
+
+### Without Docker Compose
+
 Install the dependencies:
 
 ```sh
@@ -20,11 +43,11 @@ npm run bootstrap
 
 Basically, this command will run `npm install` in every packages and link the packages together (useful for shared packages).
 
-## Testing
+#### Testing
 
 When reviewing PRs for this repository, make sure the following commands don't return errors.
 
-### Dependencies audit
+##### Dependencies audit
 
 Run the following command in the root folder and in every packages.
 
@@ -32,7 +55,7 @@ Run the following command in the root folder and in every packages.
 npm audit
 ```
 
-### Linting
+##### Linting
 
 ```sh
 npm run lint
@@ -40,7 +63,7 @@ npm run lint
 
 This command will run the `lint:js` script from all the packages and `prettier --check`.
 
-### Jest
+##### Jest
 
 ```sh
 npm test
