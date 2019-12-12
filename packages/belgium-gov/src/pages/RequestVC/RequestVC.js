@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import { H1 } from "../../components/Typography/Typography";
 
-const API_URL = "http://localhost:3002";
+const API_URL = process.env.REACT_APP_WALLET_API || "http://localhost:3002";
 
 class RequestVC extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import { Button, ButtonGroup, Toast } from "react-bootstrap";
 import logo from "../../assets/images/Flemish.png";
 import axios from "axios";
 
-const API_URL = "http://localhost:3002";
+const API_URL = process.env.REACT_APP_WALLET_API || "http://localhost:3002";
 
 class Main extends Component {
   componentDidMount() {
