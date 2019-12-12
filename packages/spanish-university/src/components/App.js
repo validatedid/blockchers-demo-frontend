@@ -5,6 +5,9 @@ import Main from "../components/Main/Main";
 import Login from "../components/Login/Login";
 import { Col, Container, Row } from "react-bootstrap";
 
+const publicUrl = process.env.PUBLIC_URL;
+const basename = publicUrl ? new URL(publicUrl).pathname : "";
+
 class App extends Component {
   render() {
     return (
@@ -12,11 +15,9 @@ class App extends Component {
         <Container>
           <Row>
             <Col>
-              <BrowserRouter>
+              <BrowserRouter basename={basename}>
                 <Switch>
                   <Route exact path="/" component={Login} />
-                </Switch>
-                <Switch>
                   <Route exact path="/profile" component={Main} />
                 </Switch>
               </BrowserRouter>

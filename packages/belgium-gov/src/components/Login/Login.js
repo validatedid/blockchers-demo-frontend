@@ -5,7 +5,8 @@ import logo from "../../assets/images/belgium.png";
 import axios from "axios";
 import queryString from "query-string";
 
-const API_URL = "http://localhost:3002";
+const API_URL = process.env.REACT_APP_WALLET_API || "http://localhost:3002";
+const publicUrl = process.env.PUBLIC_URL || "http://localhost:3004";
 const INSTITUTION = "Belgium Government";
 
 class Main extends Component {
@@ -42,7 +43,7 @@ class Main extends Component {
     //generate request (Part hardcoded now)
     var request = {
       enterpriseName: "Belgium Government",
-      front_endpoint: "http://localhost:3004"
+      front_endpoint: publicUrl
     };
 
     this.establishBond(request).then(res => {
