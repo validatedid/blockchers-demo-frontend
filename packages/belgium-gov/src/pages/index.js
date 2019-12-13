@@ -5,6 +5,7 @@ import { Header } from "../components/Header/Header";
 import { Page } from "../components/Page/Page";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import Auth from "../components/Auth/Auth";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import RequestVC from "./RequestVC/RequestVC";
 import Homepage from "./Homepage/Homepage";
 import NoMatch from "./NoMatch/NoMatch";
@@ -19,6 +20,7 @@ function App() {
     <Layout>
       <Auth>
         <BrowserRouter basename={basename}>
+          <ScrollToTop />
           <Header />
           <Page>
             <Switch>

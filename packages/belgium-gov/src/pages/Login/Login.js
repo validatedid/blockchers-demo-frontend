@@ -4,10 +4,14 @@ import { Button } from "react-bootstrap";
 import { AuthContext } from "../../components/Auth/Auth";
 import { H1, P } from "../../components/Typography/Typography";
 
-function Login() {
+function Login(props) {
   const { isAuthenticated, login } = useContext(AuthContext);
 
   if (isAuthenticated) {
+    if (props.location && props.location.state && props.location.state.from) {
+      return <Redirect to={props.location.state.from} />;
+    }
+
     return <Redirect to="/" />;
   }
 

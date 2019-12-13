@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout/Layout";
 import { Page } from "../components/Page/Page";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import Auth from "../components/Auth/Auth";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import Homepage from "./Homepage/Homepage";
 import NoMatch from "./NoMatch/NoMatch";
 import Login from "./Login/Login";
@@ -17,6 +18,7 @@ function App() {
   return (
     <Auth>
       <BrowserRouter basename={basename}>
+        <ScrollToTop />
         <Layout>
           <Page>
             <Switch>
