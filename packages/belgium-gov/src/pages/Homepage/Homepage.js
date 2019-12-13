@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Homepage.module.css";
 import {
   H1,
   H2,
@@ -15,7 +14,7 @@ function Homepage() {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
-    <div className={styles.App}>
+    <Fragment>
       <H1>Belgian Federal Government</H1>
       <P>
         Disclaimer: this is a demo website to show the technical capabilities of
@@ -28,7 +27,7 @@ function Homepage() {
         <LI>The user must be logged in using EU Login</LI>
       </UL>
       {!isAuthenticated ? (
-        <>
+        <Fragment>
           <H2>Step 1: log in</H2>
           <P>
             To get started, please{" "}
@@ -37,9 +36,9 @@ function Homepage() {
             </Link>
             .
           </P>
-        </>
+        </Fragment>
       ) : (
-        <>
+        <Fragment>
           <H2>Step 2: collect eID VC</H2>
           <P>
             You are now logged in. The Belgian Federal Government can now create
@@ -56,9 +55,9 @@ function Homepage() {
             </Link>
             .
           </P>
-        </>
+        </Fragment>
       )}
-    </div>
+    </Fragment>
   );
 }
 

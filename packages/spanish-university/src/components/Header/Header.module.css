@@ -1,0 +1,84 @@
+.logo {
+  margin: 1.375rem 0 1.125rem;
+  font-size: 1em;
+  text-align: center;
+}
+
+.logo > a {
+  max-width: 100%;
+}
+
+.logoDesktop {
+  display: none;
+  max-width: 100%;
+}
+
+.logoMobil {
+  width: 220px;
+  max-width: 100%;
+}
+
+.barraTauleta {
+  display: none;
+}
+
+@media only screen and (min-width: 40.0625em) {
+  .logo {
+    margin: 0;
+    text-align: left;
+    width: 37%;
+    float: left;
+    line-height: 1;
+    height: 54px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logoDesktop {
+    display: block;
+    width: 270px;
+  }
+
+  .logoMobil {
+    display: none;
+  }
+
+  .barraTauleta {
+    background-color: #90282a;
+    height: 56px;
+    margin-bottom: 0;
+    display: block;
+  }
+
+  .anagrama {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 132px;
+  }
+
+  .anagrama img {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 62.5625em) {
+  .logo {
+    width: 40%;
+    height: 50px;
+  }
+
+  .logoDesktop {
+    width: 302px;
+  }
+
+  .barraTauleta {
+    min-height: 67px;
+  }
+
+  .anagrama {
+    top: -5px;
+    width: 148px;
+  }
+}

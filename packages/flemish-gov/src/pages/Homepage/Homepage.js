@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Homepage.module.css";
 import {
   H1,
   H2,
@@ -15,7 +14,7 @@ function Homepage() {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
-    <div className={styles.App}>
+    <>
       <H1>Flemish government</H1>
       <P>
         Disclaimer: this is a demo website to show the technical capabilities of
@@ -62,7 +61,7 @@ function Homepage() {
           </P>
         </>
       )}
-    </div>
+    </>
   );
 }
 

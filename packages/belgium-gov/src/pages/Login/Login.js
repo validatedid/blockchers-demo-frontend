@@ -16,7 +16,9 @@ function Login() {
       <H1>Log in</H1>
       <P>
         This pages acts as a demonstrator to simulate the Trusted Identity
-        Provider.
+        Provider. During the login, we will check that you have correctly
+        followed the EBSI onboarding process. If the verification fails, you
+        will be redirected to the onboarding page.
       </P>
       <Button variant="primary" onClick={login}>
         Log in
