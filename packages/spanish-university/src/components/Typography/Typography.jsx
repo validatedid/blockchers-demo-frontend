@@ -6,7 +6,7 @@ export { styles };
 
 export function H1({ children, ...props }) {
   return (
-    <div fluid className={styles.h1Wrapper}>
+    <div className={styles.h1Wrapper}>
       <Container fluid>
         <h1 className={styles.h1} {...props}>
           {children}
