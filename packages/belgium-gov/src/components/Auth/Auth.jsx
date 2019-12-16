@@ -5,24 +5,24 @@ export const AuthContext = React.createContext({});
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("Ticket") !== null
+    sessionStorage.getItem("Ticket-BE") !== null
   );
 
   useEffect(() => {
     checkAuth();
   }, []);
 
-  // Currently, only check if "Ticket" is present in session
+  // Currently, only check if "Ticket-BE" is present in session
   const checkAuth = () =>
-    setIsAuthenticated(sessionStorage.getItem("Ticket") !== null);
+    setIsAuthenticated(sessionStorage.getItem("Ticket-BE") !== null);
 
   const login = () => {
-    sessionStorage.setItem("Ticket", "fake-ticket");
+    sessionStorage.setItem("Ticket-BE", "fake-ticket");
     setIsAuthenticated(true);
   };
 
   const logout = () => {
-    sessionStorage.removeItem("Ticket");
+    sessionStorage.removeItem("Ticket-BE");
     setIsAuthenticated(false);
   };
 

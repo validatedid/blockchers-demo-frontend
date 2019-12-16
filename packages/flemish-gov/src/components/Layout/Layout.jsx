@@ -4,7 +4,8 @@ import styles from "./Layout.module.css";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
 
-const DEMONSTRATOR_URL = "http://localhost:3003/";
+const DEMONSTRATOR_URL =
+  process.env.REACT_APP_DEMONSTRATOR_URL || "http://localhost:3003/";
 
 export function Layout({ children }) {
   return (

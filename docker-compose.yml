@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   reverse-proxy:
@@ -10,23 +10,38 @@ services:
     build:
       context: ./packages/belgium-gov
       args:
-        PUBLIC_URL: http://localhost:8080/diploma/belgium-gov
-        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
+        PUBLIC_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+  demonstrator:
+    build:
+      context: ./packages/demonstrator
+      args:
+        PUBLIC_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
   entry-point:
     build:
       context: ./packages/entry-point
       args:
-        PUBLIC_URL: http://localhost:8080/diploma
-        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
+        PUBLIC_URL: ${DIPLOMA_ENTRY_POINT_PUBLIC_URL:?DIPLOMA_ENTRY_POINT_PUBLIC_URL is not defined or empty}
+        REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
   flemish-gov:
     build:
       context: ./packages/flemish-gov
       args:
-        PUBLIC_URL: http://localhost:8080/diploma/flemish-gov
-        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
+        PUBLIC_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
   spanish-university:
     build:
       context: ./packages/spanish-university
       args:
-        PUBLIC_URL: http://localhost:8080/diploma/spanish-university
-        REACT_APP_WALLET_API: https://api.ebsi.tech.ec.europa.eu/wallet
+        PUBLIC_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+        REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}

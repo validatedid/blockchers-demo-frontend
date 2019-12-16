@@ -2,7 +2,8 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Layout.module.css";
 
-const DEMONSTRATOR_URL = "http://localhost:3004/";
+const DEMONSTRATOR_URL =
+  process.env.REACT_APP_DEMONSTRATOR_URL || "http://localhost:3004/";
 
 export function Layout({ children }) {
   return (

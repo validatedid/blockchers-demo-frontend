@@ -8,7 +8,9 @@
 
 ### With Docker Compose
 
-To start and serve the 4 front ends, run:
+To start and serve the 4 front ends, first make sure to set the correct env variables. For example, you can create a `.env` file locally at the root of the project, next to `docker-compose.yml`. See `.env.example` to get an idea of what it should look like.
+
+Then run:
 
 ```sh
 docker-compose up
@@ -16,15 +18,28 @@ docker-compose up
 
 Now, you can navigate to:
 
-- the entry point: http://localhost:8080/diploma/
+- the demonstrator: http://localhost:8080/
+- the diploma entry point: http://localhost:8080/diploma/
 - the Belgium Government website: http://localhost:8080/diploma/belgium-gov/
 - the Flemish Government website: http://localhost:8080/diploma/flemish-gov/
 - the Spanish University website: http://localhost:8080/diploma/spanish-university/
 
-Note that if you change the `ARG`s in your `docker-compose.yml` file, you may need to rebuild the images (without cache):
+Note that if you change the `ARG`s in your `docker-compose.yml` file or if you change the env variables, you may need to rebuild the images (without cache):
+
+```sh
+docker-compose build --force-rm
+```
+
+or in extreme cases:
 
 ```sh
 docker-compose build --no-cache
+```
+
+If you need to stop the containers:
+
+```sh
+docker-compose down
 ```
 
 ### Without Docker Compose

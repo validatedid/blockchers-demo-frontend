@@ -2,9 +2,10 @@
 FROM node:12-alpine AS builder
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
-RUN npm ci
+RUN npm ci --quiet --no-progress
 COPY . /usr/src/app/
 ARG PUBLIC_URL
+ARG REACT_APP_DEMONSTRATOR_URL
 ARG REACT_APP_WALLET_API
 RUN npm run build
 
