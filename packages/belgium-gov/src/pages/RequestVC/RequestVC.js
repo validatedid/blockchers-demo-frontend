@@ -45,6 +45,13 @@ class RequestVC extends Component {
   }
 
   requestVerifiableID() {
+    // Demo: redirect to wallet
+    const redirectUri = window.location.href;
+    window.location.href = `${API_URL}/operations?redirect_uri=${encodeURIComponent(
+      redirectUri
+    )}`;
+
+    /*
     // Generate request (Part hard-coded now)
     var request = {
       "@connection_id": sessionStorage.getItem("ConnectionId"),
@@ -60,6 +67,7 @@ class RequestVC extends Component {
     this.requestToTheWallet(request).then(res => {
       window.location.href = res.callback_url;
     });
+    */
   }
 
   requestToTheWallet(request) {

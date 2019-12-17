@@ -3,7 +3,7 @@ import axios from "axios";
 import { Button } from "../../components/Button/Button";
 import { PageHeader } from "../../components/PageHeader/PageHeader";
 
-const API_URL = "http://localhost:3002";
+const API_URL = process.env.REACT_APP_WALLET_API || "http://localhost:3002";
 
 class ApplyForFunding extends Component {
   constructor(props) {
@@ -45,6 +45,13 @@ class ApplyForFunding extends Component {
   }
 
   requestVerifiableID() {
+    // Demo: redirect to wallet
+    const redirectUri = window.location.href;
+    window.location.href = `${API_URL}/operations?redirect_uri=${encodeURIComponent(
+      redirectUri
+    )}`;
+
+    /*
     // Generate request (Part hard-coded now)
     var request = {
       "@connection_id": sessionStorage.getItem("ConnectionId"),
@@ -60,6 +67,7 @@ class ApplyForFunding extends Component {
     this.requestToTheWallet(request).then(res => {
       window.location.href = res.callback_url;
     });
+    */
   }
 
   requestToTheWallet(request) {

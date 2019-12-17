@@ -22,7 +22,7 @@ services:
         REACT_APP_EU_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
         REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+        REACT_APP_WALLET_URL: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
   entry-point:
     build:
       context: ./packages/entry-point
@@ -31,7 +31,7 @@ services:
         REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+        REACT_APP_WALLET_URL: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
   eu-funding:
     build:
       context: ./packages/eu-funding

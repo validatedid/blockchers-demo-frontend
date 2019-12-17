@@ -6,63 +6,81 @@ services:
       context: ../../packages/belgium-gov
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3003
+      PORT: ${BELGIUM_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3003:3003"
+      - "${BELGIUM_GOV_PORT}:${BELGIUM_GOV_PORT}"
+    volumes:
+      - ../../packages/belgium-gov/public:/usr/src/app/public
+      - ../../packages/belgium-gov/src:/usr/src/app/src
   demonstrator:
     build:
       context: ../../packages/demonstrator
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3001
+      PORT: ${DEMONSTRATOR_PORT}
       REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_EU_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
       REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-      REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3001:3001"
+      - "${DEMONSTRATOR_PORT}:${DEMONSTRATOR_PORT}"
+    volumes:
+      - ../../packages/demonstrator/public:/usr/src/app/public
+      - ../../packages/demonstrator/src:/usr/src/app/src
   entry-point:
     build:
       context: ../../packages/entry-point
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3002
+      PORT: ${DIPLOMA_ENTRY_POINT_PORT}
       REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-      REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3002:3002"
+      - "${DIPLOMA_ENTRY_POINT_PORT}:${DIPLOMA_ENTRY_POINT_PORT}"
+    volumes:
+      - ../../packages/entry-point/public:/usr/src/app/public
+      - ../../packages/entry-point/src:/usr/src/app/src
   eu-funding:
     build:
       context: ../../packages/eu-funding
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3006
+      PORT: ${EU_FUNDING_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3006:3006"
+      - "${EU_FUNDING_PORT}:${EU_FUNDING_PORT}"
+    volumes:
+      - ../../packages/eu-funding/public:/usr/src/app/public
+      - ../../packages/eu-funding/src:/usr/src/app/src
   flemish-gov:
     build:
       context: ../../packages/flemish-gov
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3004
+      PORT: ${FLEMISH_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3004:3004"
+      - "${FLEMISH_GOV_PORT}:${FLEMISH_GOV_PORT}"
+    volumes:
+      - ../../packages/flemish-gov/public:/usr/src/app/public
+      - ../../packages/flemish-gov/src:/usr/src/app/src
   spanish-university:
     build:
       context: ../../packages/spanish-university
       dockerfile: Dockerfile.dev
     environment:
-      PORT: 3005
+      PORT: ${SPANISH_UNIVERSITY_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
     ports:
-      - "3005:3005"
+      - "${SPANISH_UNIVERSITY_PORT}:${SPANISH_UNIVERSITY_PORT}"
+    volumes:
+      - ../../packages/spanish-university/public:/usr/src/app/public
+      - ../../packages/spanish-university/src:/usr/src/app/src
