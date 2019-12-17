@@ -20,6 +20,9 @@ const SPANISH_UNIVERSITY_URL =
   process.env.REACT_APP_SPANISH_UNIVERSITY_URL ||
   "https://app.ebsi.xyz/diploma/spanish-university";
 
+const EU_FUNDING_URL =
+  process.env.REACT_APP_EU_FUNDING_URL || "https://app.ebsi.xyz/eu-funding";
+
 const App = () => (
   <div className="App">
     <main>
@@ -70,6 +73,13 @@ const App = () => (
           </a>{" "}
           to register for a master's study and to get your Master Diploma VA.
           You need to have a wallet account, an eID VC and a Bachelor Diploma VC
+        </li>
+        <li>
+          Visit the{" "}
+          <a href={EU_FUNDING_URL} className="App-link">
+            EU Funding website
+          </a>
+          .
         </li>
       </ol>
     </main>
