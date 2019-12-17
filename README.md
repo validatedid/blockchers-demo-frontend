@@ -14,32 +14,52 @@
 
 ### Prerequisites
 
-- [Node.js v12](https://nodejs.org/en/download/)
+- [Node.js v12](https://nodejs.org/en/download/) or Docker
 
-### Installing
+### With Docker Compose
 
-#### Docker
+Build the services with:
 
-To start and serve the 4 front ends, run:
+```sh
+docker-compose build
+```
+
+Then, to start and serve the front ends, run:
 
 ```sh
 docker-compose up
 ```
 
-Now, you can navigate to:
+(or `docker-compose up -d` to run them in the background)
 
-- the entry point: http://localhost:8080/diploma/
+You can now navigate to:
+
+- the EBSI User Experience WebApp: http://localhost:8080/
+- the Diploma UC entry point: http://localhost:8080/diploma/
 - the Belgium Government website: http://localhost:8080/diploma/belgium-gov/
 - the Flemish Government website: http://localhost:8080/diploma/flemish-gov/
 - the Spanish University website: http://localhost:8080/diploma/spanish-university/
+- the EU Funding website: http://localhost:8080/eu-funding/
 
-Note that if you change the `ARG`s in your `docker-compose.yml` file, you may need to rebuild the images (without cache):
+Note that if you change the `ARG`s in your `docker-compose.yml` file or if you change the env variables, you may need to rebuild the images (without cache):
+
+```sh
+docker-compose build --force-rm
+```
+
+or in extreme cases:
 
 ```sh
 docker-compose build --no-cache
 ```
 
-## Building
+If you need to stop the containers:
+
+```sh
+docker-compose down
+```
+
+### Without Docker Compose
 
 Install the dependencies:
 
@@ -57,7 +77,11 @@ Basically, this command will run `npm install` in every packages and link the pa
 
 ## Testing
 
-When reviewing PRs for this repository, make sure the following commands don't return errors.
+### Prerequisites
+
+- [Node.js v12](https://nodejs.org/en/download/)
+
+When reviewing PRs for this repository, first follow the steps listed above in `Getting stated > Without Docker Compose` and then make sure the following commands don't return errors.
 
 ### Dependencies audit
 
@@ -82,14 +106,6 @@ npm test
 ```
 
 This command runs `npm test` in every packages.
-
-## Features
-
-Export OpenAPI specification
-
-```sh
-npm run export:swagger
-```
 
 ## Licensing
 
