@@ -41,7 +41,7 @@ npm install
 Run the app:
 
 ```sh
-npm run start
+PORT=3001 npm run start
 ```
 
 This command starts the web app at '<http://localhost:3001/>'.
@@ -59,7 +59,8 @@ npm run test
 You can customize the links displayed by the page by setting these environment variables:
 
 - `REACT_APP_ECAS_URL`
-- `REACT_APP_WALLET_URL`
 - `REACT_APP_BELGIUM_GOV_URL`
+- `REACT_APP_EU_FUNDING_URL`
 - `REACT_APP_FLEMISH_GOV_URL`
 - `REACT_APP_SPANISH_UNIVERSITY_URL`
+- `REACT_APP_WALLET_URL`

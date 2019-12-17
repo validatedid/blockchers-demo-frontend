@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../components/Auth/Auth";
 import { Button } from "../../components/Button/Button";
 import { PageHeader } from "../../components/PageHeader/PageHeader";
-import { H1, P } from "../../components/Typography/Typography";
+import { P } from "../../components/Typography/Typography";
 
 function Logout() {
   const { isAuthenticated, logout } = useContext(AuthContext);

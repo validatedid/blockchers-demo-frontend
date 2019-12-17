@@ -17,7 +17,7 @@ docker build -f Dockerfile.dev -t ebsi:1-diploma-front-end-eu-funding .
 Run Docker container:
 
 ```sh
-docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3009:3009 --rm ebsi:1-diploma-front-end-eu-funding
+docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3006:3006 --rm ebsi:1-diploma-front-end-eu-funding
 ```
 
 ### Production mode
@@ -64,10 +64,10 @@ npm install
 Run the app:
 
 ```sh
-npm run start
+PORT=3006 npm run start
 ```
 
-This command starts the web app at '<http://localhost:3009/>'.
+This command starts the web app at '<http://localhost:3006/>'.
 
 ## Testing
 
@@ -76,3 +76,9 @@ Run the tests
 ```sh
 npm run test
 ```
+
+## Customization
+
+You can customize the links displayed by the page by setting these environment variables:
+
+- `REACT_APP_DEMONSTRATOR_URL`

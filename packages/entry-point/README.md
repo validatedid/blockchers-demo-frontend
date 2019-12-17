@@ -17,7 +17,7 @@ docker build -f Dockerfile.dev -t ebsi:1-diploma-front-end-entry-point .
 Run Docker container:
 
 ```sh
-docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3005:3005 --rm ebsi:1-diploma-front-end-entry-point
+docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3002:3002 --rm ebsi:1-diploma-front-end-entry-point
 ```
 
 ### Production mode
@@ -27,7 +27,7 @@ docker build -t ebsi:1-diploma-front-end-entry-point .
 ```
 
 ```sh
-docker run -p 3005:80 ebsi:1-diploma-front-end-entry-point
+docker run -p 3002:80 ebsi:1-diploma-front-end-entry-point
 ```
 
 ## Run the project locally
@@ -41,10 +41,10 @@ npm install
 Run the app:
 
 ```sh
-npm run start
+PORT=3002 npm run start
 ```
 
-This command starts the web app at '<http://localhost:3005/>'.
+This command starts the web app at '<http://localhost:3002/>'.
 
 ## Testing
 
@@ -59,7 +59,7 @@ npm run test
 You can customize the links displayed by the page by setting these environment variables:
 
 - `REACT_APP_ECAS_URL`
-- `REACT_APP_WALLET_URL`
 - `REACT_APP_BELGIUM_GOV_URL`
 - `REACT_APP_FLEMISH_GOV_URL`
 - `REACT_APP_SPANISH_UNIVERSITY_URL`
+- `REACT_APP_WALLET_URL`
