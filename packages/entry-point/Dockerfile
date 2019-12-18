@@ -2,9 +2,14 @@
 FROM node:12-alpine AS builder
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
-RUN npm ci
+RUN npm ci --quiet --no-progress
 COPY . /usr/src/app/
 ARG PUBLIC_URL
+ARG REACT_APP_ECAS_URL
+ARG REACT_APP_BELGIUM_GOV_URL
+ARG REACT_APP_FLEMISH_GOV_URL
+ARG REACT_APP_SPANISH_UNIVERSITY_URL
+ARG REACT_APP_WALLET_URL
 RUN npm run build
 
 # Stage 2: run nginx

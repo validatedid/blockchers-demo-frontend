@@ -1,6 +1,6 @@
 # 1-diploma-front-end-spanish-university
 
-This repo contains an implementation of a University where the user wants to enroll into a Master, to demostrate the flow with the EBSI Wallet.
+This repo contains an implementation of a University where the user wants to enroll into a Master, to demonstrate the flow with the EBSI Wallet.
 
 URL: https://app.ebsi.xyz/diploma/spanish-university | https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university
 
@@ -17,7 +17,7 @@ docker build -f Dockerfile.dev -t ebsi:1-diploma-front-end-spanish-university .
 Run Docker container:
 
 ```sh
-docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3008:3008 --rm ebsi:1-diploma-front-end-spanish-university
+docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3005:3005 --rm ebsi:1-diploma-front-end-spanish-university
 ```
 
 ### Production mode
@@ -64,10 +64,10 @@ npm install
 Run the app:
 
 ```sh
-npm run start
+PORT=3005 npm run start
 ```
 
-This command starts the web app at '<http://localhost:3008/>'.
+This command starts the web app at '<http://localhost:3005/>'.
 
 ## Testing
 
@@ -76,3 +76,9 @@ Run the tests
 ```sh
 npm run test
 ```
+
+## Customization
+
+You can customize the links displayed by the page by setting these environment variables:
+
+- `REACT_APP_DEMONSTRATOR_URL`

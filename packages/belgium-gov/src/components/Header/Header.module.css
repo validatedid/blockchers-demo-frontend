@@ -1,0 +1,47 @@
+.header {
+  height: 40px;
+  margin: 0;
+  padding: 0 16px 4px 0;
+  background-image: url(../../assets/images/flag-border.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-color: #4c4a50;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #cfd0d8;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out 0s;
+}
+
+.logo:hover,
+.logo:active,
+.logo:focus {
+  background-color: #ececef;
+}
+
+.link {
+  color: #babaca;
+  font-size: 0.875rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.link:hover,
+.link:active,
+.link:focus {
+  color: #fff;
+  text-decoration: underline;
+}
