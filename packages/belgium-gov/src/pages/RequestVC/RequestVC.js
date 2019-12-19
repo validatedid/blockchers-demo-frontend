@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import { H1 } from "../../components/Typography/Typography";
+import {
+  H1,
+  P,
+  styles as typographyStyles
+} from "../../components/Typography/Typography";
 
 const API_URL = process.env.REACT_APP_WALLET_API || "http://localhost:3002";
 
@@ -13,7 +17,8 @@ class RequestVC extends Component {
       bondId: sessionStorage.getItem("BondId"),
       did: sessionStorage.getItem("Did"),
       userDid: sessionStorage.getItem("UserDid"),
-      connectionId: sessionStorage.getItem("ConnectionId")
+      connectionId: sessionStorage.getItem("ConnectionId"),
+      requestIssued: false
     };
   }
 
@@ -45,11 +50,12 @@ class RequestVC extends Component {
   }
 
   requestVerifiableID() {
+    this.setState({
+      requestIssued: true
+    });
+
     // Demo: redirect to wallet
-    const redirectUri = window.location.href;
-    window.location.href = `${API_URL}/operations?redirect_uri=${encodeURIComponent(
-      redirectUri
-    )}`;
+    // window.location.href = `${API_URL}/notifications`;
 
     /*
     // Generate request (Part hard-coded now)
@@ -86,12 +92,24 @@ class RequestVC extends Component {
   }
 
   render() {
+    const { requestIssued } = this.state;
+
     return (
       <>
         <H1>Request eID VC</H1>
-        <Button variant="primary" onClick={() => this.requestVerifiableID()}>
-          Collect the eID VC with your SSI App
-        </Button>
+        {requestIssued ? (
+          <P>
+            Your request has been issued. Please check your{" "}
+            <a href={`${API_URL}/notifications`} className={typographyStyles.a}>
+              wallet's notifications
+            </a>
+            .
+          </P>
+        ) : (
+          <Button variant="primary" onClick={() => this.requestVerifiableID()}>
+            Collect the eID VC with your SSI App
+          </Button>
+        )}
       </>
     );
   }

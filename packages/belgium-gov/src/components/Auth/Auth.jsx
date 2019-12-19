@@ -22,7 +22,7 @@ export default function Auth({ children }) {
   };
 
   const logout = () => {
-    sessionStorage.removeItem("Ticket-BE");
+    sessionStorage.clear();
     setIsAuthenticated(false);
   };
 
