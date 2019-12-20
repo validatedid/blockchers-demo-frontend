@@ -30,21 +30,6 @@ services:
     volumes:
       - ../../packages/demonstrator/public:/usr/src/app/public
       - ../../packages/demonstrator/src:/usr/src/app/src
-  entry-point:
-    build:
-      context: ../../packages/entry-point
-      dockerfile: Dockerfile.dev
-    environment:
-      PORT: ${DIPLOMA_ENTRY_POINT_PORT}
-      REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
-      REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
-      REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
-    ports:
-      - "${DIPLOMA_ENTRY_POINT_PORT}:${DIPLOMA_ENTRY_POINT_PORT}"
-    volumes:
-      - ../../packages/entry-point/public:/usr/src/app/public
-      - ../../packages/entry-point/src:/usr/src/app/src
   eu-funding:
     build:
       context: ../../packages/eu-funding
