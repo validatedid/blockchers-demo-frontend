@@ -12,7 +12,7 @@ import NoMatch from "./NoMatch/NoMatch";
 import Login from "./Login/Login";
 import Logout from "./Logout/Logout";
 
-const publicUrl = process.env.PUBLIC_URL;
+const publicUrl = process.env.REACT_APP_URL;
 const basename = publicUrl ? new URL(publicUrl).pathname : "";
 
 function App() {

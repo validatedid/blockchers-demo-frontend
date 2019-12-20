@@ -11,7 +11,7 @@ import Login from "./Login/Login";
 import Logout from "./Logout/Logout";
 import ApplyForFunding from "./ApplyForFunding/ApplyForFunding";
 
-const publicUrl = process.env.PUBLIC_URL;
+const publicUrl = process.env.REACT_APP_URL;
 const basename = publicUrl ? new URL(publicUrl).pathname : "";
 
 function App() {

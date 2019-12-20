@@ -1,6 +1,19 @@
 version: "3.7"
 
 services:
+  reverse-proxy:
+    build: ./proxy
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      PORT: 8080
+    volumes:
+      - ./proxy/src:/usr/src/app/src
+  wallet:
+    build: ../../../2-wallet-ui
+    ports:
+      - "3000:3000"
   belgium-gov:
     build:
       context: ../../packages/belgium-gov
@@ -9,6 +22,7 @@ services:
       PORT: ${BELGIUM_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
     ports:
       - "${BELGIUM_GOV_PORT}:${BELGIUM_GOV_PORT}"
     volumes:
@@ -25,6 +39,7 @@ services:
       REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
     ports:
       - "${DEMONSTRATOR_PORT}:${DEMONSTRATOR_PORT}"
     volumes:
@@ -38,6 +53,7 @@ services:
       PORT: ${EU_FUNDING_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
     ports:
       - "${EU_FUNDING_PORT}:${EU_FUNDING_PORT}"
     volumes:
@@ -51,6 +67,7 @@ services:
       PORT: ${FLEMISH_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
     ports:
       - "${FLEMISH_GOV_PORT}:${FLEMISH_GOV_PORT}"
     volumes:
@@ -64,6 +81,7 @@ services:
       PORT: ${SPANISH_UNIVERSITY_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
     ports:
       - "${SPANISH_UNIVERSITY_PORT}:${SPANISH_UNIVERSITY_PORT}"
     volumes:
