@@ -5,7 +5,6 @@
 }
 
 .h1 {
-  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
   padding: 0;
@@ -60,7 +59,7 @@ li {
   line-height: 1.4;
 }
 
-li:before {
+li::before {
   content: "";
   position: absolute;
   left: 0;

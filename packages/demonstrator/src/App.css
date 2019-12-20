@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-.App:before {
+.App::before {
   position: absolute;
   content: " ";
   background-image: url(./logo.svg);

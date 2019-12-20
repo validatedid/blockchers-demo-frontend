@@ -36,7 +36,7 @@
   transition: background-color 0.2s;
 }
 
-.logo:after {
+.logo::after {
   display: block;
   content: "";
   position: absolute;
@@ -55,7 +55,7 @@
   transition: fill 0.2s;
 }
 
-.logoImg:after {
+.logoImg::after {
   display: block;
   content: "";
   position: absolute;
