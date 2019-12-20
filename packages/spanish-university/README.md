@@ -30,15 +30,16 @@ Without args:
 docker build -t ebsi:1-diploma-front-end-spanish-university .
 ```
 
-The build currently accepts 2 ARGs:
+The build currently accepts 3 ARGs:
 
-- `PUBLIC_URL`: the final URL of the webapp (without trailing slash)
-- `REACT_APP_WALLET_API`: the URL of the wallet API (without trailing slash)
+- `PUBLIC_URL`: the final URL of the WebApp (without trailing slash)
+- `REACT_APP_DEMONSTRATOR_URL`: URL of the EBSI Experience WebApp (demonstrator, without trailing slash)
+- `REACT_APP_WALLET_URL`: the URL of the wallet WebApp (without trailing slash)
 
 Example:
 
 ```sh
-docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university --build-arg REACT_APP_WALLET_API=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-diploma-front-end-spanish-university .
+docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-diploma-front-end-spanish-university .
 ```
 
 #### Serve
@@ -79,6 +80,7 @@ npm run test
 
 ## Customization
 
-You can customize the links displayed by the page by setting these environment variables:
+You can customize the links displayed by the page by setting these environment variables (ENV in dev, ARG in prod):
 
 - `REACT_APP_DEMONSTRATOR_URL`
+- `REACT_APP_WALLET_URL`

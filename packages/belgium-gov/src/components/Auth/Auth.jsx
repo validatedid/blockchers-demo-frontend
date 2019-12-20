@@ -22,7 +22,8 @@ export default function Auth({ children }) {
   };
 
   const logout = () => {
-    sessionStorage.clear();
+    sessionStorage.removeItem("Ticket-BE");
+    sessionStorage.removeItem("VC-issued");
     setIsAuthenticated(false);
   };
 

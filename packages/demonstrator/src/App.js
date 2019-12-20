@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 const ECAS_URL =
-  process.env.REACT_APP_ECAS_URL ||
+  process.env.REACT_APP_EULOGIN_REGISTER ||
   "https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId";
 
 const WALLET_URL =
@@ -23,15 +23,15 @@ const SPANISH_UNIVERSITY_URL =
 const EU_FUNDING_URL =
   process.env.REACT_APP_EU_FUNDING_URL || "https://app.ebsi.xyz/eu-funding";
 
+const ECA_URL = process.env.REACT_APP_ECA_URL || "https://ebsi.compell.io/";
+
 const App = () => (
   <div className="App">
     <main>
-      <h1 className="App-header">Welcome to the demonstrator</h1>
+      <h1 className="App-header">EBSI 1 Demonstrator</h1>
       <p>
         Disclaimer: this is a demo website to show the technical capabilities of
-        the EBSI project. For the identity of the user, we simulate a Belgium
-        citizen and the Belgium Government, but any other country can be
-        simulated in the same way. We use dummy data!
+        the EBSI project.
       </p>
       <ol>
         <li>
@@ -82,6 +82,12 @@ const App = () => (
           .
         </li>
       </ol>
+      <p>
+        Optional: you can visit{" "}
+        <a href={ECA_URL} className="App-link">
+          ECA
+        </a>
+      </p>
     </main>
   </div>
 );

@@ -23,6 +23,7 @@ export default function Auth({ children }) {
 
   const logout = () => {
     sessionStorage.removeItem("Ticket-FL");
+    sessionStorage.removeItem("bachelor-va-issued");
     setIsAuthenticated(false);
   };
 

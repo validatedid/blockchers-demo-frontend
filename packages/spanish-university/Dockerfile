@@ -6,7 +6,7 @@ RUN npm ci --quiet --no-progress
 COPY . /usr/src/app/
 ARG PUBLIC_URL
 ARG REACT_APP_DEMONSTRATOR_URL
-ARG REACT_APP_WALLET_API
+ARG REACT_APP_WALLET_URL
 RUN npm run build
 
 # Stage 2: run nginx

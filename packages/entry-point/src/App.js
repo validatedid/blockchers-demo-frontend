@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 const ECAS_URL =
-  process.env.REACT_APP_ECAS_URL ||
+  process.env.REACT_APP_EULOGIN_REGISTER ||
   "https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId";
 
 const WALLET_URL =
