@@ -56,6 +56,7 @@ body {
   line-height: 1.25;
   max-width: 48rem;
   padding: 0.25rem 0;
+  font-weight: 700;
 }
 
 .App li::before {
@@ -64,4 +65,54 @@ body {
   font-weight: bold;
   font-size: 2rem;
   padding-right: 4px;
+}
+
+.App li.disabled {
+  color: #cfcfcf;
+  pointer-events: none;
+  font-weight: 400;
+}
+
+.App li.disabled::before {
+  color: #9f9f9f;
+  display: inline-block;
+}
+
+.disabled .App-link {
+  color: #707070;
+}
+
+.App li.done {
+  color: #cfcfcf;
+  pointer-events: none;
+  font-weight: 400;
+}
+
+.App li.done::before {
+  content: "✓";
+  color: #d9d9d9;
+  display: inline-block;
+}
+
+.done .App-link {
+  color: #707070;
+}
+
+.button {
+  appearance: none;
+  background: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font: normal normal 400 1rem/1.25rem Arial, sans-serif;
+  font-weight: 600;
+  margin: 0;
+  background-color: #fff;
+  border: 2px solid #004494;
+  color: #004494;
+  padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+.button:focus {
+  outline: 3px solid #ffd617;
+  outline-offset: -3px;
 }
