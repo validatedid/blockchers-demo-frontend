@@ -5,15 +5,26 @@ services:
     build: ./proxy
     ports:
       - 8080:8080
-    restart: always
     environment:
       PORT: 8080
+      BELGIUM_GOV_PORT: ${BELGIUM_GOV_PORT:?BELGIUM_GOV_PORT is not defined or empty}
+      DEMONSTRATOR_PORT: ${DEMONSTRATOR_PORT:?DEMONSTRATOR_PORT is not defined or empty}
+      EU_FUNDING_PORT: ${EU_FUNDING_PORT:?EU_FUNDING_PORT is not defined or empty}
+      FLEMISH_GOV_PORT: ${FLEMISH_GOV_PORT:?FLEMISH_GOV_PORT is not defined or empty}
+      SPANISH_UNIVERSITY_PORT: ${SPANISH_UNIVERSITY_PORT:?SPANISH_UNIVERSITY_PORT is not defined or empty}
+      WALLET_PORT: ${WALLET_PORT:?WALLET_PORT is not defined or empty}
     volumes:
       - ./proxy/src:/usr/src/app/src
   wallet:
     build: ../../../2-wallet-ui
+    environment:
+      PORT: ${WALLET_PORT}
+      REACT_APP_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
     ports:
-      - "3000:3000"
+      - "${WALLET_PORT}:${WALLET_PORT}"
+    volumes:
+      - ../../../2-wallet-ui/public:/usr/src/app/public
+      - ../../../2-wallet-ui/src:/usr/src/app/src
   belgium-gov:
     build:
       context: ../../packages/belgium-gov

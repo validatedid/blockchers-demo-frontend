@@ -1,7 +1,13 @@
 # Local development with Docker Compose
 
+Prerequisites:
+
+- you need to clone 3 repos: `1-diploma-front-end`, `2-wallet-ui` and `3-wallet-back-end`
+- make sure the repos `1-diploma-front-end` and `2-wallet-ui` are located in the same directory (or change the path to `2-wallet-ui` in `docker-compose.yml`)
+
 Steps:
 
 1. Create a copy of `.env.example` and name it `.env` in this directory; change the variables if needed.
-2. From this directory, run `docker-compose build` and `docker-compose up`.
-3. Open http://localhost:3001/
+2. Start `3-wallet-back-end` server
+3. From this directory `docker/development`, run `docker-compose build` and `docker-compose up`.
+4. Open http://localhost:8080/
