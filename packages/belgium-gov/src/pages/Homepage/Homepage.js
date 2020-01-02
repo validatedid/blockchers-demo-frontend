@@ -10,6 +10,8 @@ import {
 } from "../../components/Typography/Typography";
 import { AuthContext } from "../../components/Auth/Auth";
 
+const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3002";
+
 function Homepage() {
   const { isAuthenticated } = useContext(AuthContext);
 
@@ -39,22 +41,44 @@ function Homepage() {
         </Fragment>
       ) : (
         <Fragment>
-          <H2>Step 2: collect eID VC</H2>
-          <P>
-            You are now logged in. The Belgian Federal Government can now create
-            your eID VC and use eIDAS Bridge to eSeal it.
-          </P>
-          <P>
-            Now go to the{" "}
-            <Link to="/request-vc" className={typographyStyles.a}>
-              eID VC request page
-            </Link>{" "}
-            or{" "}
-            <Link to="/logout" className={typographyStyles.a}>
-              log out
-            </Link>
-            .
-          </P>
+          {sessionStorage.getItem("VC-issued") !== "yes" ? (
+            <Fragment>
+              <H2>Step 2: collect eID VC</H2>
+              <P>
+                You are now logged in. The Belgian Federal Government can now
+                create your eID VC and use eIDAS Bridge to eSeal it.
+              </P>
+              <P>
+                Now go to the{" "}
+                <Link to="/request-vc" className={typographyStyles.a}>
+                  eID VC request page
+                </Link>{" "}
+                or{" "}
+                <Link to="/logout" className={typographyStyles.a}>
+                  log out
+                </Link>
+                .
+              </P>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <H2>Step 3: check your notifications in your wallet</H2>
+              <P>
+                Your request has been issued. Please check your{" "}
+                <a
+                  href={`${WALLET_URL}/notifications`}
+                  className={typographyStyles.a}
+                >
+                  wallet's notifications
+                </a>
+                . You can also{" "}
+                <Link to="/logout" className={typographyStyles.a}>
+                  log out
+                </Link>{" "}
+                to start again.
+              </P>
+            </Fragment>
+          )}
         </Fragment>
       )}
     </Fragment>

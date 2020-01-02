@@ -12,6 +12,7 @@ services:
       args:
         PUBLIC_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_VERIFIABLE_ID_URL: ${REACT_APP_VERIFIABLE_ID_URL:?REACT_APP_VERIFIABLE_ID_URL is not defined or empty}
         REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
   demonstrator:
     build:

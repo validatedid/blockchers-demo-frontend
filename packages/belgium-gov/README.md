@@ -83,4 +83,5 @@ npm run test
 You can customize the links displayed by the page by setting these environment variables (ENV in dev, ARG in prod):
 
 - `REACT_APP_DEMONSTRATOR_URL`
+- `REACT_APP_VERIFIABLE_ID_URL`
 - `REACT_APP_WALLET_URL`

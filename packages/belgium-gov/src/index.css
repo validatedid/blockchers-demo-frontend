@@ -5,3 +5,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+.form-control {
+  max-width: 30em;
+}
