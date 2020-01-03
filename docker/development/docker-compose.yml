@@ -78,6 +78,7 @@ services:
     environment:
       PORT: ${FLEMISH_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+      REACT_APP_DIPLOMA_API_URL: ${REACT_APP_DIPLOMA_API_URL:?REACT_APP_DIPLOMA_API_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
       REACT_APP_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
     ports:

@@ -29,6 +29,7 @@ export default function Auth({ children }) {
     sessionStorage.getItem("Ticket-FL") !== null
   );
   const [JWT, setJWT] = useState({});
+  const [rawJWT, setRawJWT] = useState("");
 
   useEffect(() => {
     checkAuth();
@@ -50,6 +51,7 @@ export default function Auth({ children }) {
 
     try {
       setJWT(parseJwt(localStorage.getItem("Jwt")));
+      setRawJWT(localStorage.getItem("Jwt"));
     } catch (e) {
       // Unable to parse JWT (malformed)
       setIsAuthenticated(false);
@@ -73,7 +75,9 @@ export default function Auth({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, JWT, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, JWT, rawJWT, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
