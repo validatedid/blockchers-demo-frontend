@@ -3,32 +3,77 @@ import PropTypes from "prop-types";
 
 export const AuthContext = React.createContext({});
 
+export const LOGIN_CODES = {
+  SUCCESS: 0,
+  MISSING_JWT: 1,
+  MALFORMED_JWT: 2,
+  MISSING_EU_TICKET: 3
+};
+
+function parseJwt(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function(c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+  return JSON.parse(jsonPayload);
+}
+
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
     sessionStorage.getItem("Ticket-EU") !== null
   );
+  const [JWT, setJWT] = useState({});
 
   useEffect(() => {
     checkAuth();
   }, []);
 
-  // Currently, only check if "Ticket-EU" is present in session
-  const checkAuth = () =>
-    setIsAuthenticated(sessionStorage.getItem("Ticket-EU") !== null);
+  // Check if "Ticket-EU" and JWT are present in session
+  const checkAuth = () => {
+    const hasJwt = !!localStorage.getItem("Jwt");
+    if (!hasJwt) {
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MISSING_JWT;
+    }
+
+    const hasFLTicket = sessionStorage.getItem("Ticket-EU") === "fake-ticket";
+    if (!hasFLTicket) {
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MISSING_EU_TICKET;
+    }
+
+    try {
+      setJWT(parseJwt(localStorage.getItem("Jwt")));
+    } catch (e) {
+      // Unable to parse JWT (malformed)
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MALFORMED_JWT;
+    }
+
+    setIsAuthenticated(true);
+    return LOGIN_CODES.SUCCESS;
+  };
 
   const login = () => {
     sessionStorage.setItem("Ticket-EU", "fake-ticket");
-    setIsAuthenticated(true);
+    return checkAuth();
   };
 
   const logout = () => {
+    // Remove only EU Funding related items
     sessionStorage.removeItem("Ticket-EU");
     sessionStorage.removeItem("eu-funding-application-sent");
     setIsAuthenticated(false);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, JWT, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

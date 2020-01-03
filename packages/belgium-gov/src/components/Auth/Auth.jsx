@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 
 export const AuthContext = React.createContext({});
 
+export const LOGIN_CODES = {
+  SUCCESS: 0,
+  MISSING_JWT: 1,
+  MALFORMED_JWT: 2,
+  MISSING_BE_TICKET: 3
+};
+//
 function parseJwt(token) {
   var base64Url = token.split(".")[1];
   var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -30,21 +37,27 @@ export default function Auth({ children }) {
   // Check if "Ticket-BE" and JWT are present in session
   const checkAuth = () => {
     const hasJwt = !!localStorage.getItem("Jwt");
-    const hasBETicket = sessionStorage.getItem("Ticket-BE") === "fake-ticket";
-    let canAuthenticate = hasBETicket && hasJwt;
-
-    if (hasJwt) {
-      try {
-        setJWT(parseJwt(localStorage.getItem("Jwt")));
-      } catch (e) {
-        // Unable to parse JWT (malformed)
-        canAuthenticate = false;
-      }
+    if (!hasJwt) {
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MISSING_JWT;
     }
 
-    setIsAuthenticated(canAuthenticate);
+    const hasBETicket = sessionStorage.getItem("Ticket-BE") === "fake-ticket";
+    if (!hasBETicket) {
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MISSING_BE_TICKET;
+    }
 
-    return canAuthenticate;
+    try {
+      setJWT(parseJwt(localStorage.getItem("Jwt")));
+    } catch (e) {
+      // Unable to parse JWT (malformed)
+      setIsAuthenticated(false);
+      return LOGIN_CODES.MALFORMED_JWT;
+    }
+
+    setIsAuthenticated(true);
+    return LOGIN_CODES.SUCCESS;
   };
 
   const login = () => {
@@ -56,7 +69,7 @@ export default function Auth({ children }) {
     // Remove only BE Gov related items
     sessionStorage.removeItem("Ticket-BE");
     sessionStorage.removeItem("VC-issued");
-    checkAuth();
+    setIsAuthenticated(false);
   };
 
   return (

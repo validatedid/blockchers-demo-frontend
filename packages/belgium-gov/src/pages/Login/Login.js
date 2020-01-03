@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { AuthContext } from "../../components/Auth/Auth";
+import { AuthContext, LOGIN_CODES } from "../../components/Auth/Auth";
 import { H1, P } from "../../components/Typography/Typography";
 
 function Login(props) {
   const { isAuthenticated, login } = useContext(AuthContext);
-
-  const [errorDuringLogin, setErrorDuringLogin] = useState(false);
+  const [errorDuringLogin, setErrorDuringLogin] = useState(LOGIN_CODES.SUCCESS);
 
   if (isAuthenticated) {
     if (props.location && props.location.state && props.location.state.from) {
@@ -18,8 +17,9 @@ function Login(props) {
   }
 
   function handleLogin() {
-    if (!login()) {
-      setErrorDuringLogin(true);
+    const loginCode = login();
+    if (loginCode !== LOGIN_CODES.SUCCESS) {
+      setErrorDuringLogin(loginCode);
     }
   }
 
@@ -35,12 +35,15 @@ function Login(props) {
       <Button variant="primary" onClick={handleLogin}>
         Log in
       </Button>
-      {errorDuringLogin && (
+      {errorDuringLogin === LOGIN_CODES.MALFORMED_JWT && (
         <div className="invalid-feedback" style={{ display: "block" }}>
-          Error during login:{" "}
-          {!localStorage.getItem("Jwt") &&
-            "JWT not available. Please make sure you are authenticated with the wallet."}
-          {!!localStorage.getItem("Jwt") && "JWT is malformed, parsing failed."}
+          Error during login: JWT is malformed, parsing failed.
+        </div>
+      )}
+      {errorDuringLogin === LOGIN_CODES.MISSING_JWT && (
+        <div className="invalid-feedback" style={{ display: "block" }}>
+          Error during login: JWT not available or empty. Please make sure you
+          are authenticated with the wallet.
         </div>
       )}
     </>
