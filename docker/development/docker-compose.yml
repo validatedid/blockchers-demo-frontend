@@ -13,6 +13,7 @@ services:
       FLEMISH_GOV_PORT: ${FLEMISH_GOV_PORT:?FLEMISH_GOV_PORT is not defined or empty}
       SPANISH_UNIVERSITY_PORT: ${SPANISH_UNIVERSITY_PORT:?SPANISH_UNIVERSITY_PORT is not defined or empty}
       WALLET_PORT: ${WALLET_PORT:?WALLET_PORT is not defined or empty}
+      NOTARY_PORT: ${NOTARY_PORT:?NOTARY_PORT is not defined or empty}
     volumes:
       - ./proxy/src:/usr/src/app/src
   wallet:
@@ -25,6 +26,27 @@ services:
     volumes:
       - ../../../2-wallet-ui/public:/usr/src/app/public
       - ../../../2-wallet-ui/src:/usr/src/app/src
+  demonstrator:
+    build:
+      context: ../../packages/demonstrator
+      dockerfile: Dockerfile.dev
+    environment:
+      PORT: ${DEMONSTRATOR_PORT}
+      REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
+      REACT_APP_EU_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
+      REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
+      REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+      REACT_APP_NOTARY_URL: ${REACT_APP_NOTARY_URL:?REACT_APP_NOTARY_URL is not defined or empty}
+    ports:
+      - "${DEMONSTRATOR_PORT}:${DEMONSTRATOR_PORT}"
+    volumes:
+      - ../../packages/demonstrator/public:/usr/src/app/public
+      - ../../packages/demonstrator/src:/usr/src/app/src
+
+  # Diploma UC frontends
+
   belgium-gov:
     build:
       context: ../../packages/belgium-gov
@@ -40,23 +62,6 @@ services:
     volumes:
       - ../../packages/belgium-gov/public:/usr/src/app/public
       - ../../packages/belgium-gov/src:/usr/src/app/src
-  demonstrator:
-    build:
-      context: ../../packages/demonstrator
-      dockerfile: Dockerfile.dev
-    environment:
-      PORT: ${DEMONSTRATOR_PORT}
-      REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
-      REACT_APP_EU_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
-      REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
-      REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
-      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
-      REACT_APP_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
-    ports:
-      - "${DEMONSTRATOR_PORT}:${DEMONSTRATOR_PORT}"
-    volumes:
-      - ../../packages/demonstrator/public:/usr/src/app/public
-      - ../../packages/demonstrator/src:/usr/src/app/src
   eu-funding:
     build:
       context: ../../packages/eu-funding
@@ -100,3 +105,24 @@ services:
     volumes:
       - ../../packages/spanish-university/public:/usr/src/app/public
       - ../../packages/spanish-university/src:/usr/src/app/src
+
+  # Notary
+
+  notarization:
+    build: ../../../1-notarization-uc
+    logging:
+      options:
+        max-size: "100m"
+        max-file: "50"
+    ports:
+      - "${NOTARY_PORT}:${NOTARY_PORT}"
+    environment:
+      PORT: ${NOTARY_PORT}
+    container_name: notarization
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"

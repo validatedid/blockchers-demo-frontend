@@ -18,6 +18,7 @@ services:
         REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
         REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+        REACT_APP_NOTARY_URL: ${REACT_APP_NOTARY_URL:?REACT_APP_NOTARY_URL is not defined or empty}
     image: demo-frontend.ebsi.xyz
     ports:
       - 8080:8080

@@ -23,6 +23,8 @@ const SPANISH_UNIVERSITY_URL =
 const EU_FUNDING_URL =
   process.env.REACT_APP_EU_FUNDING_URL || "https://app.ebsi.xyz/eu-funding";
 
+const NOTARY_URL =
+  process.env.REACT_APP_NOTARY_URL || "http://localhost:8080/notary";
 const ECA_URL = process.env.REACT_APP_ECA_URL || "https://ebsi.compell.io/";
 
 function App() {
@@ -192,6 +194,10 @@ function App() {
           Optional: you can visit{" "}
           <a href={ECA_URL} className="App-link">
             ECA
+          </a>{" "}
+          or{" "}
+          <a href={NOTARY_URL} className="App-link">
+            notary
           </a>
         </p>
       </main>
