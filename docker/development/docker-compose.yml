@@ -120,6 +120,7 @@ services:
     environment:
       PORT: ${NOTARY_PORT}
       PUBLIC_URL: ${REACT_APP_NOTARY_URL}
+      NODE_ENV: development
     container_name: notarization
     depends_on:
       - mongo
