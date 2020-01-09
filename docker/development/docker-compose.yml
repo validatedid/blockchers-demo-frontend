@@ -21,6 +21,7 @@ services:
     environment:
       PORT: ${WALLET_PORT}
       REACT_APP_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+      REACT_APP_WALLET: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
     ports:
       - "${WALLET_PORT}:${WALLET_PORT}"
     volumes:
