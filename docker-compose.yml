@@ -1,7 +1,9 @@
 version: "3.7"
 
 services:
-  frontend:
+  demo:
+    image: ebsi/demo
+    container_name: ebsi/demo
     build:
       context: .
       args:
@@ -16,6 +18,5 @@ services:
         REACT_APP_DIPLOMA_API_URL: ${REACT_APP_DIPLOMA_API_URL:?REACT_APP_DIPLOMA_API_URL is not defined or empty}
         REACT_APP_ECA_URL: ${REACT_APP_ECA_URL:?REACT_APP_ECA_URL is not defined or empty}
         REACT_APP_EULOGIN_REGISTER: ${REACT_APP_EULOGIN_REGISTER:?REACT_APP_EULOGIN_REGISTER is not defined or empty}
-    image: ebsi/demo
     ports:
       - 8080:8080

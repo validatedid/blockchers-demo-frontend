@@ -48,7 +48,7 @@ function RequestVC() {
 
   const onSubmit = data => {
     const requestBody = {
-      issuer: "did:ebsi:BelgianGovernment",
+      issuer: "did:ebsi:0x627c4B175eC8b6aba37a58410Fb9142b790E71db",
       credentialSubject: {
         ...data,
         id: JWT.did,
