@@ -48,10 +48,7 @@ function RequestVA() {
   const onRequestVA = () => {
     const requestBody = {
       requester: "did:ebsi:0xc9A8940Ab318d4d4631a86DcF9E0b9A3594214E5",
-      type: [
-        ["VerifiableCredential", "EssifVerifiableID"],
-        ["VerifiableCredential", "EuropassCredential"]
-      ],
+      type: [["VerifiableCredential", "EssifVerifiableID"]],
       subscriberURL: "https://app.ebsi.xyz/university/receive-presentation"
     };
 

@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const httpProxy = require("http-proxy");
-const apiProxy = httpProxy.createProxyServer();
 
 let currentApp = "";
 
@@ -13,8 +12,13 @@ const SPANISH_UNIVERSITY_PORT = process.env.SPANISH_UNIVERSITY_PORT || "3005";
 const WALLET_PORT = process.env.WALLET_PORT || "3000";
 const NOTARY_PORT = process.env.NOTARY_PORT || "3045";
 
+const HTTPS = process.env.HTTPS === "true" || false;
+const protocol = HTTPS ? "https" : "http";
+
+const apiProxy = httpProxy.createProxyServer();
+
 function redirectBasedOnCurrentApp(req, res) {
-  return apiProxy.web(req, res, { target: `http://${currentApp}` });
+  return apiProxy.web(req, res, { target: `${protocol}://${currentApp}` });
 }
 
 // Real magic starts here 🧙

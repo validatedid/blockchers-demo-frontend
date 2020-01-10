@@ -6,6 +6,7 @@ services:
     ports:
       - 8080:8080
     environment:
+      HTTPS: "false"
       PORT: 8080
       BELGIUM_GOV_PORT: ${BELGIUM_GOV_PORT:?BELGIUM_GOV_PORT is not defined or empty}
       DEMONSTRATOR_PORT: ${DEMONSTRATOR_PORT:?DEMONSTRATOR_PORT is not defined or empty}
@@ -19,6 +20,7 @@ services:
   wallet:
     build: ../../../2-wallet-ui
     environment:
+      HTTPS: "false"
       PORT: ${WALLET_PORT}
       REACT_APP_WALLET: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
     ports:
@@ -31,6 +33,7 @@ services:
       context: ../../packages/demonstrator
       dockerfile: Dockerfile.dev
     environment:
+      HTTPS: "false"
       PORT: ${DEMONSTRATOR_PORT}
       REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
       REACT_APP_EU_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
@@ -52,6 +55,7 @@ services:
       context: ../../packages/belgium-gov
       dockerfile: Dockerfile.dev
     environment:
+      HTTPS: "false"
       PORT: ${BELGIUM_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_VERIFIABLE_ID_URL: ${REACT_APP_VERIFIABLE_ID_URL:?REACT_APP_VERIFIABLE_ID_URL is not defined or empty}
@@ -67,6 +71,7 @@ services:
       context: ../../packages/eu-funding
       dockerfile: Dockerfile.dev
     environment:
+      HTTPS: "false"
       PORT: ${EU_FUNDING_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
@@ -81,6 +86,7 @@ services:
       context: ../../packages/flemish-gov
       dockerfile: Dockerfile.dev
     environment:
+      HTTPS: "false"
       PORT: ${FLEMISH_GOV_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_DIPLOMA_API_URL: ${REACT_APP_DIPLOMA_API_URL:?REACT_APP_DIPLOMA_API_URL is not defined or empty}
@@ -96,6 +102,7 @@ services:
       context: ../../packages/spanish-university
       dockerfile: Dockerfile.dev
     environment:
+      HTTPS: "false"
       PORT: ${SPANISH_UNIVERSITY_PORT}
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
@@ -117,6 +124,7 @@ services:
     ports:
       - "${NOTARY_PORT}:${NOTARY_PORT}"
     environment:
+      HTTPS: "OFF"
       PORT: ${NOTARY_PORT}
       PUBLIC_URL: ${REACT_APP_NOTARY_URL}
       NODE_ENV: development
