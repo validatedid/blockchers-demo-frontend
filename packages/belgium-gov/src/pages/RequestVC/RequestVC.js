@@ -21,7 +21,7 @@ const VERIFIABLE_ID_URL =
 
 function RequestVC() {
   const [requestStatus, setRequestStatus] = useState(
-    sessionStorage.getItem("VC-issued") === "yes"
+    localStorage.getItem("VC-issued") === "yes"
       ? REQUEST_STATUS.OK
       : REQUEST_STATUS.NOT_SENT
   );
@@ -84,7 +84,7 @@ function RequestVC() {
       .then(function(response) {
         // TODO: Actually do something with the response, e.g. extract "callback_url" (response.callback_url)
         console.log("Response from Verifiable ID API", response);
-        sessionStorage.setItem("VC-issued", "yes");
+        localStorage.setItem("VC-issued", "yes");
         setRequestStatus(REQUEST_STATUS.OK);
       })
       .catch(function(error) {

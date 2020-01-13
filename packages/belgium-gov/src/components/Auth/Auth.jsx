@@ -26,7 +26,7 @@ function parseJwt(token) {
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("Ticket-BE") !== null
+    localStorage.getItem("Ticket-BE") !== null
   );
   const [JWT, setJWT] = useState({});
 
@@ -42,7 +42,7 @@ export default function Auth({ children }) {
       return LOGIN_CODES.MISSING_JWT;
     }
 
-    const hasBETicket = sessionStorage.getItem("Ticket-BE") === "fake-ticket";
+    const hasBETicket = localStorage.getItem("Ticket-BE") === "fake-ticket";
     if (!hasBETicket) {
       setIsAuthenticated(false);
       return LOGIN_CODES.MISSING_BE_TICKET;
@@ -61,14 +61,14 @@ export default function Auth({ children }) {
   };
 
   const login = () => {
-    sessionStorage.setItem("Ticket-BE", "fake-ticket");
+    localStorage.setItem("Ticket-BE", "fake-ticket");
     return checkAuth();
   };
 
   const logout = () => {
     // Remove only BE Gov related items
-    sessionStorage.removeItem("Ticket-BE");
-    sessionStorage.removeItem("VC-issued");
+    localStorage.removeItem("Ticket-BE");
+    localStorage.removeItem("VC-issued");
     setIsAuthenticated(false);
   };
 

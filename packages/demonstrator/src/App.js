@@ -29,49 +29,51 @@ const ECA_URL = process.env.REACT_APP_ECA_URL || "https://ebsi.compell.io/";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("Jwt");
-  const hasEIDVC = sessionStorage.getItem("VC-issued") === "yes";
-  const hasBachelorVA = sessionStorage.getItem("bachelor-va-issued") === "yes";
-  const hasMaster =
-    sessionStorage.getItem("master-application-issued") === "yes";
+  const hasEIDVC = localStorage.getItem("VC-issued") === "yes";
+  const hasBachelorVA = localStorage.getItem("bachelor-va-issued") === "yes";
+  const hasMaster = localStorage.getItem("master-application-issued") === "yes";
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
   function restart() {
     localStorage.clear();
-    sessionStorage.clear();
     forceUpdate();
   }
 
   return (
     <div className="App">
       <main>
-        <h1 className="App-header">EBSI 1 Demonstrator</h1>
-        <p>
+        <p className="disclaimer">
           Disclaimer: this is a demo website to show the technical capabilities
-          of the EBSI project.
+          of the EBSI project. We use dummy data! All the public entities are
+          simulated, there is no real interaction with any of them.
+        </p>
+        <h1 className="h1">European Blockchain Services Infrastructure</h1>
+        <h2 className="h2">User journey demonstrator</h2>
+        <p {...(isAuthenticated && { className: "done" })}>
+          To follow the User Journey, you need to use your EU Login account. If
+          you do not have one, you can{" "}
+          <a
+            className="App-link"
+            {...(isAuthenticated
+              ? {
+                  tabIndex: "-1",
+                  href: "#"
+                }
+              : {
+                  href: ECAS_URL
+                })}
+          >
+            create one here
+          </a>
+          .
         </p>
         <ol>
           <li {...(isAuthenticated && { className: "done" })}>
-            If you do not have an EU Login account, please visit{" "}
-            <a
-              className="App-link"
-              {...(isAuthenticated
-                ? {
-                    tabIndex: "-1",
-                    href: "#"
-                  }
-                : {
-                    href: ECAS_URL
-                  })}
-            >
-              EU Login website
-            </a>{" "}
-            to create one. You will need to provide a name, surname and email
-            address.
-          </li>
-          <li {...(isAuthenticated && { className: "done" })}>
-            If you do not have a simulated eID account, please visit the{" "}
+            European Self-Sovereign Identity
+            <h3>Open your EBSI Wallet account</h3>
+            Open the{" "}
             <a
               className="App-link"
               {...(isAuthenticated
@@ -83,16 +85,19 @@ function App() {
                     href: WALLET_URL
                   })}
             >
-              Wallet website
+              EBSI Wallet
             </a>{" "}
-            to create one. You will need an EU Login to access the wallet. The
-            wallet will create for you a simulated eID.
+            and setup your EBSI account to follow the user journey. In your
+            wallet, you will create your own Decentralized ID and a set of
+            public-private keys.
           </li>
           <li
             {...(!isAuthenticated && { className: "disabled" })}
             {...(hasEIDVC && { className: "done" })}
           >
-            Visit the{" "}
+            Federal Government of Belgium
+            <h3>Get your eID Verifiable Credential</h3>
+            Open a request on the{" "}
             <a
               className="App-link"
               {...(!isAuthenticated || hasEIDVC
@@ -104,15 +109,19 @@ function App() {
                     href: BELGIUM_GOV_URL
                   })}
             >
-              Belgium Government website
+              Federal Government of Belgium website
             </a>{" "}
-            to get your eID VC (eID Verifiable Credential). You need to have an
-            EU Login account and a wallet account.
+            to get your verifiable ID. The Belgium Gov. verifies the request and
+            issues the ID Verifiable Credential, which will be stored in your
+            wallet. With your digital ID, you get access to other services in
+            EBSI platform.
           </li>
           <li
             {...(!(isAuthenticated && hasEIDVC) && { className: "disabled" })}
             {...(hasBachelorVA && { className: "done" })}
           >
+            Flemish Government
+            <h3>Get your Bachelor Diploma</h3>
             Visit the{" "}
             <a
               className="App-link"
@@ -138,6 +147,8 @@ function App() {
               className: "done"
             })}
           >
+            Spanish University
+            <h3>Get your Master Diploma</h3>
             Visit the{" "}
             <a
               className="App-link"
@@ -166,6 +177,8 @@ function App() {
               className: "disabled"
             })}
           >
+            EU Funding Institution
+            <h3>Notarize your documents</h3>
             Visit the{" "}
             <a
               className="App-link"

@@ -26,7 +26,7 @@ function parseJwt(token) {
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("Ticket-EU") !== null
+    localStorage.getItem("Ticket-EU") !== null
   );
   const [JWT, setJWT] = useState({});
 
@@ -42,7 +42,7 @@ export default function Auth({ children }) {
       return LOGIN_CODES.MISSING_JWT;
     }
 
-    const hasFLTicket = sessionStorage.getItem("Ticket-EU") === "fake-ticket";
+    const hasFLTicket = localStorage.getItem("Ticket-EU") === "fake-ticket";
     if (!hasFLTicket) {
       setIsAuthenticated(false);
       return LOGIN_CODES.MISSING_EU_TICKET;
@@ -61,14 +61,14 @@ export default function Auth({ children }) {
   };
 
   const login = () => {
-    sessionStorage.setItem("Ticket-EU", "fake-ticket");
+    localStorage.setItem("Ticket-EU", "fake-ticket");
     return checkAuth();
   };
 
   const logout = () => {
     // Remove only EU Funding related items
-    sessionStorage.removeItem("Ticket-EU");
-    sessionStorage.removeItem("eu-funding-application-sent");
+    localStorage.removeItem("Ticket-EU");
+    localStorage.removeItem("eu-funding-application-sent");
     setIsAuthenticated(false);
   };
 

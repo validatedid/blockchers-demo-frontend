@@ -22,7 +22,7 @@ const DIPLOMA_API_URL =
 
 function RequestVA() {
   const [requestStatus, setRequestStatus] = useState(
-    sessionStorage.getItem("bachelor-va-issued") === "yes"
+    localStorage.getItem("bachelor-va-issued") === "yes"
       ? REQUEST_STATUS.OK
       : REQUEST_STATUS.NOT_SENT
   );
@@ -77,7 +77,7 @@ function RequestVA() {
       .then(function(response) {
         // TODO: Actually do something with the response, e.g. extract "callback_url" (response.callback_url)
         console.log("Response from Diploma API", response);
-        sessionStorage.setItem("bachelor-va-issued", "yes");
+        localStorage.setItem("bachelor-va-issued", "yes");
         setRequestStatus(REQUEST_STATUS.OK);
       })
       .catch(function(error) {

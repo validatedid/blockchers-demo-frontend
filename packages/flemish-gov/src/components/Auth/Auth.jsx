@@ -26,7 +26,7 @@ function parseJwt(token) {
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("Ticket-FL") !== null
+    localStorage.getItem("Ticket-FL") !== null
   );
   const [JWT, setJWT] = useState({});
   const [rawJWT, setRawJWT] = useState("");
@@ -43,7 +43,7 @@ export default function Auth({ children }) {
       return LOGIN_CODES.MISSING_JWT;
     }
 
-    const hasFLTicket = sessionStorage.getItem("Ticket-FL") === "fake-ticket";
+    const hasFLTicket = localStorage.getItem("Ticket-FL") === "fake-ticket";
     if (!hasFLTicket) {
       setIsAuthenticated(false);
       return LOGIN_CODES.MISSING_FL_TICKET;
@@ -63,14 +63,14 @@ export default function Auth({ children }) {
   };
 
   const login = () => {
-    sessionStorage.setItem("Ticket-FL", "fake-ticket");
+    localStorage.setItem("Ticket-FL", "fake-ticket");
     return checkAuth();
   };
 
   const logout = () => {
     // Remove only FL Gov related items
-    sessionStorage.removeItem("Ticket-FL");
-    sessionStorage.removeItem("bachelor-va-issued");
+    localStorage.removeItem("Ticket-FL");
+    localStorage.removeItem("bachelor-va-issued");
     setIsAuthenticated(false);
   };
 

@@ -7,7 +7,7 @@ const API_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3002";
 
 function ApplyForFunding() {
   const [applicationSent, setIsApplicationSent] = useState(
-    sessionStorage.getItem("eu-funding-application-sent") === "yes"
+    localStorage.getItem("eu-funding-application-sent") === "yes"
   );
 
   if (applicationSent) {
@@ -28,7 +28,7 @@ function ApplyForFunding() {
   }
 
   const onSendApplication = () => {
-    sessionStorage.setItem("eu-funding-application-sent", "yes");
+    localStorage.setItem("eu-funding-application-sent", "yes");
     setIsApplicationSent(true);
   };
 

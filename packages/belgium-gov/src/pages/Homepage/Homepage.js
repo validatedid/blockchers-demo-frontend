@@ -41,7 +41,7 @@ function Homepage() {
         </Fragment>
       ) : (
         <Fragment>
-          {sessionStorage.getItem("VC-issued") !== "yes" ? (
+          {localStorage.getItem("VC-issued") !== "yes" ? (
             <Fragment>
               <H2>Step 2: collect eID VC</H2>
               <P>

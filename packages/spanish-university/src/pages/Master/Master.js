@@ -13,11 +13,11 @@ const API_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3002";
 
 function Master() {
   const [requestIssued, setIsRequestIssued] = useState(
-    sessionStorage.getItem("master-application-issued") === "yes"
+    localStorage.getItem("master-application-issued") === "yes"
   );
 
   const onApplyToMaster = () => {
-    sessionStorage.setItem("master-application-issued", "yes");
+    localStorage.setItem("master-application-issued", "yes");
     setIsRequestIssued(true);
   };
 

@@ -1,33 +1,33 @@
-# 1-diploma-front-end-demonstrator
+# 1-demo-front-ends-demonstrator
 
 This repo contains the EBSI User Experience WebApp (a.k.a. "demonstrator").
 
 URL: https://app.ebsi.xyz | https://app.ebsi.tech.ec.europa.eu
 
-## Run 1-diploma-front-end-demonstrator with Docker
+## Run 1-demo-front-ends-demonstrator with Docker
 
 ### Dev mode
 
 Build Docker image:
 
 ```sh
-docker build -f Dockerfile.dev -t ebsi:1-diploma-front-end-demonstrator .
+docker build -f Dockerfile.dev -t ebsi:1-demo-front-ends-demonstrator .
 ```
 
 Run Docker container:
 
 ```sh
-docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3001:3001 --rm ebsi:1-diploma-front-end-demonstrator
+docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3001:3001 --rm ebsi:1-demo-front-ends-demonstrator
 ```
 
 ### Production mode
 
 ```sh
-docker build -t ebsi:1-diploma-front-end-demonstrator .
+docker build -t ebsi:1-demo-front-ends-demonstrator .
 ```
 
 ```sh
-docker run -p 3001:80 ebsi:1-diploma-front-end-demonstrator
+docker run -p 3001:80 ebsi:1-demo-front-ends-demonstrator
 ```
 
 ## Run the project locally

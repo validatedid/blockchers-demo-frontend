@@ -81,10 +81,10 @@ RUN npm run build
 
 # Stage 6: run nginx
 FROM nginx:alpine
-COPY --from=builder-belgium-gov /usr/src/app/build /usr/share/nginx/html/diploma/belgium-gov
-COPY --from=builder-demonstrator /usr/src/app/build /usr/share/nginx/html
-COPY --from=builder-eu-funding /usr/src/app/build /usr/share/nginx/html/eu-funding
-COPY --from=builder-flemish-gov /usr/src/app/build /usr/share/nginx/html/diploma/flemish-gov
-COPY --from=builder-spanish-university /usr/src/app/build /usr/share/nginx/html/diploma/spanish-university
+COPY --from=builder-belgium-gov /usr/src/app/build /usr/share/nginx/html/demo/belgium-gov
+COPY --from=builder-demonstrator /usr/src/app/build /usr/share/nginx/html/demonstrator
+COPY --from=builder-eu-funding /usr/src/app/build /usr/share/nginx/html/demo/eu-funding
+COPY --from=builder-flemish-gov /usr/src/app/build /usr/share/nginx/html/demo/flemish-gov
+COPY --from=builder-spanish-university /usr/src/app/build /usr/share/nginx/html/demo/spanish-university
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]

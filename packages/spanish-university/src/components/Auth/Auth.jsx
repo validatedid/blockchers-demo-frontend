@@ -26,7 +26,7 @@ function parseJwt(token) {
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem("Ticket-SU") !== null
+    localStorage.getItem("Ticket-SU") !== null
   );
   const [JWT, setJWT] = useState({});
 
@@ -42,7 +42,7 @@ export default function Auth({ children }) {
       return LOGIN_CODES.MISSING_JWT;
     }
 
-    const hasFLTicket = sessionStorage.getItem("Ticket-SU") === "fake-ticket";
+    const hasFLTicket = localStorage.getItem("Ticket-SU") === "fake-ticket";
     if (!hasFLTicket) {
       setIsAuthenticated(false);
       return LOGIN_CODES.MISSING_SU_TICKET;
@@ -61,14 +61,14 @@ export default function Auth({ children }) {
   };
 
   const login = () => {
-    sessionStorage.setItem("Ticket-SU", "fake-ticket");
+    localStorage.setItem("Ticket-SU", "fake-ticket");
     return checkAuth();
   };
 
   const logout = () => {
     // Remove only SU related items
-    sessionStorage.removeItem("Ticket-SU");
-    sessionStorage.removeItem("master-application-issued");
+    localStorage.removeItem("Ticket-SU");
+    localStorage.removeItem("master-application-issued");
     setIsAuthenticated(false);
   };
 

@@ -2,8 +2,8 @@
 
 Prerequisites:
 
-- you need to clone 4 repos: `1-diploma-front-end`, `1-notarization-uc`, `2-wallet-ui` and `3-wallet-back-end`
-- make sure the repos `1-diploma-front-end`, `1-notarization-uc` and `2-wallet-ui` are located in the same directory (or change the path to `2-wallet-ui` in `docker-compose.yml`)
+- you need to clone 4 repos: `1-demo-front-ends`, `1-notarization-uc`, `2-wallet-ui` and `3-wallet-back-end`
+- make sure the repos `1-demo-front-ends`, `1-notarization-uc` and `2-wallet-ui` are located in the same directory (or change the path to `2-wallet-ui` in `docker-compose.yml`)
 
 Steps:
 

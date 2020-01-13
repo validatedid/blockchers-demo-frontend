@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "1-diploma-front-end",
+  "name": "1-demo-front-ends",
   "description": "Diploma UC - Front ends",
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -12,23 +12,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://ec.europa.eu/cefdigital/code/scm/ebsi/1-diploma-front-end.git"
+    "url": "https://ec.europa.eu/cefdigital/code/scm/ebsi/1-demo-front-ends.git"
   },
   "license": "EUPL-1.2",
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-flowtype": "^4.5.3",
-    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "husky": "^4.0.6",
+    "husky": "^4.0.7",
     "lerna": "^3.20.2",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
-    "stylelint": "^12.0.1",
+    "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-standard": "^19.0.0"
   },

@@ -3,7 +3,7 @@ version: "3.7"
 services:
   demo:
     image: ebsi/demo
-    container_name: ebsi/demo
+    container_name: ebsi-demo-front-ends
     build:
       context: .
       args:
