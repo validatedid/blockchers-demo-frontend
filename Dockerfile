@@ -102,4 +102,5 @@ COPY --from=builder-eu-funding /usr/src/app/build /usr/share/nginx/html/demo/eu-
 COPY --from=builder-flemish-gov /usr/src/app/build /usr/share/nginx/html/demo/flemish-gov
 COPY --from=builder-spanish-university /usr/src/app/build /usr/share/nginx/html/demo/spanish-university
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
