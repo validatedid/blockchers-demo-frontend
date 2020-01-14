@@ -1,3 +1,17 @@
+# Default ARGs (test env)
+ARG BELGIUM_GOV_PUBLIC_URL=https://app.ebsi.xyz/demo/belgium-gov
+ARG DEMONSTRATOR_PUBLIC_URL=https://app.ebsi.xyz/demo
+ARG EU_FUNDING_PUBLIC_URL=https://app.ebsi.xyz/demo/eu-funding
+ARG FLEMISH_GOV_PUBLIC_URL=https://app.ebsi.xyz/demo/flemish-gov
+ARG SPANISH_UNIVERSITY_PUBLIC_URL=https://app.ebsi.xyz/demo/spanish-university
+ARG REACT_APP_VERIFIABLE_ID_URL=https://api.ebsi.xyz/wallet/verifiableid
+ARG REACT_APP_UNIVERSITY_API_URL=https://api.ebsi.xyz/wallet/university
+ARG REACT_APP_WALLET_URL=https://app.ebsi.xyz/wallet
+ARG REACT_APP_NOTARY_URL=https://app.ebsi.xyz/notary
+ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
+ARG REACT_APP_ECA_URL=https://ebsi.compell.io/
+ARG REACT_APP_EULOGIN_REGISTER=https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId
+
 ## Stage 1: build Belgium Government website
 FROM node:12-alpine AS builder-belgium-gov
 WORKDIR /usr/src/app
