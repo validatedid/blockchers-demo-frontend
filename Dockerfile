@@ -61,6 +61,7 @@ ARG FLEMISH_GOV_PUBLIC_URL
 ARG PUBLIC_URL=${FLEMISH_GOV_PUBLIC_URL}
 ARG REACT_APP_DEMONSTRATOR_URL=${DEMONSTRATOR_PUBLIC_URL}
 ARG REACT_APP_DIPLOMA_API_URL
+ARG REACT_APP_UNIVERSITY_API_URL
 ARG REACT_APP_WALLET_URL
 ARG REACT_APP_URL=${PUBLIC_URL}
 RUN npm run build
@@ -82,7 +83,7 @@ RUN npm run build
 # Stage 6: run nginx
 FROM nginx:alpine
 COPY --from=builder-belgium-gov /usr/src/app/build /usr/share/nginx/html/demo/belgium-gov
-COPY --from=builder-demonstrator /usr/src/app/build /usr/share/nginx/html/demonstrator
+COPY --from=builder-demonstrator /usr/src/app/build /usr/share/nginx/html/demo
 COPY --from=builder-eu-funding /usr/src/app/build /usr/share/nginx/html/demo/eu-funding
 COPY --from=builder-flemish-gov /usr/src/app/build /usr/share/nginx/html/demo/flemish-gov
 COPY --from=builder-spanish-university /usr/src/app/build /usr/share/nginx/html/demo/spanish-university

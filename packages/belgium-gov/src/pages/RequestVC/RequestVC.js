@@ -48,7 +48,7 @@ function RequestVC() {
 
   const onSubmit = data => {
     const requestBody = {
-      issuer: "did:ebsi:0x627c4B175eC8b6aba37a58410Fb9142b790E71db",
+      issuer: "did:ebsi:0x45fd1d42E0f33B93ECCA7E4fcE984948867cD256",
       credentialSubject: {
         ...data,
         id: JWT.did,
@@ -60,7 +60,7 @@ function RequestVC() {
     requestHeaders.append("Content-Type", "application/json");
     requestHeaders.append(
       "Authorization",
-      `Bearer ${localStorage.getItem("Jwt")}`
+      "Bearer eyJhbGciOiJFUzI1NksiLCJ0eXAiOiJKV1QiLCJqa3UiOiJodHRwOi8vNTIuMjguMTkwLjIwNjo4MDg1L2Vic2l0cnVzdGVkYXBwL3B1YmxpYy1rZXlzLyIsImtpZCI6ImVic2ktd2FsbGV0In0.eyJzdWIiOiJEZW1vIEVudGl0eSIsImlhdCI6MTU3ODk5NDI0OCwiZXhwIjoxNTc5MDgwNjQ4LCJhdWQiOiJlYnNpLXdhbGxldCIsImRpZCI6ImRpZDplYnNpOjB4NDVmZDFkNDJFMGYzM0I5M0VDQ0E3RTRmY0U5ODQ5NDg4NjdjRDI1NiIsImVudGVycHJpc2VOYW1lIjoiRGVtbyBFbnRpdHkiLCJub25jZSI6IjJrdGQyRnNiR1YwSW4wQUEuIn0.3wLat3-XCdLzN4dNM6Oydg_jnm3jPwO4u_dBardYdCL70S2f8aXU0BXOUrg6s33nDeAfjTOxJIap5TOdYACQQg"
     );
 
     const requestOptions = {

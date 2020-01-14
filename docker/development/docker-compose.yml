@@ -131,6 +131,8 @@ services:
     container_name: notarization
     depends_on:
       - mongo
+    # Wait 15 seconds before starting notary
+    command: /bin/sh -c "sleep 15 && npm start"
   mongo:
     container_name: mongo
     image: mongo

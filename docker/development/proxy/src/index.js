@@ -32,22 +32,22 @@ app.all(/\.(gif|jpg|jpeg|tiff|png|ico)$/i, redirectBasedOnCurrentApp);
 
 // Map URLs with apps
 
-app.all("/diploma/belgium-gov*", function(req, res) {
+app.all("/demo/belgium-gov*", function(req, res) {
   currentApp = `belgium-gov:${BELGIUM_GOV_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 
-app.all("/diploma/flemish-gov*", function(req, res) {
+app.all("/demo/flemish-gov*", function(req, res) {
   currentApp = `flemish-gov:${FLEMISH_GOV_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 
-app.all("/diploma/spanish-university*", function(req, res) {
+app.all("/demo/spanish-university*", function(req, res) {
   currentApp = `spanish-university:${SPANISH_UNIVERSITY_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 
-app.all("/eu-funding*", function(req, res) {
+app.all("/demo/eu-funding*", function(req, res) {
   currentApp = `eu-funding:${EU_FUNDING_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });

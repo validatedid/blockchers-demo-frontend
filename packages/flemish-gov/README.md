@@ -35,6 +35,7 @@ The build currently accepts 2 ARGs:
 - `PUBLIC_URL`: the final URL of the webapp (without trailing slash)
 - `REACT_APP_DEMONSTRATOR_URL`: URL of the EBSI Experience WebApp (demonstrator, without trailing slash)
 - `REACT_APP_DIPLOMA_API_URL`: URL of Diploma API
+- `REACT_APP_UNIVERSITY_API_URL`: URL of the backend API
 - `REACT_APP_WALLET_URL`: the URL of the wallet WebApp (without trailing slash)
 
 Example:
