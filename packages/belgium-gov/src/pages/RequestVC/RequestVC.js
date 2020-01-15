@@ -15,9 +15,12 @@ const REQUEST_STATUS = {
   FAILED: "failed"
 };
 
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3002";
+const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
+const WALLET_API =
+  process.env.REACT_APP_WALLET_API || "http://localhost:3002/wallet";
 const VERIFIABLE_ID_URL =
-  process.env.REACT_APP_VERIFIABLE_ID_URL || "http://localhost:3011";
+  process.env.REACT_APP_VERIFIABLE_ID_URL ||
+  "http://localhost:3011/wallet/verifiableid";
 
 function RequestVC() {
   const [requestStatus, setRequestStatus] = useState(
@@ -47,32 +50,18 @@ function RequestVC() {
   }
 
   const onSubmit = data => {
-    const requestBody = {
-      issuer: "did:ebsi:0x45fd1d42E0f33B93ECCA7E4fcE984948867cD256",
-      credentialSubject: {
-        ...data,
-        id: JWT.did,
-        govId: ""
-      }
-    };
-
-    const requestHeaders = new Headers();
-    requestHeaders.append("Content-Type", "application/json");
-    requestHeaders.append(
-      "Authorization",
-      "Bearer eyJhbGciOiJFUzI1NksiLCJ0eXAiOiJKV1QiLCJqa3UiOiJodHRwOi8vNTIuMjguMTkwLjIwNjo4MDg1L2Vic2l0cnVzdGVkYXBwL3B1YmxpYy1rZXlzLyIsImtpZCI6ImVic2ktd2FsbGV0In0.eyJzdWIiOiJEZW1vIEVudGl0eSIsImlhdCI6MTU3ODk5NDI0OCwiZXhwIjoxNTc5MDgwNjQ4LCJhdWQiOiJlYnNpLXdhbGxldCIsImRpZCI6ImRpZDplYnNpOjB4NDVmZDFkNDJFMGYzM0I5M0VDQ0E3RTRmY0U5ODQ5NDg4NjdjRDI1NiIsImVudGVycHJpc2VOYW1lIjoiRGVtbyBFbnRpdHkiLCJub25jZSI6IjJrdGQyRnNiR1YwSW4wQUEuIn0.3wLat3-XCdLzN4dNM6Oydg_jnm3jPwO4u_dBardYdCL70S2f8aXU0BXOUrg6s33nDeAfjTOxJIap5TOdYACQQg"
-    );
-
-    const requestOptions = {
+    // 1. Get JWT of Belgian Gov
+    const reqHeaders = new Headers();
+    reqHeaders.append("Content-Type", "application/json");
+    fetch(`${WALLET_API}/token`, {
       method: "POST",
-      headers: requestHeaders,
-      body: JSON.stringify(requestBody)
-    };
-
-    setRequestStatus(REQUEST_STATUS.PENDING);
-
-    fetch(`${VERIFIABLE_ID_URL}/verifiableid`, requestOptions)
-      .then(function(response) {
+      headers: reqHeaders,
+      body: JSON.stringify({
+        enterpriseName: "demo test",
+        nonce: "2ktd2FsbGV0In0"
+      })
+    })
+      .then(response => {
         if (response.status !== 200) {
           return Promise.reject(
             "Looks like there was a problem. Status Code: " + response.status
@@ -81,14 +70,56 @@ function RequestVC() {
 
         return response.json();
       })
-      .then(function(response) {
-        // TODO: Actually do something with the response, e.g. extract "callback_url" (response.callback_url)
-        console.log("Response from Verifiable ID API", response);
-        localStorage.setItem("VC-issued", "yes");
-        setRequestStatus(REQUEST_STATUS.OK);
+      .then(result => {
+        if (!result.jwt) {
+          return Promise.reject("Couldn't get JWT");
+        }
+
+        const requestBody = {
+          issuer: "did:ebsi:0x45fd1d42E0f33B93ECCA7E4fcE984948867cD256",
+          credentialSubject: {
+            ...data,
+            id: JWT.did,
+            govId: ""
+          }
+        };
+
+        const requestHeaders = new Headers();
+        requestHeaders.append("Content-Type", "application/json");
+        requestHeaders.append("Authorization", `Bearer ${result.jwt}`);
+
+        const requestOptions = {
+          method: "POST",
+          headers: requestHeaders,
+          body: JSON.stringify(requestBody)
+        };
+
+        setRequestStatus(REQUEST_STATUS.PENDING);
+
+        fetch(VERIFIABLE_ID_URL, requestOptions)
+          .then(function(response) {
+            if (response.status !== 200) {
+              return Promise.reject(
+                "Looks like there was a problem. Status Code: " +
+                  response.status
+              );
+            }
+
+            return response.json();
+          })
+          .then(function(response) {
+            // TODO: Actually do something with the response, e.g. extract "callback_url" (response.callback_url)
+            console.log("Response from Verifiable ID API", response);
+            localStorage.setItem("VC-issued", "yes");
+            setRequestStatus(REQUEST_STATUS.OK);
+          })
+          .catch(function(error) {
+            console.error("Error from Verifiable ID API", error);
+            setRequestStatus(REQUEST_STATUS.FAILED);
+          });
       })
-      .catch(function(error) {
-        console.error("Error from Verifiable ID API", error);
+      .catch(error => {
+        console.error("Error when retrieving the token", error);
         setRequestStatus(REQUEST_STATUS.FAILED);
       });
   };

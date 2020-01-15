@@ -16,11 +16,13 @@ const REQUEST_STATUS = {
   FAILED: "failed"
 };
 
-const API_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3002";
+const API_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
 const DIPLOMA_API_URL =
-  process.env.REACT_APP_DIPLOMA_API_URL || "http://localhost:3007";
+  process.env.REACT_APP_DIPLOMA_API_URL ||
+  "http://localhost:3007/wallet/diploma";
 const UNIVERSITY_API_URL =
-  process.env.REACT_APP_UNIVERSITY_API_URL || "http://localhost:9010";
+  process.env.REACT_APP_UNIVERSITY_API_URL ||
+  "http://localhost:9010/wallet/university";
 
 function RequestVA() {
   const [requestStatus, setRequestStatus] = useState(
@@ -51,7 +53,7 @@ function RequestVA() {
     const requestBody = {
       requester: "did:ebsi:0xc9A8940Ab318d4d4631a86DcF9E0b9A3594214E5",
       type: [["VerifiableCredential", "EssifVerifiableID"]],
-      subscriberURL: `${UNIVERSITY_API_URL}/university/receive-presentation`
+      subscriberURL: `${UNIVERSITY_API_URL}/receive-presentation`
     };
 
     const requestHeaders = new Headers();

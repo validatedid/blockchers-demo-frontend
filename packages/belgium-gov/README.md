@@ -35,7 +35,8 @@ The build currently accepts 2 ARGs:
 - `PUBLIC_URL`: the final URL of the WebApp (without trailing slash)
 - `REACT_APP_DEMONSTRATOR_URL`: URL of the EBSI Experience WebApp (demonstrator, without trailing slash)
 - `REACT_APP_VERIFIABLE_ID_URL`: URL of the Verifiable ID API
-- `REACT_APP_WALLET_URL`: the URL of the wallet WebApp (without trailing slash)
+- `REACT_APP_WALLET_URL`: URL of the wallet WebApp (without trailing slash)
+- `REACT_APP_WALLET_API`: URL of the Wallet API
 
 Example:
 
@@ -86,3 +87,4 @@ You can customize the links displayed by the page by setting these environment v
 - `REACT_APP_DEMONSTRATOR_URL`
 - `REACT_APP_VERIFIABLE_ID_URL`
 - `REACT_APP_WALLET_URL`
+- `REACT_APP_WALLET_API`

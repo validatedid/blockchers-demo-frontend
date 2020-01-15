@@ -6,6 +6,7 @@ ARG FLEMISH_GOV_PUBLIC_URL=https://app.ebsi.xyz/demo/flemish-gov
 ARG SPANISH_UNIVERSITY_PUBLIC_URL=https://app.ebsi.xyz/demo/spanish-university
 ARG REACT_APP_VERIFIABLE_ID_URL=https://api.ebsi.xyz/wallet/verifiableid
 ARG REACT_APP_UNIVERSITY_API_URL=https://api.ebsi.xyz/wallet/university
+ARG REACT_APP_WALLET_API=https://api.ebsi.xyz/wallet
 ARG REACT_APP_WALLET_URL=https://app.ebsi.xyz/wallet
 ARG REACT_APP_NOTARY_URL=https://app.ebsi.xyz/notary
 ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
@@ -23,6 +24,7 @@ ARG DEMONSTRATOR_PUBLIC_URL
 ARG PUBLIC_URL=${BELGIUM_GOV_PUBLIC_URL}
 ARG REACT_APP_DEMONSTRATOR_URL=${DEMONSTRATOR_PUBLIC_URL}
 ARG REACT_APP_WALLET_URL
+ARG REACT_APP_WALLET_API
 ARG REACT_APP_VERIFIABLE_ID_URL
 ARG REACT_APP_URL=${PUBLIC_URL}
 RUN npm run build
