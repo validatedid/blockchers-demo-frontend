@@ -13,21 +13,23 @@ services:
       EU_FUNDING_PORT: ${EU_FUNDING_PORT:?EU_FUNDING_PORT is not defined or empty}
       FLEMISH_GOV_PORT: ${FLEMISH_GOV_PORT:?FLEMISH_GOV_PORT is not defined or empty}
       SPANISH_UNIVERSITY_PORT: ${SPANISH_UNIVERSITY_PORT:?SPANISH_UNIVERSITY_PORT is not defined or empty}
-      WALLET_PORT: ${WALLET_PORT:?WALLET_PORT is not defined or empty}
       NOTARY_PORT: ${NOTARY_PORT:?NOTARY_PORT is not defined or empty}
     volumes:
       - ./proxy/src:/usr/src/app/src
   wallet:
-    build: ../../../2-wallet-ui
-    environment:
-      HTTPS: "false"
-      PORT: ${WALLET_PORT}
-      REACT_APP_WALLET: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
-    ports:
-      - "${WALLET_PORT}:${WALLET_PORT}"
-    volumes:
-      - ../../../2-wallet-ui/public:/usr/src/app/public
-      - ../../../2-wallet-ui/src:/usr/src/app/src
+    build:
+      context: ../../../2-wallet-ui
+      args:
+        REACT_APP_BELGIUM_GOV_URL: ${BELGIUM_GOV_PUBLIC_URL:?BELGIUM_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_DIPLOMA: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
+        REACT_APP_EUROPEAN_FUNDING_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
+        REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
+        REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+        REACT_APP_WALLET: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
+        REACT_APP_NOTARIZATION: ${REACT_APP_NOTARY_URL:?REACT_APP_NOTARY_URL is not defined or empty}
+        REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
+        REACT_APP_ID_HUB_API: ${REACT_APP_ID_HUB_API:?REACT_APP_ID_HUB_API is not defined or empty}
+        REACT_APP_EULOGIN: ${REACT_APP_EULOGIN:?REACT_APP_EULOGIN is not defined or empty}
   demonstrator:
     build:
       context: ../../packages/demonstrator
@@ -128,13 +130,11 @@ services:
       PORT: ${NOTARY_PORT}
       PUBLIC_URL: ${REACT_APP_NOTARY_URL}
       NODE_ENV: development
-    container_name: notarization
     depends_on:
-      - mongo
+      - mongodb
     # Wait 15 seconds before starting notary
     command: /bin/sh -c "sleep 15 && npm start"
-  mongo:
-    container_name: mongo
+  mongodb:
     image: mongo
     ports:
       - "27017:27017"

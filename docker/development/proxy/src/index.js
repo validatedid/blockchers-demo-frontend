@@ -9,7 +9,7 @@ const DEMONSTRATOR_PORT = process.env.DEMONSTRATOR_PORT || "3001";
 const EU_FUNDING_PORT = process.env.EU_FUNDING_PORT || "3006";
 const FLEMISH_GOV_PORT = process.env.FLEMISH_GOV_PORT || "3004";
 const SPANISH_UNIVERSITY_PORT = process.env.SPANISH_UNIVERSITY_PORT || "3005";
-const WALLET_PORT = process.env.WALLET_PORT || "3000";
+const WALLET_INTERNAL_PORT = "8080";
 const NOTARY_PORT = process.env.NOTARY_PORT || "3045";
 
 const HTTPS = process.env.HTTPS === "true" || false;
@@ -53,7 +53,7 @@ app.all("/demo/eu-funding*", function(req, res) {
 });
 
 app.all("/wallet*", function(req, res) {
-  currentApp = `wallet:${WALLET_PORT}`;
+  currentApp = `wallet:${WALLET_INTERNAL_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 
