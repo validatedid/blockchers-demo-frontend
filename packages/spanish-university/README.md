@@ -2,7 +2,7 @@
 
 This repo contains an implementation of a University where the user wants to enroll into a Master, to demonstrate the flow with the EBSI Wallet.
 
-URL: https://app.ebsi.xyz/diploma/spanish-university | https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university
+URL: https://app.ebsi.xyz/demo/spanish-university | https://app.ebsi.tech.ec.europa.eu/demo/spanish-university
 
 ## Run 1-demo-front-ends-spanish-university with Docker
 
@@ -39,7 +39,7 @@ The build currently accepts 3 ARGs:
 Example:
 
 ```sh
-docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/diploma/spanish-university --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-demo-front-ends-spanish-university .
+docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/demo/spanish-university --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-demo-front-ends-spanish-university .
 ```
 
 #### Serve

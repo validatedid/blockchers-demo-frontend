@@ -29,7 +29,6 @@ You can now navigate to:
 - the Belgium Government website: http://localhost:8080/diploma/belgium-gov/
 - the Flemish Government website: http://localhost:8080/diploma/flemish-gov/
 - the Spanish University website: http://localhost:8080/diploma/spanish-university/
-- the EU Funding website: http://localhost:8080/eu-funding/
 
 Note that if you change the `ARG`s in your `docker-compose.yml` file or if you change the env variables, you may need to rebuild the images (without cache):
 

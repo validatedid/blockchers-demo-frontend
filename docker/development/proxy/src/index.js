@@ -48,7 +48,7 @@ app.all("/demo/spanish-university*", function(req, res) {
 });
 
 app.all("/demo/eu-funding*", function(req, res) {
-  currentApp = `eu-funding:${EU_FUNDING_PORT}`;
+  currentApp = `notarization:${EU_FUNDING_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 

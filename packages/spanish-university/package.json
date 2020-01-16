@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.1",
-    "query-string": "^6.9.0",
+    "query-string": "^6.10.0",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-bootstrap": "^1.0.0-beta.15",

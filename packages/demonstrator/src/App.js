@@ -10,18 +10,19 @@ const WALLET_URL =
 
 const BELGIUM_GOV_URL =
   process.env.REACT_APP_BELGIUM_GOV_URL ||
-  "https://app.ebsi.xyz/diploma/belgium-gov";
+  "https://app.ebsi.xyz/demo/belgium-gov";
 
 const FLEMISH_GOV_URL =
   process.env.REACT_APP_FLEMISH_GOV_URL ||
-  "https://app.ebsi.xyz/diploma/flemish-gov";
+  "https://app.ebsi.xyz/demo/flemish-gov";
 
 const SPANISH_UNIVERSITY_URL =
   process.env.REACT_APP_SPANISH_UNIVERSITY_URL ||
-  "https://app.ebsi.xyz/diploma/spanish-university";
+  "https://app.ebsi.xyz/demo/spanish-university";
 
 const EU_FUNDING_URL =
-  process.env.REACT_APP_EU_FUNDING_URL || "https://app.ebsi.xyz/eu-funding";
+  process.env.REACT_APP_EU_FUNDING_URL ||
+  "https://app.ebsi.xyz/demo/eu-funding";
 
 const NOTARY_URL =
   process.env.REACT_APP_NOTARY_URL || "http://localhost:8080/notary";

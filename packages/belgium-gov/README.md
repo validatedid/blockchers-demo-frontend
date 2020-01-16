@@ -2,7 +2,7 @@
 
 This repo contains an implementation of a Government to demonstrate the flow with the EBSI Wallet.
 
-URL: https://app.ebsi.xyz/diploma/belgium-gov | https://app.ebsi.tech.ec.europa.eu/diploma/belgium-gov
+URL: https://app.ebsi.xyz/demo/belgium-gov | https://app.ebsi.tech.ec.europa.eu/demo/belgium-gov
 
 ## Run 1-demo-front-ends-belgium-gov with Docker
 
@@ -41,7 +41,7 @@ The build currently accepts 2 ARGs:
 Example:
 
 ```sh
-docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/diploma/belgium-gov --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-demo-front-ends-belgium-gov .
+docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/demo/belgium-gov --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-demo-front-ends-belgium-gov .
 ```
 
 #### Serve

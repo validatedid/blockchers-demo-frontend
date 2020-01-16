@@ -69,21 +69,6 @@ services:
     volumes:
       - ../../packages/belgium-gov/public:/usr/src/app/public
       - ../../packages/belgium-gov/src:/usr/src/app/src
-  eu-funding:
-    build:
-      context: ../../packages/eu-funding
-      dockerfile: Dockerfile.dev
-    environment:
-      HTTPS: "false"
-      PORT: ${EU_FUNDING_PORT}
-      REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
-      REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
-      REACT_APP_URL: ${EU_FUNDING_PUBLIC_URL:?EU_FUNDING_PUBLIC_URL is not defined or empty}
-    ports:
-      - "${EU_FUNDING_PORT}:${EU_FUNDING_PORT}"
-    volumes:
-      - ../../packages/eu-funding/public:/usr/src/app/public
-      - ../../packages/eu-funding/src:/usr/src/app/src
   flemish-gov:
     build:
       context: ../../packages/flemish-gov
