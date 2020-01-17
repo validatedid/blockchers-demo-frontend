@@ -10,6 +10,7 @@ import NoMatch from "./NoMatch/NoMatch";
 import Login from "./Login/Login";
 import Logout from "./Logout/Logout";
 import RequestVA from "./RequestVA/RequestVA";
+import IssueVA from "./IssueVA/IssueVA";
 
 const publicUrl = process.env.REACT_APP_URL;
 const basename = publicUrl ? new URL(publicUrl).pathname : "";
@@ -26,6 +27,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/logout" component={Logout} />
               <PrivateRoute exact path="/request-va" component={RequestVA} />
+              <PrivateRoute exact path="/issue-va" component={IssueVA} />
               <Route path="*">
                 <NoMatch />
               </Route>

@@ -70,6 +70,7 @@ export default function Auth({ children }) {
   const logout = () => {
     // Remove only FL Gov related items
     localStorage.removeItem("Ticket-FL");
+    localStorage.removeItem("bachelor-va-requested");
     localStorage.removeItem("bachelor-va-issued");
     setIsAuthenticated(false);
   };

@@ -12,6 +12,7 @@ ARG REACT_APP_NOTARY_URL=https://app.ebsi.xyz/notary
 ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
 ARG REACT_APP_ECA_URL=https://ebsi.compell.io/
 ARG REACT_APP_EULOGIN_REGISTER=https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId
+ARG REACT_APP_BACKEND_URL=https://api.ebsi.xyz
 
 ## Stage 1: build Belgium Government website
 FROM node:12-alpine AS builder-belgium-gov
@@ -52,21 +53,7 @@ ARG REACT_APP_NOTARY_URL
 ARG REACT_APP_URL=${PUBLIC_URL}
 RUN npm run build
 
-## Stage 3: build EU Funding website
-FROM node:12-alpine AS builder-eu-funding
-WORKDIR /usr/src/app
-COPY ./packages/eu-funding/package*.json /usr/src/app/
-RUN npm ci --quiet --no-progress
-COPY ./packages/eu-funding /usr/src/app/
-ARG DEMONSTRATOR_PUBLIC_URL
-ARG EU_FUNDING_PUBLIC_URL
-ARG PUBLIC_URL=${EU_FUNDING_PUBLIC_URL}
-ARG REACT_APP_DEMONSTRATOR_URL=${DEMONSTRATOR_PUBLIC_URL}
-ARG REACT_APP_WALLET_URL
-ARG REACT_APP_URL=${PUBLIC_URL}
-RUN npm run build
-
-## Stage 4: build Flemish Government website
+## Stage 3: build Flemish Government website
 FROM node:12-alpine AS builder-flemish-gov
 WORKDIR /usr/src/app
 COPY ./packages/flemish-gov/package*.json /usr/src/app/
@@ -79,10 +66,12 @@ ARG REACT_APP_DEMONSTRATOR_URL=${DEMONSTRATOR_PUBLIC_URL}
 ARG REACT_APP_DIPLOMA_API_URL
 ARG REACT_APP_UNIVERSITY_API_URL
 ARG REACT_APP_WALLET_URL
+ARG REACT_APP_BACKEND_INTERNAL_URL=${REACT_APP_BACKEND_URL}
+ARG REACT_APP_BACKEND_EXTERNAL_URL=${REACT_APP_BACKEND_URL}
 ARG REACT_APP_URL=${PUBLIC_URL}
 RUN npm run build
 
-## Stage 5: build Spanish University website
+## Stage 4: build Spanish University website
 FROM node:12-alpine AS builder-spanish-university
 WORKDIR /usr/src/app
 COPY ./packages/spanish-university/package*.json /usr/src/app/
@@ -96,11 +85,10 @@ ARG REACT_APP_WALLET_URL
 ARG REACT_APP_URL=${PUBLIC_URL}
 RUN npm run build
 
-# Stage 6: run nginx
+# Stage 5: run nginx
 FROM nginx:alpine
 COPY --from=builder-belgium-gov /usr/src/app/build /usr/share/nginx/html/demo/belgium-gov
 COPY --from=builder-demonstrator /usr/src/app/build /usr/share/nginx/html/demo
-COPY --from=builder-eu-funding /usr/src/app/build /usr/share/nginx/html/demo/eu-funding
 COPY --from=builder-flemish-gov /usr/src/app/build /usr/share/nginx/html/demo/flemish-gov
 COPY --from=builder-spanish-university /usr/src/app/build /usr/share/nginx/html/demo/spanish-university
 COPY nginx.conf /etc/nginx/conf.d/default.conf

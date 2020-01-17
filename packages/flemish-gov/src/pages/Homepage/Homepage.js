@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import {
   H1,
@@ -10,11 +10,13 @@ import {
 } from "../../components/Typography/Typography";
 import { AuthContext } from "../../components/Auth/Auth";
 
+const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
+
 function Homepage() {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
-    <>
+    <Fragment>
       <H1>Flemish government</H1>
       <P>
         Disclaimer: this is a demo website to show the technical capabilities of
@@ -30,38 +32,89 @@ function Homepage() {
           Government.
         </LI>
       </UL>
-      {!isAuthenticated ? (
-        <>
-          <H2>Step 1: log in</H2>
-          <P>
-            To get started, please{" "}
-            <Link to="/login" className={typographyStyles.a}>
-              log in
-            </Link>
-            .
-          </P>
-        </>
-      ) : (
-        <>
-          <H2>Step 2: issue Bachelor Diploma Verifiable Attestation</H2>
-          <P>
-            You are now logged in. The Flemish Government can now issue your
-            Bachelor Diploma Verifiable Attestation.
-          </P>
-          <P>
-            Now go to the{" "}
-            <Link to="/request-va" className={typographyStyles.a}>
-              Bachelor Diploma page
-            </Link>{" "}
-            or{" "}
-            <Link to="/logout" className={typographyStyles.a}>
-              log out
-            </Link>
-            .
-          </P>
-        </>
-      )}
-    </>
+      {(() => {
+        if (localStorage.getItem("bachelor-va-issued") === "yes") {
+          return (
+            <Fragment>
+              <H2>Well done!</H2>
+              <P>
+                Your bachelor VA is on the way. Please check your{" "}
+                <a
+                  href={`${WALLET_URL}/notifications`}
+                  className={typographyStyles.a}
+                >
+                  wallet's notifications
+                </a>{" "}
+                or{" "}
+                <Link to="/logout" className={typographyStyles.a}>
+                  log out
+                </Link>
+                .
+              </P>
+            </Fragment>
+          );
+        }
+
+        if (localStorage.getItem("bachelor-va-requested") === "yes") {
+          return (
+            <Fragment>
+              <H2>Step 3: issue Bachelor Diploma Verifiable Attestation</H2>
+              <P>
+                The eID VC presentation request has been sent to your wallet.
+              </P>
+              <P>
+                If you have agreed to present it, please continue to the{" "}
+                <Link to="/issue-va" className={typographyStyles.a}>
+                  Bachelor Diploma Issuance page
+                </Link>{" "}
+                or{" "}
+                <Link to="/logout" className={typographyStyles.a}>
+                  log out
+                </Link>
+                .
+              </P>
+            </Fragment>
+          );
+        }
+
+        if (isAuthenticated) {
+          return (
+            <Fragment>
+              <H2>Step 2: present your eID VC</H2>
+              <P>
+                You are now logged in. The Flemish Government can now issue your
+                Bachelor Diploma Verifiable Attestation after verifying your eID
+                VC.
+              </P>
+              <P>
+                Now go to the{" "}
+                <Link to="/request-va" className={typographyStyles.a}>
+                  Bachelor Diploma page
+                </Link>{" "}
+                or{" "}
+                <Link to="/logout" className={typographyStyles.a}>
+                  log out
+                </Link>
+                .
+              </P>
+            </Fragment>
+          );
+        }
+
+        return (
+          <Fragment>
+            <H2>Step 1: log in</H2>
+            <P>
+              To get started, please{" "}
+              <Link to="/login" className={typographyStyles.a}>
+                log in
+              </Link>
+              .
+            </P>
+          </Fragment>
+        );
+      })()}
+    </Fragment>
   );
 }
 
