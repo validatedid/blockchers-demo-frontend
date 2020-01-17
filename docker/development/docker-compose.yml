@@ -97,32 +97,32 @@ services:
       REACT_APP_DEMONSTRATOR_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
       REACT_APP_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
+      REACT_APP_BACKEND_INTERNAL_URL: ${REACT_APP_BACKEND_INTERNAL_URL:?REACT_APP_BACKEND_INTERNAL_URL is not defined or empty}
+      REACT_APP_BACKEND_EXTERNAL_URL: ${REACT_APP_BACKEND_EXTERNAL_URL:?REACT_APP_BACKEND_EXTERNAL_URL is not defined or empty}
     ports:
       - "${SPANISH_UNIVERSITY_PORT}:${SPANISH_UNIVERSITY_PORT}"
     volumes:
       - ../../packages/spanish-university/public:/usr/src/app/public
       - ../../packages/spanish-university/src:/usr/src/app/src
-
   # Notary
-
-  notarization:
-    build: ../../../1-notarization-uc
-    logging:
-      options:
-        max-size: "100m"
-        max-file: "50"
-    ports:
-      - "${NOTARY_PORT}:${NOTARY_PORT}"
-    environment:
-      HTTPS: "OFF"
-      PORT: ${NOTARY_PORT}
-      PUBLIC_URL: ${REACT_APP_NOTARY_URL}
-      NODE_ENV: development
-    depends_on:
-      - mongodb
-    # Wait 15 seconds before starting notary
-    command: /bin/sh -c "sleep 15 && npm start"
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
+  # notarization:
+  #   build: ../../../1-notarization-uc
+  #   logging:
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "50"
+  #   ports:
+  #     - "${NOTARY_PORT}:${NOTARY_PORT}"
+  #   environment:
+  #     HTTPS: "OFF"
+  #     PORT: ${NOTARY_PORT}
+  #     PUBLIC_URL: ${REACT_APP_NOTARY_URL}
+  #     NODE_ENV: development
+  #   depends_on:
+  #     - mongodb
+  #   # Wait 15 seconds before starting notary
+  #   command: /bin/sh -c "sleep 15 && npm start"
+  # mongodb:
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017"

@@ -57,7 +57,6 @@ function IssueVA() {
     const requestOptions = {
       method: "POST",
       headers: requestHeaders,
-      // mode: "no-cors",
       body: JSON.stringify(requestBody)
     };
 

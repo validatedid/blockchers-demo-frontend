@@ -32,7 +32,7 @@ function App() {
   const isAuthenticated = !!localStorage.getItem("Jwt");
   const hasEIDVC = localStorage.getItem("VC-issued") === "yes";
   const hasBachelorVA = localStorage.getItem("bachelor-va-issued") === "yes";
-  const hasMaster = localStorage.getItem("master-application-issued") === "yes";
+  const hasMaster = localStorage.getItem("master-va-issued") === "yes";
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
