@@ -6,7 +6,6 @@ let currentApp = "";
 
 const BELGIUM_GOV_PORT = process.env.BELGIUM_GOV_PORT || "3003";
 const DEMONSTRATOR_PORT = process.env.DEMONSTRATOR_PORT || "3001";
-const EU_FUNDING_PORT = process.env.EU_FUNDING_PORT || "3006";
 const FLEMISH_GOV_PORT = process.env.FLEMISH_GOV_PORT || "3004";
 const SPANISH_UNIVERSITY_PORT = process.env.SPANISH_UNIVERSITY_PORT || "3005";
 const WALLET_INTERNAL_PORT = "8080";
@@ -48,7 +47,7 @@ app.all("/demo/spanish-university*", function(req, res) {
 });
 
 app.all("/demo/eu-funding*", function(req, res) {
-  currentApp = `notarization:${EU_FUNDING_PORT}`;
+  currentApp = `notarization:${NOTARY_PORT}`;
   redirectBasedOnCurrentApp(req, res);
 });
 

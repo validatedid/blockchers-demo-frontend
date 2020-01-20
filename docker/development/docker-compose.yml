@@ -10,7 +10,6 @@ services:
       PORT: 8080
       BELGIUM_GOV_PORT: ${BELGIUM_GOV_PORT:?BELGIUM_GOV_PORT is not defined or empty}
       DEMONSTRATOR_PORT: ${DEMONSTRATOR_PORT:?DEMONSTRATOR_PORT is not defined or empty}
-      EU_FUNDING_PORT: ${EU_FUNDING_PORT:?EU_FUNDING_PORT is not defined or empty}
       FLEMISH_GOV_PORT: ${FLEMISH_GOV_PORT:?FLEMISH_GOV_PORT is not defined or empty}
       SPANISH_UNIVERSITY_PORT: ${SPANISH_UNIVERSITY_PORT:?SPANISH_UNIVERSITY_PORT is not defined or empty}
       NOTARY_PORT: ${NOTARY_PORT:?NOTARY_PORT is not defined or empty}
@@ -104,25 +103,27 @@ services:
     volumes:
       - ../../packages/spanish-university/public:/usr/src/app/public
       - ../../packages/spanish-university/src:/usr/src/app/src
+
   # Notary
-  # notarization:
-  #   build: ../../../1-notarization-uc
-  #   logging:
-  #     options:
-  #       max-size: "100m"
-  #       max-file: "50"
-  #   ports:
-  #     - "${NOTARY_PORT}:${NOTARY_PORT}"
-  #   environment:
-  #     HTTPS: "OFF"
-  #     PORT: ${NOTARY_PORT}
-  #     PUBLIC_URL: ${REACT_APP_NOTARY_URL}
-  #     NODE_ENV: development
-  #   depends_on:
-  #     - mongodb
-  #   # Wait 15 seconds before starting notary
-  #   command: /bin/sh -c "sleep 15 && npm start"
-  # mongodb:
-  #   image: mongo
-  #   ports:
-  #     - "27017:27017"
+
+  notarization:
+    build: ../../../1-notarization-uc
+    logging:
+      options:
+        max-size: "100m"
+        max-file: "50"
+    ports:
+      - "${NOTARY_PORT}:${NOTARY_PORT}"
+    environment:
+      HTTPS: "OFF"
+      PORT: ${NOTARY_PORT}
+      PUBLIC_URL: ${REACT_APP_NOTARY_URL}
+      NODE_ENV: development
+    depends_on:
+      - mongodb
+    # Wait 15 seconds before starting notary
+    command: /bin/sh -c "sleep 15 && npm start"
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
