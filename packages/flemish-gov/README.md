@@ -22,39 +22,7 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3004:3004 --rm
 
 ### Production mode
 
-#### Build
-
-Without args:
-
-```sh
-docker build -t ebsi:1-demo-front-ends-flemish-gov .
-```
-
-The build currently accepts 2 ARGs:
-
-- `PUBLIC_URL`: the final URL of the webapp (without trailing slash)
-- `REACT_APP_DEMONSTRATOR_URL`: URL of the EBSI Experience WebApp (demonstrator, without trailing slash)
-- `REACT_APP_DIPLOMA_API_URL`: URL of Diploma API
-- `REACT_APP_UNIVERSITY_API_URL`: URL of the backend API
-- `REACT_APP_WALLET_URL`: the URL of the wallet WebApp (without trailing slash)
-
-Example:
-
-```sh
-docker build --build-arg PUBLIC_URL=https://app.ebsi.tech.ec.europa.eu/demo/flemish-gov --build-arg REACT_APP_WALLET_URL=https://api.ebsi.tech.ec.europa.eu/wallet -t ebsi:1-demo-front-ends-flemish-gov .
-```
-
-#### Serve
-
-If you want to run the webapp locally, you can use the embedded nginx server:
-
-```sh
-docker run -p 8080:80 ebsi:1-demo-front-ends-flemish-gov
-```
-
-Open http://localhost:8080/.
-
-Note: the nginx conf is unaware of the final URL of the webapp, you might need to use a reverse proxy or to change the `nginx.conf` file to your needs.
+Build from the root Dockerfile.
 
 ## Run the project locally
 
@@ -87,3 +55,5 @@ You can customize the links displayed by the page by setting these environment v
 - `REACT_APP_DEMONSTRATOR_URL`
 - `REACT_APP_DIPLOMA_API_URL`
 - `REACT_APP_WALLET_URL`
+- `REACT_APP_BACKEND_INTERNAL_URL`
+- `REACT_APP_BACKEND_EXTERNAL_URL`

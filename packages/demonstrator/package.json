@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jose": "^1.20.0",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-dom": "^16.12.0",
@@ -11,7 +12,7 @@
   "scripts": {
     "lint:js": "eslint src",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./scripts/build.js",
     "test:dev": "react-scripts test",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
@@ -23,13 +24,15 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all",
-      "ie 11"
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.12.0"
   }
 }

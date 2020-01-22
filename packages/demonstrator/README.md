@@ -22,13 +22,7 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3001:3001 --rm
 
 ### Production mode
 
-```sh
-docker build -t ebsi:1-demo-front-ends-demonstrator .
-```
-
-```sh
-docker run -p 3001:80 ebsi:1-demo-front-ends-demonstrator
-```
+Build from the root Dockerfile.
 
 ## Run the project locally
 
@@ -65,3 +59,4 @@ You can customize the links displayed by the page by setting these environment v
 - `REACT_APP_FLEMISH_GOV_URL`
 - `REACT_APP_SPANISH_UNIVERSITY_URL`
 - `REACT_APP_WALLET_URL`
+- `REACT_APP_NOTARY_URL`

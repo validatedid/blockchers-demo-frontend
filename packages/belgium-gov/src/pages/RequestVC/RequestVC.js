@@ -7,6 +7,11 @@ import {
   P,
   styles as typographyStyles
 } from "../../components/Typography/Typography";
+import {
+  REACT_APP_WALLET_URL,
+  REACT_APP_WALLET_API,
+  REACT_APP_VERIFIABLE_ID_URL
+} from "../../env";
 
 const REQUEST_STATUS = {
   NOT_SENT: "",
@@ -14,13 +19,6 @@ const REQUEST_STATUS = {
   OK: "ok",
   FAILED: "failed"
 };
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
-const WALLET_API =
-  process.env.REACT_APP_WALLET_API || "http://localhost:3002/wallet";
-const VERIFIABLE_ID_URL =
-  process.env.REACT_APP_VERIFIABLE_ID_URL ||
-  "http://localhost:3011/wallet/verifiableid";
 
 function RequestVC() {
   const [requestStatus, setRequestStatus] = useState(
@@ -38,7 +36,7 @@ function RequestVC() {
         <P>
           Your request has been issued. Please check your{" "}
           <a
-            href={`${WALLET_URL}/notifications`}
+            href={`${REACT_APP_WALLET_URL}/notifications`}
             className={typographyStyles.a}
           >
             wallet's notifications
@@ -53,7 +51,7 @@ function RequestVC() {
     // 1. Get JWT of Belgian Gov
     const reqHeaders = new Headers();
     reqHeaders.append("Content-Type", "application/json");
-    fetch(`${WALLET_API}/token`, {
+    fetch(`${REACT_APP_WALLET_API}/token`, {
       method: "POST",
       headers: reqHeaders,
       body: JSON.stringify({
@@ -96,7 +94,7 @@ function RequestVC() {
 
         setRequestStatus(REQUEST_STATUS.PENDING);
 
-        fetch(VERIFIABLE_ID_URL, requestOptions)
+        fetch(REACT_APP_VERIFIABLE_ID_URL, requestOptions)
           .then(function(response) {
             if (response.status !== 200) {
               return Promise.reject(

@@ -8,6 +8,12 @@ import {
   P,
   styles as typographyStyles
 } from "../../components/Typography/Typography";
+import {
+  REACT_APP_WALLET_URL,
+  REACT_APP_DIPLOMA_API_URL,
+  REACT_APP_BACKEND_INTERNAL_URL,
+  REACT_APP_URL
+} from "../../env";
 
 const REQUEST_STATUS = {
   NOT_SENT: "",
@@ -15,15 +21,6 @@ const REQUEST_STATUS = {
   OK: "ok",
   FAILED: "failed"
 };
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
-const DIPLOMA_API_URL =
-  process.env.REACT_APP_DIPLOMA_API_URL ||
-  "http://localhost:3007/wallet/diploma";
-const BACKEND_INTERNAL_URL =
-  process.env.REACT_APP_BACKEND_INTERNAL_URL ||
-  "http://host.docker.internal:3222";
-const PUBLIC_URL = process.env.REACT_APP_URL;
 
 function RequestVA() {
   const [requestStatus, setRequestStatus] = useState(
@@ -41,7 +38,7 @@ function RequestVA() {
         <P>
           A request to present your eID VC has been sent. Please check your{" "}
           <a
-            href={`${WALLET_URL}/notifications`}
+            href={`${REACT_APP_WALLET_URL}/notifications`}
             className={typographyStyles.a}
           >
             wallet's notifications
@@ -57,8 +54,8 @@ function RequestVA() {
     const requestBody = {
       requester: "did:ebsi:0xc9A8940Ab318d4d4631a86DcF9E0b9A3594214E5",
       type: [["VerifiableCredential", "EssifVerifiableID"]],
-      subscriberURL: `${BACKEND_INTERNAL_URL}/universities/bachelor-vp`,
-      redirectURL: `${PUBLIC_URL}/issue-va`
+      subscriberURL: `${REACT_APP_BACKEND_INTERNAL_URL}/universities/bachelor-vp`,
+      redirectURL: `${REACT_APP_URL}/issue-va`
     };
 
     const requestHeaders = new Headers();
@@ -73,7 +70,10 @@ function RequestVA() {
 
     setRequestStatus(REQUEST_STATUS.PENDING);
 
-    fetch(`${DIPLOMA_API_URL}/presentation/notification`, requestOptions)
+    fetch(
+      `${REACT_APP_DIPLOMA_API_URL}/presentation/notification`,
+      requestOptions
+    )
       .then(function(response) {
         if (response.status !== 200) {
           return Promise.reject(

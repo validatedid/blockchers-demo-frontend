@@ -9,6 +9,12 @@ import {
 } from "../../components/Typography/Typography";
 import styles from "./ApplyMaster.module.css";
 import mastersIllustration from "../../assets/images/masters.jpg";
+import {
+  REACT_APP_WALLET_URL,
+  REACT_APP_DIPLOMA_API_URL,
+  REACT_APP_BACKEND_INTERNAL_URL,
+  REACT_APP_URL
+} from "../../env";
 
 const REQUEST_STATUS = {
   NOT_SENT: "",
@@ -16,15 +22,6 @@ const REQUEST_STATUS = {
   OK: "ok",
   FAILED: "failed"
 };
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
-const DIPLOMA_API_URL =
-  process.env.REACT_APP_DIPLOMA_API_URL ||
-  "http://localhost:3007/wallet/diploma";
-const BACKEND_INTERNAL_URL =
-  process.env.REACT_APP_BACKEND_INTERNAL_URL ||
-  "http://host.docker.internal:3222";
-const PUBLIC_URL = process.env.REACT_APP_URL;
 
 function ApplyMaster() {
   const [requestStatus, setRequestStatus] = useState(
@@ -42,8 +39,8 @@ function ApplyMaster() {
         ["VerifiableCredential", "EssifVerifiableID"],
         ["VerifiableCredential", "EuropassCredential"]
       ],
-      subscriberURL: `${BACKEND_INTERNAL_URL}/universities/master-vp`,
-      redirectURL: `${PUBLIC_URL}/get-master`
+      subscriberURL: `${REACT_APP_BACKEND_INTERNAL_URL}/universities/master-vp`,
+      redirectURL: `${REACT_APP_URL}/get-master`
     };
 
     const requestHeaders = new Headers();
@@ -58,7 +55,10 @@ function ApplyMaster() {
 
     setRequestStatus(REQUEST_STATUS.PENDING);
 
-    fetch(`${DIPLOMA_API_URL}/presentation/notification`, requestOptions)
+    fetch(
+      `${REACT_APP_DIPLOMA_API_URL}/presentation/notification`,
+      requestOptions
+    )
       .then(function(response) {
         if (response.status !== 200) {
           return Promise.reject(
@@ -130,7 +130,7 @@ function ApplyMaster() {
                     <P>
                       Your application has been sent. Please check your{" "}
                       <a
-                        href={`${WALLET_URL}/notifications`}
+                        href={`${REACT_APP_WALLET_URL}/notifications`}
                         className={typographyStyles.a}
                       >
                         wallet's notifications

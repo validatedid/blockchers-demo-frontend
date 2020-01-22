@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.1",
-    "query-string": "^6.10.0",
+    "axios": "^0.19.2",
+    "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-bootstrap": "^1.0.0-beta.15",
@@ -15,7 +15,7 @@
   "scripts": {
     "lint:js": "eslint src",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./scripts/build.js",
     "test:dev": "react-scripts test",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
@@ -27,8 +27,7 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all",
-      "ie 11"
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",

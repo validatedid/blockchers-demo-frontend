@@ -11,9 +11,9 @@ import Login from "./Login/Login";
 import Logout from "./Logout/Logout";
 import ApplyMaster from "./ApplyMaster/ApplyMaster";
 import GetMaster from "./GetMaster/GetMaster";
+import { REACT_APP_URL } from "../env";
 
-const publicUrl = process.env.REACT_APP_URL;
-const basename = publicUrl ? new URL(publicUrl).pathname : "";
+const basename = REACT_APP_URL ? new URL(REACT_APP_URL).pathname : "";
 
 function App() {
   return (

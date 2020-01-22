@@ -2,9 +2,7 @@ import React from "react";
 import styles from "./Layout.module.css";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
-
-const DEMONSTRATOR_URL =
-  process.env.REACT_APP_DEMONSTRATOR_URL || "http://localhost:3001/";
+import { REACT_APP_DEMONSTRATOR_URL } from "../../env";
 
 export function Layout({ children }) {
   return (
@@ -12,7 +10,7 @@ export function Layout({ children }) {
       <Header />
       {children}
       <div className={styles.ribbon}>
-        <a className={styles.ribbonText} href={DEMONSTRATOR_URL}>
+        <a className={styles.ribbonText} href={REACT_APP_DEMONSTRATOR_URL}>
           EBSI DEMO
         </a>
       </div>

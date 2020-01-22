@@ -17,7 +17,21 @@ const protocol = HTTPS ? "https" : "http";
 const apiProxy = httpProxy.createProxyServer();
 
 function redirectBasedOnCurrentApp(req, res) {
-  return apiProxy.web(req, res, { target: `${protocol}://${currentApp}` });
+  return apiProxy.web(
+    req,
+    res,
+    { target: `${protocol}://${currentApp}` },
+    e => {
+      console.error(
+        "Reverse Proxy error while targeting",
+        `${protocol}://${currentApp}`,
+        "with req.url =",
+        req.url,
+        "\nFull details:\n",
+        e
+      );
+    }
+  );
 }
 
 // Real magic starts here 🧙

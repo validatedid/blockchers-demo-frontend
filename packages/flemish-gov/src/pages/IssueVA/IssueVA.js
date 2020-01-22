@@ -8,6 +8,10 @@ import {
   P,
   styles as typographyStyles
 } from "../../components/Typography/Typography";
+import {
+  REACT_APP_WALLET_URL,
+  REACT_APP_BACKEND_EXTERNAL_URL
+} from "../../env";
 
 const REQUEST_STATUS = {
   NOT_SENT: "",
@@ -15,10 +19,6 @@ const REQUEST_STATUS = {
   OK: "ok",
   FAILED: "failed"
 };
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
-const BACKEND_EXTERNAL_URL =
-  process.env.REACT_APP_BACKEND_EXTERNAL_URL || "http://localhost:3222";
 
 function IssueVA() {
   const [requestStatus, setRequestStatus] = useState(
@@ -36,7 +36,7 @@ function IssueVA() {
         <P>
           Your bachelor VA is on the way. Please check your{" "}
           <a
-            href={`${WALLET_URL}/notifications`}
+            href={`${REACT_APP_WALLET_URL}/notifications`}
             className={typographyStyles.a}
           >
             wallet's notifications
@@ -62,7 +62,10 @@ function IssueVA() {
 
     setRequestStatus(REQUEST_STATUS.PENDING);
 
-    fetch(`${BACKEND_EXTERNAL_URL}/universities/bachelors`, requestOptions)
+    fetch(
+      `${REACT_APP_BACKEND_EXTERNAL_URL}/universities/bachelors`,
+      requestOptions
+    )
       .then(function(response) {
         if (response.status !== 201) {
           return Promise.reject(

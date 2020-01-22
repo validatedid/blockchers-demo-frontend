@@ -1,32 +1,15 @@
 import React from "react";
 import "./App.css";
-
-const ECAS_URL =
-  process.env.REACT_APP_EULOGIN_REGISTER ||
-  "https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId";
-
-const WALLET_URL =
-  process.env.REACT_APP_WALLET_URL || "https://app.ebsi.xyz/wallet";
-
-const BELGIUM_GOV_URL =
-  process.env.REACT_APP_BELGIUM_GOV_URL ||
-  "https://app.ebsi.xyz/demo/belgium-gov";
-
-const FLEMISH_GOV_URL =
-  process.env.REACT_APP_FLEMISH_GOV_URL ||
-  "https://app.ebsi.xyz/demo/flemish-gov";
-
-const SPANISH_UNIVERSITY_URL =
-  process.env.REACT_APP_SPANISH_UNIVERSITY_URL ||
-  "https://app.ebsi.xyz/demo/spanish-university";
-
-const EU_FUNDING_URL =
-  process.env.REACT_APP_EU_FUNDING_URL ||
-  "https://app.ebsi.xyz/demo/eu-funding";
-
-const NOTARY_URL =
-  process.env.REACT_APP_NOTARY_URL || "http://localhost:8080/notary";
-const ECA_URL = process.env.REACT_APP_ECA_URL || "https://ebsi.compell.io/";
+import {
+  REACT_APP_EULOGIN_REGISTER,
+  REACT_APP_WALLET_URL,
+  REACT_APP_BELGIUM_GOV_URL,
+  REACT_APP_FLEMISH_GOV_URL,
+  REACT_APP_SPANISH_UNIVERSITY_URL,
+  REACT_APP_EU_FUNDING_URL,
+  REACT_APP_NOTARY_URL,
+  REACT_APP_ECA_URL
+} from "./env";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("Jwt");
@@ -63,7 +46,7 @@ function App() {
                   href: "#"
                 }
               : {
-                  href: ECAS_URL
+                  href: REACT_APP_EULOGIN_REGISTER
                 })}
           >
             create one here
@@ -83,7 +66,7 @@ function App() {
                     href: "#"
                   }
                 : {
-                    href: WALLET_URL
+                    href: REACT_APP_WALLET_URL
                   })}
             >
               EBSI Wallet
@@ -107,7 +90,7 @@ function App() {
                     href: "#"
                   }
                 : {
-                    href: BELGIUM_GOV_URL
+                    href: REACT_APP_BELGIUM_GOV_URL
                   })}
             >
               Federal Government of Belgium website
@@ -132,7 +115,7 @@ function App() {
                     href: "#"
                   }
                 : {
-                    href: FLEMISH_GOV_URL
+                    href: REACT_APP_FLEMISH_GOV_URL
                   })}
             >
               Flemish Government website
@@ -159,7 +142,7 @@ function App() {
                     href: "#"
                   }
                 : {
-                    href: SPANISH_UNIVERSITY_URL
+                    href: REACT_APP_SPANISH_UNIVERSITY_URL
                   })}
             >
               Spanish University website
@@ -189,7 +172,7 @@ function App() {
                     href: "#"
                   }
                 : {
-                    href: EU_FUNDING_URL
+                    href: REACT_APP_EU_FUNDING_URL
                   })}
             >
               EU Funding website
@@ -206,11 +189,11 @@ function App() {
         )}
         <p>
           Optional: you can visit{" "}
-          <a href={ECA_URL} className="App-link">
+          <a href={REACT_APP_ECA_URL} className="App-link">
             ECA
           </a>{" "}
           or{" "}
-          <a href={NOTARY_URL} className="App-link">
+          <a href={REACT_APP_NOTARY_URL} className="App-link">
             notary
           </a>
         </p>

@@ -8,6 +8,10 @@ import {
 } from "../../components/Typography/Typography";
 import styles from "./GetMaster.module.css";
 import mastersIllustration from "../../assets/images/masters.jpg";
+import {
+  REACT_APP_WALLET_URL,
+  REACT_APP_BACKEND_EXTERNAL_URL
+} from "../../env";
 
 const REQUEST_STATUS = {
   NOT_SENT: "",
@@ -15,10 +19,6 @@ const REQUEST_STATUS = {
   OK: "ok",
   FAILED: "failed"
 };
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
-const BACKEND_EXTERNAL_URL =
-  process.env.REACT_APP_BACKEND_EXTERNAL_URL || "http://localhost:3222";
 
 function GetMaster() {
   const [requestStatus, setRequestStatus] = useState(
@@ -44,7 +44,10 @@ function GetMaster() {
 
     setRequestStatus(REQUEST_STATUS.PENDING);
 
-    fetch(`${BACKEND_EXTERNAL_URL}/universities/masters`, requestOptions)
+    fetch(
+      `${REACT_APP_BACKEND_EXTERNAL_URL}/universities/masters`,
+      requestOptions
+    )
       .then(function(response) {
         if (response.status !== 201) {
           return Promise.reject(
@@ -95,7 +98,7 @@ function GetMaster() {
                 <P>
                   Your Master has been sent. Please check your{" "}
                   <a
-                    href={`${WALLET_URL}/notifications`}
+                    href={`${REACT_APP_WALLET_URL}/notifications`}
                     className={typographyStyles.a}
                   >
                     wallet's notifications

@@ -9,8 +9,7 @@ import {
   styles as typographyStyles
 } from "../../components/Typography/Typography";
 import { AuthContext } from "../../components/Auth/Auth";
-
-const WALLET_URL = process.env.REACT_APP_WALLET_URL || "http://localhost:3000";
+import { REACT_APP_WALLET_URL } from "../../env";
 
 function Homepage() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -40,7 +39,7 @@ function Homepage() {
               <P>
                 Your bachelor VA is on the way. Please check your{" "}
                 <a
-                  href={`${WALLET_URL}/notifications`}
+                  href={`${REACT_APP_WALLET_URL}/notifications`}
                   className={typographyStyles.a}
                 >
                   wallet's notifications
