@@ -77,6 +77,7 @@ function RequestVC() {
           issuer: "did:ebsi:0x45fd1d42E0f33B93ECCA7E4fcE984948867cD256",
           credentialSubject: {
             ...data,
+            birthName: data.birthName || "", // Make sure to pass birthName
             id: JWT.did,
             govId: ""
           }
@@ -125,6 +126,7 @@ function RequestVC() {
   return (
     <Fragment>
       <H1>Request eID VC</H1>
+      <P>All the fields are required unless otherwise stated.</P>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId="exampleForm.personIdentifier">
           <Form.Label>Person identifier</Form.Label>
@@ -173,19 +175,9 @@ function RequestVC() {
           )}
         </Form.Group>
         <Form.Group controlId="exampleForm.birthName">
-          <Form.Label>Birth Name</Form.Label>
-          <Form.Control
-            type="text"
-            name="birthName"
-            ref={register({ required: true })}
-            isInvalid={!!errors.birthName}
-          />
+          <Form.Label>Birth Name (optional)</Form.Label>
+          <Form.Control type="text" name="birthName" />
           <Form.Text className="text-muted">e.g. Eva</Form.Text>
-          {errors.birthName && (
-            <Form.Control.Feedback type="invalid">
-              Birth Name is required
-            </Form.Control.Feedback>
-          )}
         </Form.Group>
         <Form.Group controlId="exampleForm.dateOfBirth">
           <Form.Label>Date of birth</Form.Label>
@@ -258,14 +250,6 @@ function RequestVC() {
               name="gender"
               label="Female"
               value="Female"
-              ref={register({ required: true })}
-            />
-            <Form.Check
-              type="radio"
-              id="genderOther"
-              name="gender"
-              label="Other"
-              value="Other"
               ref={register({ required: true })}
             />
             {errors.gender && (

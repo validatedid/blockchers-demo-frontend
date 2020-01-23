@@ -1,7 +1,7 @@
 const REQUIRED_VARIABLES = {
   REACT_APP_EULOGIN_REGISTER:
     process.env.REACT_APP_EULOGIN_REGISTER ||
-    "https://webgate.ec.europa.eu/cas/eim/external/register.cgi?loginRequestId",
+    "https://ecas.ec.europa.eu/cas/eim/external/register.cgi",
   REACT_APP_WALLET_URL:
     process.env.REACT_APP_WALLET_URL || "https://app.ebsi.xyz/wallet",
   REACT_APP_BELGIUM_GOV_URL:
