@@ -34,7 +34,7 @@ function ApplyMaster() {
 
   const onApplyToMaster = () => {
     const requestBody = {
-      requester: "did:ebsi:0xc9A8940Ab318d4d4631a86DcF9E0b9A3594214E5",
+      requester: "did:ebsi:0x6BdE41E0608E32503C9D68E143e079208767bAc3",
       type: [
         ["VerifiableCredential", "EssifVerifiableID"],
         ["VerifiableCredential", "EuropassCredential"]

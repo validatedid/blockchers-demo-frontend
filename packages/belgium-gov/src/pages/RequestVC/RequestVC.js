@@ -74,7 +74,7 @@ function RequestVC() {
         }
 
         const requestBody = {
-          issuer: "did:ebsi:0x45fd1d42E0f33B93ECCA7E4fcE984948867cD256",
+          issuer: "did:ebsi:0x79475f0ffB15eD8c27D7Fe9A0Ceb1585Cc3fB1B3",
           credentialSubject: {
             ...data,
             birthName: data.birthName || "", // Make sure to pass birthName

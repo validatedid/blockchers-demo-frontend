@@ -52,7 +52,7 @@ function RequestVA() {
 
   const onRequestVA = () => {
     const requestBody = {
-      requester: "did:ebsi:0xc9A8940Ab318d4d4631a86DcF9E0b9A3594214E5",
+      requester: "did:ebsi:0xBDB8618DE3ecdF37a4f13caAC7d9abc097bf9FC2",
       type: [["VerifiableCredential", "EssifVerifiableID"]],
       subscriberURL: `${REACT_APP_BACKEND_INTERNAL_URL}/universities/bachelor-vp`,
       redirectURL: `${REACT_APP_URL}/issue-va`
