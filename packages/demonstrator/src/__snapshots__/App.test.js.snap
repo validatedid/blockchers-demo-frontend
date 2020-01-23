@@ -136,24 +136,47 @@ exports[`renders correctly with JWT 1`] = `
         Restart user journey
       </button>
     </p>
+    <hr />
     <p>
-      Optional: you can visit
+      After
        
       <a
         className="App-link"
-        href="https://ebsi.compell.io/"
+        href="https://registry.eca.europa.eu/register"
       >
-        ECA
+        registering your identity(s)
+      </a>
+      , visit the
+       
+      <a
+        className="App-link"
+        href="https://registry.eca.europa.eu"
+      >
+        ECA Registry
       </a>
        
-      or
+      Download the
+       
+      <a
+        className="App-link"
+        download={true}
+        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
+      >
+        testing guidelines
+      </a>
+       
+      for more information.
+    </p>
+    <p>
+      You can also visit the
        
       <a
         className="App-link"
         href="https://app.ebsi.xyz/notary"
       >
-        notary
+        Notary app
       </a>
+      .
     </p>
   </main>
 </div>
@@ -295,24 +318,47 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
         Restart user journey
       </button>
     </p>
+    <hr />
     <p>
-      Optional: you can visit
+      After
        
       <a
         className="App-link"
-        href="https://ebsi.compell.io/"
+        href="https://registry.eca.europa.eu/register"
       >
-        ECA
+        registering your identity(s)
+      </a>
+      , visit the
+       
+      <a
+        className="App-link"
+        href="https://registry.eca.europa.eu"
+      >
+        ECA Registry
       </a>
        
-      or
+      Download the
+       
+      <a
+        className="App-link"
+        download={true}
+        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
+      >
+        testing guidelines
+      </a>
+       
+      for more information.
+    </p>
+    <p>
+      You can also visit the
        
       <a
         className="App-link"
         href="https://app.ebsi.xyz/notary"
       >
-        notary
+        Notary app
       </a>
+      .
     </p>
   </main>
 </div>
@@ -454,24 +500,47 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
         Restart user journey
       </button>
     </p>
+    <hr />
     <p>
-      Optional: you can visit
+      After
        
       <a
         className="App-link"
-        href="https://ebsi.compell.io/"
+        href="https://registry.eca.europa.eu/register"
       >
-        ECA
+        registering your identity(s)
+      </a>
+      , visit the
+       
+      <a
+        className="App-link"
+        href="https://registry.eca.europa.eu"
+      >
+        ECA Registry
       </a>
        
-      or
+      Download the
+       
+      <a
+        className="App-link"
+        download={true}
+        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
+      >
+        testing guidelines
+      </a>
+       
+      for more information.
+    </p>
+    <p>
+      You can also visit the
        
       <a
         className="App-link"
         href="https://app.ebsi.xyz/notary"
       >
-        notary
+        Notary app
       </a>
+      .
     </p>
   </main>
 </div>
@@ -613,24 +682,47 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
         Restart user journey
       </button>
     </p>
+    <hr />
     <p>
-      Optional: you can visit
+      After
        
       <a
         className="App-link"
-        href="https://ebsi.compell.io/"
+        href="https://registry.eca.europa.eu/register"
       >
-        ECA
+        registering your identity(s)
+      </a>
+      , visit the
+       
+      <a
+        className="App-link"
+        href="https://registry.eca.europa.eu"
+      >
+        ECA Registry
       </a>
        
-      or
+      Download the
+       
+      <a
+        className="App-link"
+        download={true}
+        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
+      >
+        testing guidelines
+      </a>
+       
+      for more information.
+    </p>
+    <p>
+      You can also visit the
        
       <a
         className="App-link"
         href="https://app.ebsi.xyz/notary"
       >
-        notary
+        Notary app
       </a>
+      .
     </p>
   </main>
 </div>
@@ -662,6 +754,8 @@ exports[`renders correctly without JWT 1`] = `
       <a
         className="App-link"
         href="https://ecas.ec.europa.eu/cas/eim/external/register.cgi"
+        rel="noopener"
+        target="_blank"
       >
         create one here
       </a>
@@ -760,24 +854,47 @@ exports[`renders correctly without JWT 1`] = `
         .
       </li>
     </ol>
+    <hr />
     <p>
-      Optional: you can visit
+      After
        
       <a
         className="App-link"
-        href="https://ebsi.compell.io/"
+        href="https://registry.eca.europa.eu/register"
       >
-        ECA
+        registering your identity(s)
+      </a>
+      , visit the
+       
+      <a
+        className="App-link"
+        href="https://registry.eca.europa.eu"
+      >
+        ECA Registry
       </a>
        
-      or
+      Download the
+       
+      <a
+        className="App-link"
+        download={true}
+        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
+      >
+        testing guidelines
+      </a>
+       
+      for more information.
+    </p>
+    <p>
+      You can also visit the
        
       <a
         className="App-link"
         href="https://app.ebsi.xyz/notary"
       >
-        notary
+        Notary app
       </a>
+      .
     </p>
   </main>
 </div>

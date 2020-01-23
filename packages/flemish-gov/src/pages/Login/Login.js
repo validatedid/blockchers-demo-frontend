@@ -27,9 +27,10 @@ function Login(props) {
     <>
       <H1>Log in</H1>
       <P>
-        During the login, we will check that you have correctly followed the
-        EBSI onboarding process. If the verification fails, you will be
-        redirected to the onboarding page.
+        This page acts as a demonstrator to simulate the Belgium Flemish
+        Government entity issuing Diploma. During the login simulation, we will
+        check that you have correctly followed the EBSI onboarding process. If
+        the verification fails, you will be redirected to the onboarding page.
       </P>
       <Button variant="primary" onClick={handleLogin}>
         Log in

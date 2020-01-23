@@ -28,9 +28,11 @@ function Login(props) {
       <H1>Log in</H1>
       <P>
         This pages acts as a demonstrator to simulate the Trusted Identity
-        Provider. During the login, we will check that you have correctly
-        followed the EBSI onboarding process. If the verification fails, you
-        will be redirected to the onboarding page.
+        Provider. On real life Trusted Identity Provider Web site, a user should
+        log with his existing credential received from that provider (like eID
+        card reader, token, mobile app…). During the login simulation, we will
+        check that you have correctly followed the EBSI onboarding process. If
+        the verification fails, you will be redirected to the onboarding page.
       </P>
       <Button variant="primary" onClick={handleLogin}>
         Log in

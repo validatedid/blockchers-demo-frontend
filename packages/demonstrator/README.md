@@ -52,8 +52,6 @@ npm run test
 
 You can customize the links displayed by the page by setting these environment variables (ENV in dev, ARG in prod):
 
-- `REACT_APP_ECA_URL`
-- `REACT_APP_EULOGIN_REGISTER`
 - `REACT_APP_BELGIUM_GOV_URL`
 - `REACT_APP_EU_FUNDING_URL`
 - `REACT_APP_FLEMISH_GOV_URL`

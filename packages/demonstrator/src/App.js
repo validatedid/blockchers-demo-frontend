@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
 import {
-  REACT_APP_EULOGIN_REGISTER,
   REACT_APP_WALLET_URL,
   REACT_APP_BELGIUM_GOV_URL,
   REACT_APP_FLEMISH_GOV_URL,
   REACT_APP_SPANISH_UNIVERSITY_URL,
   REACT_APP_EU_FUNDING_URL,
-  REACT_APP_NOTARY_URL,
-  REACT_APP_ECA_URL
+  REACT_APP_NOTARY_URL
 } from "./env";
 
 function App() {
@@ -46,7 +44,10 @@ function App() {
                   href: "#"
                 }
               : {
-                  href: REACT_APP_EULOGIN_REGISTER
+                  href:
+                    "https://ecas.ec.europa.eu/cas/eim/external/register.cgi",
+                  target: "_blank",
+                  rel: "noopener"
                 })}
           >
             create one here
@@ -187,15 +188,35 @@ function App() {
             </button>
           </p>
         )}
+        <hr />
         <p>
-          Optional: you can visit{" "}
-          <a href={REACT_APP_ECA_URL} className="App-link">
-            ECA
-          </a>{" "}
-          or{" "}
-          <a href={REACT_APP_NOTARY_URL} className="App-link">
-            notary
+          After{" "}
+          <a
+            href="https://registry.eca.europa.eu/register"
+            className="App-link"
+          >
+            registering your identity(s)
           </a>
+          , visit the{" "}
+          <a href="https://registry.eca.europa.eu" className="App-link">
+            ECA Registry
+          </a>{" "}
+          Download the{" "}
+          <a
+            href={`${process.env.PUBLIC_URL}/files/EBSI-ECA Registry - Testing Guidelines.pptx`}
+            className="App-link"
+            download
+          >
+            testing guidelines
+          </a>{" "}
+          for more information.
+        </p>
+        <p>
+          You can also visit the{" "}
+          <a href={REACT_APP_NOTARY_URL} className="App-link">
+            Notary app
+          </a>
+          .
         </p>
       </main>
     </div>

@@ -25,7 +25,7 @@ function Homepage() {
       <P>Prerequisites:</P>
       <UL>
         <LI>The user must have created a wallet.</LI>
-        <LI>The user must be logged in using EU Login.</LI>
+        <LI>The user must be logged in the EBSI Wallet using EU Login.</LI>
         <LI>
           The user must have requested her eID VC from the Belgian Federal
           Government.

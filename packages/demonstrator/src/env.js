@@ -1,7 +1,4 @@
 const REQUIRED_VARIABLES = {
-  REACT_APP_EULOGIN_REGISTER:
-    process.env.REACT_APP_EULOGIN_REGISTER ||
-    "https://ecas.ec.europa.eu/cas/eim/external/register.cgi",
   REACT_APP_WALLET_URL:
     process.env.REACT_APP_WALLET_URL || "https://app.ebsi.xyz/wallet",
   REACT_APP_BELGIUM_GOV_URL:
@@ -17,8 +14,7 @@ const REQUIRED_VARIABLES = {
     process.env.REACT_APP_EU_FUNDING_URL ||
     "https://app.ebsi.xyz/demo/eu-funding",
   REACT_APP_NOTARY_URL:
-    process.env.REACT_APP_NOTARY_URL || "https://app.ebsi.xyz/notary",
-  REACT_APP_ECA_URL: process.env.REACT_APP_ECA_URL || "https://ebsi.compell.io/"
+    process.env.REACT_APP_NOTARY_URL || "https://app.ebsi.xyz/notary"
 };
 
 module.exports = REQUIRED_VARIABLES;
