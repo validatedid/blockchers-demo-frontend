@@ -23,16 +23,7 @@ exports[`renders correctly with JWT 1`] = `
     <p
       className="done"
     >
-      To follow the User Journey, you need to use your EU Login account. If you do not have one, you can
-       
-      <a
-        className="App-link"
-        href="#"
-        tabIndex="-1"
-      >
-        create one here
-      </a>
-      .
+      To follow the User Journey, please go sequentially through each step hereunder.
     </p>
     <ol>
       <li
@@ -52,7 +43,7 @@ exports[`renders correctly with JWT 1`] = `
           EBSI Wallet
         </a>
          
-        and setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+        and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
       </li>
       <li>
         Federal Government of Belgium
@@ -135,48 +126,12 @@ exports[`renders correctly with JWT 1`] = `
       >
         Restart user journey
       </button>
-    </p>
-    <hr />
-    <p>
-      After
-       
       <a
-        className="App-link"
-        href="https://registry.eca.europa.eu/register"
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
       >
-        registering your identity(s)
+        Your Wallet Credentials
       </a>
-      , visit the
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu"
-      >
-        ECA Registry
-      </a>
-       
-      Download the
-       
-      <a
-        className="App-link"
-        download={true}
-        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
-      >
-        testing guidelines
-      </a>
-       
-      for more information.
-    </p>
-    <p>
-      You can also visit the
-       
-      <a
-        className="App-link"
-        href="https://app.ebsi.xyz/notary"
-      >
-        Notary app
-      </a>
-      .
     </p>
   </main>
 </div>
@@ -205,16 +160,7 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
     <p
       className="done"
     >
-      To follow the User Journey, you need to use your EU Login account. If you do not have one, you can
-       
-      <a
-        className="App-link"
-        href="#"
-        tabIndex="-1"
-      >
-        create one here
-      </a>
-      .
+      To follow the User Journey, please go sequentially through each step hereunder.
     </p>
     <ol>
       <li
@@ -234,7 +180,7 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
           EBSI Wallet
         </a>
          
-        and setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+        and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
       </li>
       <li
         className="done"
@@ -317,48 +263,12 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
       >
         Restart user journey
       </button>
-    </p>
-    <hr />
-    <p>
-      After
-       
       <a
-        className="App-link"
-        href="https://registry.eca.europa.eu/register"
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
       >
-        registering your identity(s)
+        Your Wallet Credentials
       </a>
-      , visit the
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu"
-      >
-        ECA Registry
-      </a>
-       
-      Download the
-       
-      <a
-        className="App-link"
-        download={true}
-        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
-      >
-        testing guidelines
-      </a>
-       
-      for more information.
-    </p>
-    <p>
-      You can also visit the
-       
-      <a
-        className="App-link"
-        href="https://app.ebsi.xyz/notary"
-      >
-        Notary app
-      </a>
-      .
     </p>
   </main>
 </div>
@@ -387,16 +297,7 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
     <p
       className="done"
     >
-      To follow the User Journey, you need to use your EU Login account. If you do not have one, you can
-       
-      <a
-        className="App-link"
-        href="#"
-        tabIndex="-1"
-      >
-        create one here
-      </a>
-      .
+      To follow the User Journey, please go sequentially through each step hereunder.
     </p>
     <ol>
       <li
@@ -416,7 +317,7 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
           EBSI Wallet
         </a>
          
-        and setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+        and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
       </li>
       <li
         className="done"
@@ -499,48 +400,12 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
       >
         Restart user journey
       </button>
-    </p>
-    <hr />
-    <p>
-      After
-       
       <a
-        className="App-link"
-        href="https://registry.eca.europa.eu/register"
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
       >
-        registering your identity(s)
+        Your Wallet Credentials
       </a>
-      , visit the
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu"
-      >
-        ECA Registry
-      </a>
-       
-      Download the
-       
-      <a
-        className="App-link"
-        download={true}
-        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
-      >
-        testing guidelines
-      </a>
-       
-      for more information.
-    </p>
-    <p>
-      You can also visit the
-       
-      <a
-        className="App-link"
-        href="https://app.ebsi.xyz/notary"
-      >
-        Notary app
-      </a>
-      .
     </p>
   </main>
 </div>
@@ -569,16 +434,7 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
     <p
       className="done"
     >
-      To follow the User Journey, you need to use your EU Login account. If you do not have one, you can
-       
-      <a
-        className="App-link"
-        href="#"
-        tabIndex="-1"
-      >
-        create one here
-      </a>
-      .
+      To follow the User Journey, please go sequentially through each step hereunder.
     </p>
     <ol>
       <li
@@ -598,7 +454,7 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
           EBSI Wallet
         </a>
          
-        and setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+        and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
       </li>
       <li
         className="done"
@@ -681,48 +537,12 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
       >
         Restart user journey
       </button>
-    </p>
-    <hr />
-    <p>
-      After
-       
       <a
-        className="App-link"
-        href="https://registry.eca.europa.eu/register"
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
       >
-        registering your identity(s)
+        Your Wallet Credentials
       </a>
-      , visit the
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu"
-      >
-        ECA Registry
-      </a>
-       
-      Download the
-       
-      <a
-        className="App-link"
-        download={true}
-        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
-      >
-        testing guidelines
-      </a>
-       
-      for more information.
-    </p>
-    <p>
-      You can also visit the
-       
-      <a
-        className="App-link"
-        href="https://app.ebsi.xyz/notary"
-      >
-        Notary app
-      </a>
-      .
     </p>
   </main>
 </div>
@@ -749,17 +569,7 @@ exports[`renders correctly without JWT 1`] = `
       User journey demonstrator
     </h2>
     <p>
-      To follow the User Journey, you need to use your EU Login account. If you do not have one, you can
-       
-      <a
-        className="App-link"
-        href="https://ecas.ec.europa.eu/cas/eim/external/register.cgi"
-        rel="noopener"
-        target="_blank"
-      >
-        create one here
-      </a>
-      .
+      To follow the User Journey, please go sequentially through each step hereunder.
     </p>
     <ol>
       <li>
@@ -776,7 +586,7 @@ exports[`renders correctly without JWT 1`] = `
           EBSI Wallet
         </a>
          
-        and setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+        and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
       </li>
       <li
         className="disabled"
@@ -854,48 +664,6 @@ exports[`renders correctly without JWT 1`] = `
         .
       </li>
     </ol>
-    <hr />
-    <p>
-      After
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu/register"
-      >
-        registering your identity(s)
-      </a>
-      , visit the
-       
-      <a
-        className="App-link"
-        href="https://registry.eca.europa.eu"
-      >
-        ECA Registry
-      </a>
-       
-      Download the
-       
-      <a
-        className="App-link"
-        download={true}
-        href="/files/EBSI-ECA Registry - Testing Guidelines.pptx"
-      >
-        testing guidelines
-      </a>
-       
-      for more information.
-    </p>
-    <p>
-      You can also visit the
-       
-      <a
-        className="App-link"
-        href="https://app.ebsi.xyz/notary"
-      >
-        Notary app
-      </a>
-      .
-    </p>
   </main>
 </div>
 `;

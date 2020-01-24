@@ -5,8 +5,7 @@ import {
   REACT_APP_BELGIUM_GOV_URL,
   REACT_APP_FLEMISH_GOV_URL,
   REACT_APP_SPANISH_UNIVERSITY_URL,
-  REACT_APP_EU_FUNDING_URL,
-  REACT_APP_NOTARY_URL
+  REACT_APP_EU_FUNDING_URL
 } from "./env";
 
 function App() {
@@ -34,25 +33,8 @@ function App() {
         <h1 className="h1">European Blockchain Services Infrastructure</h1>
         <h2 className="h2">User journey demonstrator</h2>
         <p {...(isAuthenticated && { className: "done" })}>
-          To follow the User Journey, you need to use your EU Login account. If
-          you do not have one, you can{" "}
-          <a
-            className="App-link"
-            {...(isAuthenticated
-              ? {
-                  tabIndex: "-1",
-                  href: "#"
-                }
-              : {
-                  href:
-                    "https://ecas.ec.europa.eu/cas/eim/external/register.cgi",
-                  target: "_blank",
-                  rel: "noopener"
-                })}
-          >
-            create one here
-          </a>
-          .
+          To follow the User Journey, please go sequentially through each step
+          hereunder.
         </p>
         <ol>
           <li {...(isAuthenticated && { className: "done" })}>
@@ -72,9 +54,9 @@ function App() {
             >
               EBSI Wallet
             </a>{" "}
-            and setup your EBSI account to follow the user journey. In your
-            wallet, you will create your own Decentralized ID and a set of
-            public-private keys.
+            and authenticate via EU Login, then setup your EBSI account to
+            follow the user journey. In your wallet, you will create your own
+            Decentralized ID and a set of public-private keys.
           </li>
           <li
             {...(!isAuthenticated && { className: "disabled" })}
@@ -186,38 +168,11 @@ function App() {
             <button type="button" onClick={restart} className="button">
               Restart user journey
             </button>
+            <a href={`${REACT_APP_WALLET_URL}/credentials`} className="button">
+              Your Wallet Credentials
+            </a>
           </p>
         )}
-        <hr />
-        <p>
-          After{" "}
-          <a
-            href="https://registry.eca.europa.eu/register"
-            className="App-link"
-          >
-            registering your identity(s)
-          </a>
-          , visit the{" "}
-          <a href="https://registry.eca.europa.eu" className="App-link">
-            ECA Registry
-          </a>{" "}
-          Download the{" "}
-          <a
-            href={`${process.env.PUBLIC_URL}/files/EBSI-ECA Registry - Testing Guidelines.pptx`}
-            className="App-link"
-            download
-          >
-            testing guidelines
-          </a>{" "}
-          for more information.
-        </p>
-        <p>
-          You can also visit the{" "}
-          <a href={REACT_APP_NOTARY_URL} className="App-link">
-            Notary app
-          </a>
-          .
-        </p>
       </main>
     </div>
   );

@@ -7,7 +7,6 @@ ARG SPANISH_UNIVERSITY_PUBLIC_URL=https://app.ebsi.xyz/demo/spanish-university
 ARG REACT_APP_VERIFIABLE_ID_URL=https://api.ebsi.xyz/wallet/verifiableid
 ARG REACT_APP_WALLET_API=https://api.ebsi.xyz/wallet
 ARG REACT_APP_WALLET_URL=https://app.ebsi.xyz/wallet
-ARG REACT_APP_NOTARY_URL=https://app.ebsi.xyz/notary
 ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
 ARG REACT_APP_BACKEND_URL=https://api.ebsi.xyz
 
@@ -44,7 +43,6 @@ ARG REACT_APP_EU_FUNDING_URL=${EU_FUNDING_PUBLIC_URL}
 ARG REACT_APP_FLEMISH_GOV_URL=${FLEMISH_GOV_PUBLIC_URL}
 ARG REACT_APP_SPANISH_UNIVERSITY_URL=${SPANISH_UNIVERSITY_PUBLIC_URL}
 ARG REACT_APP_WALLET_URL
-ARG REACT_APP_NOTARY_URL
 RUN npm run build
 
 ## Stage 3: build Flemish Government website

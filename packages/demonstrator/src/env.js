@@ -12,9 +12,7 @@ const REQUIRED_VARIABLES = {
     "https://app.ebsi.xyz/demo/spanish-university",
   REACT_APP_EU_FUNDING_URL:
     process.env.REACT_APP_EU_FUNDING_URL ||
-    "https://app.ebsi.xyz/demo/eu-funding",
-  REACT_APP_NOTARY_URL:
-    process.env.REACT_APP_NOTARY_URL || "https://app.ebsi.xyz/notary"
+    "https://app.ebsi.xyz/demo/eu-funding"
 };
 
 module.exports = REQUIRED_VARIABLES;

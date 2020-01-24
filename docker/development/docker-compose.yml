@@ -25,7 +25,6 @@ services:
         REACT_APP_FLEMISH_GOV_URL: ${FLEMISH_GOV_PUBLIC_URL:?FLEMISH_GOV_PUBLIC_URL is not defined or empty}
         REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
         REACT_APP_WALLET: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
-        REACT_APP_NOTARIZATION: ${REACT_APP_NOTARY_URL:?REACT_APP_NOTARY_URL is not defined or empty}
         REACT_APP_WALLET_API: ${REACT_APP_WALLET_API:?REACT_APP_WALLET_API is not defined or empty}
         REACT_APP_ID_HUB_API: ${REACT_APP_ID_HUB_API:?REACT_APP_ID_HUB_API is not defined or empty}
         REACT_APP_EULOGIN: ${REACT_APP_EULOGIN:?REACT_APP_EULOGIN is not defined or empty}
@@ -42,7 +41,6 @@ services:
       REACT_APP_SPANISH_UNIVERSITY_URL: ${SPANISH_UNIVERSITY_PUBLIC_URL:?SPANISH_UNIVERSITY_PUBLIC_URL is not defined or empty}
       REACT_APP_WALLET_URL: ${REACT_APP_WALLET_URL:?REACT_APP_WALLET_URL is not defined or empty}
       REACT_APP_URL: ${DEMONSTRATOR_PUBLIC_URL:?DEMONSTRATOR_PUBLIC_URL is not defined or empty}
-      REACT_APP_NOTARY_URL: ${REACT_APP_NOTARY_URL:?REACT_APP_NOTARY_URL is not defined or empty}
     ports:
       - "${DEMONSTRATOR_PORT}:${DEMONSTRATOR_PORT}"
     volumes:
@@ -117,7 +115,6 @@ services:
     environment:
       HTTPS: "OFF"
       PORT: ${NOTARY_PORT}
-      PUBLIC_URL: ${REACT_APP_NOTARY_URL}
       NODE_ENV: development
     depends_on:
       - mongodb
