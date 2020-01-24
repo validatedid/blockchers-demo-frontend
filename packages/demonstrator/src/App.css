@@ -16,7 +16,7 @@ body {
 .App::before {
   position: absolute;
   content: " ";
-  background-image: url(./logo.svg);
+  background-image: url(./assets/logo.svg);
   background-repeat: no-repeat;
   width: 48rem;
   height: 36rem;
@@ -40,40 +40,22 @@ body {
 
 .App ol {
   list-style: none;
-  counter-reset: ebsi-counter;
   padding: 0;
 }
 
 .App li {
-  counter-increment: ebsi-counter;
   font-size: 1.25rem;
   line-height: 1.25;
-  max-width: 48rem;
   padding: 0.25rem 0;
-  font-weight: 600;
 }
 
 .App li + li {
-  margin-top: 1.75rem;
-}
-
-.App li::before {
-  content: counter(ebsi-counter) ". ";
-  color: #fff;
-  font-weight: bold;
-  font-size: 2rem;
-  padding-right: 4px;
+  margin-top: 2.5rem;
 }
 
 .App li.disabled {
   color: #cfcfcf;
-  pointer-events: none;
   font-weight: 400;
-}
-
-.App li.disabled::before {
-  color: #9f9f9f;
-  display: inline-block;
 }
 
 .disabled .App-link {
@@ -82,14 +64,7 @@ body {
 
 .App li.done {
   color: #cfcfcf;
-  pointer-events: none;
   font-weight: 400;
-}
-
-.App li.done::before {
-  content: "✓";
-  color: #d9d9d9;
-  display: inline-block;
 }
 
 .done .App-link {

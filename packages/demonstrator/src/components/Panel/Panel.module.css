@@ -1,0 +1,30 @@
+.demo-link {
+  margin: 0;
+  text-decoration: underline;
+  background-color: #ffd617;
+  box-sizing: border-box;
+  color: #000;
+  display: inline-block;
+  font: normal normal 400 1rem/1.25rem Arial, sans-serif;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 10rem;
+  text-align: center;
+}
+
+.demo-link:focus,
+.demo-link:hover {
+  color: #000;
+}
+
+.demo-link:focus {
+  outline: 3px solid #000;
+  outline-offset: -3px;
+}
+
+.demo-link:active,
+.demo-link:hover {
+  border: 2px solid #000;
+  padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
