@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 
 export const AuthContext = React.createContext({});
@@ -7,7 +7,9 @@ export const LOGIN_CODES = {
   SUCCESS: 0,
   MISSING_JWT: 1,
   MALFORMED_JWT: 2,
-  MISSING_SU_TICKET: 3
+  MISSING_PROPS_JWT: 3,
+  EXPIRED_JWT: 4,
+  MISSING_SU_TICKET: 5
 };
 
 function parseJwt(token) {
@@ -24,16 +26,23 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+function isTokenExpired(payload) {
+  if (!payload || !payload.exp) return true;
+  return +payload.exp * 1000 < Date.now();
+}
+
+function isTokenMissingProperties(payload) {
+  if (!payload) return true;
+
+  const properties = ["sub", "iat", "exp", "aud", "did", "userName"];
+  const isMissing = prop => !payload[prop];
+  return properties.some(isMissing);
+}
+
 export default function Auth({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem("Ticket-SU") !== null
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [JWT, setJWT] = useState({});
   const [rawJWT, setRawJWT] = useState("");
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
 
   // Check if "Ticket-SU" and JWT are present in session
   const checkAuth = () => {
@@ -50,7 +59,18 @@ export default function Auth({ children }) {
     }
 
     try {
-      setJWT(parseJwt(localStorage.getItem("Jwt")));
+      const payload = parseJwt(localStorage.getItem("Jwt"));
+      if (isTokenMissingProperties(payload)) {
+        setIsAuthenticated(false);
+        return LOGIN_CODES.MISSING_PROPS_JWT;
+      }
+
+      if (isTokenExpired(payload)) {
+        setIsAuthenticated(false);
+        return LOGIN_CODES.EXPIRED_JWT;
+      }
+
+      setJWT(payload);
       setRawJWT(localStorage.getItem("Jwt"));
     } catch (e) {
       // Unable to parse JWT (malformed)
@@ -74,6 +94,10 @@ export default function Auth({ children }) {
     localStorage.removeItem("master-va-issued");
     setIsAuthenticated(false);
   };
+
+  useLayoutEffect(() => {
+    checkAuth();
+  }, []);
 
   return (
     <AuthContext.Provider

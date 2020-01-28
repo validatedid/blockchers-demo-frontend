@@ -37,17 +37,36 @@ function Login(props) {
       <Button variant="primary" onClick={handleLogin}>
         Log in
       </Button>
-      {errorDuringLogin === LOGIN_CODES.MALFORMED_JWT && (
-        <div className="invalid-feedback" style={{ display: "block" }}>
-          Error during login: JWT is malformed, parsing failed.
-        </div>
-      )}
-      {errorDuringLogin === LOGIN_CODES.MISSING_JWT && (
-        <div className="invalid-feedback" style={{ display: "block" }}>
-          Error during login: JWT not available or empty. Please make sure you
-          are authenticated with the wallet.
-        </div>
-      )}
+      {(() => {
+        if (errorDuringLogin === LOGIN_CODES.MALFORMED_JWT) {
+          return (
+            <div className="invalid-feedback" style={{ display: "block" }}>
+              Error during login: JWT is malformed, parsing failed.
+            </div>
+          );
+        } else if (errorDuringLogin === LOGIN_CODES.MISSING_JWT) {
+          return (
+            <div className="invalid-feedback" style={{ display: "block" }}>
+              Error during login: JWT not available or empty. Please make sure
+              you are authenticated with the wallet.
+            </div>
+          );
+        } else if (errorDuringLogin === LOGIN_CODES.MISSING_PROPS_JWT) {
+          return (
+            <div className="invalid-feedback" style={{ display: "block" }}>
+              Error during login: your JWT is missing some essential properties.
+              Please try to log in again in the wallet.
+            </div>
+          );
+        } else if (errorDuringLogin === LOGIN_CODES.EXPIRED_JWT) {
+          return (
+            <div className="invalid-feedback" style={{ display: "block" }}>
+              Error during login: your JWT has expired. Please log in again in
+              the wallet.
+            </div>
+          );
+        }
+      })()}
     </>
   );
 }

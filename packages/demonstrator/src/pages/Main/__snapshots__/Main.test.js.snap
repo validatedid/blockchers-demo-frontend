@@ -1,0 +1,1411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with JWT 1`] = `
+<div
+  className="app"
+>
+  <main
+    className="main"
+  >
+    <p
+      className="p disclaimer"
+    >
+      Disclaimer: this is a demo website to show the technical capabilities of the EBSI project. We use dummy data! All the public entities are simulated, there is no real interaction with any of them.
+    </p>
+    <h1
+      className="h1"
+    >
+      Test EBSI User Journey Demo by taking the following steps by order
+    </h1>
+    <ol
+      className="ol"
+    >
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            European Self-Sovereign Identity
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step1.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Open your EBSI Wallet account
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the EBSI Wallet and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/wallet"
+              >
+                Wallet
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Federal Government of Belgium
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step2.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your eID Verifiable Credential
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open a request on the Federal Government of Belgium website to get your verifiable ID. The Belgium Gov. verifies the request and issues the ID Verifiable Credential, which will be stored in your wallet. With your digital ID, you get access to other services in EBSI platform.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/belgium-gov"
+              >
+                Belgian Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Flemish Government
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step3.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Bachelor Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the Flemish Government website and make a request to get your Bachelor Diploma. The Flemish Government verifies your request and your verifiable eID and issues the Bachelor Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/flemish-gov"
+              >
+                Flemish Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Spanish University
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step4.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Master Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can apply for a master study to a Spanish University. The university checks your verifiable eID and Bachelor Diploma VC and accepts you as a registered student. After graduation, you can request your master diploma. The Spanish University issues the Master Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/spanish-university"
+              >
+                Spanish Uni
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            EU Funding Institution
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step5.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Notarize your documents
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can participate in a call for proposals to get EU funding for your start-up. You can notarize documents, justifying the spending of the grant received, which the EU auditors can verify.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/eu-funding"
+              >
+                EU Funding
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p>
+      <button
+        className="button"
+        onClick={[Function]}
+        type="button"
+      >
+        Restart user journey
+      </button>
+      <a
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
+      >
+        Your Wallet Credentials
+      </a>
+    </p>
+  </main>
+</div>
+`;
+
+exports[`renders correctly with JWT and eID VC issued 1`] = `
+<div
+  className="app"
+>
+  <main
+    className="main"
+  >
+    <p
+      className="p disclaimer"
+    >
+      Disclaimer: this is a demo website to show the technical capabilities of the EBSI project. We use dummy data! All the public entities are simulated, there is no real interaction with any of them.
+    </p>
+    <h1
+      className="h1"
+    >
+      Test EBSI User Journey Demo by taking the following steps by order
+    </h1>
+    <ol
+      className="ol"
+    >
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            European Self-Sovereign Identity
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step1.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Open your EBSI Wallet account
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the EBSI Wallet and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/wallet"
+              >
+                Wallet
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Federal Government of Belgium
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step2.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your eID Verifiable Credential
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open a request on the Federal Government of Belgium website to get your verifiable ID. The Belgium Gov. verifies the request and issues the ID Verifiable Credential, which will be stored in your wallet. With your digital ID, you get access to other services in EBSI platform.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/belgium-gov"
+              >
+                Belgian Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Flemish Government
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step3.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Bachelor Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the Flemish Government website and make a request to get your Bachelor Diploma. The Flemish Government verifies your request and your verifiable eID and issues the Bachelor Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/flemish-gov"
+              >
+                Flemish Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Spanish University
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step4.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Master Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can apply for a master study to a Spanish University. The university checks your verifiable eID and Bachelor Diploma VC and accepts you as a registered student. After graduation, you can request your master diploma. The Spanish University issues the Master Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/spanish-university"
+              >
+                Spanish Uni
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            EU Funding Institution
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step5.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Notarize your documents
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can participate in a call for proposals to get EU funding for your start-up. You can notarize documents, justifying the spending of the grant received, which the EU auditors can verify.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/eu-funding"
+              >
+                EU Funding
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p>
+      <button
+        className="button"
+        onClick={[Function]}
+        type="button"
+      >
+        Restart user journey
+      </button>
+      <a
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
+      >
+        Your Wallet Credentials
+      </a>
+    </p>
+  </main>
+</div>
+`;
+
+exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
+<div
+  className="app"
+>
+  <main
+    className="main"
+  >
+    <p
+      className="p disclaimer"
+    >
+      Disclaimer: this is a demo website to show the technical capabilities of the EBSI project. We use dummy data! All the public entities are simulated, there is no real interaction with any of them.
+    </p>
+    <h1
+      className="h1"
+    >
+      Test EBSI User Journey Demo by taking the following steps by order
+    </h1>
+    <ol
+      className="ol"
+    >
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            European Self-Sovereign Identity
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step1.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Open your EBSI Wallet account
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the EBSI Wallet and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/wallet"
+              >
+                Wallet
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Federal Government of Belgium
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step2.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your eID Verifiable Credential
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open a request on the Federal Government of Belgium website to get your verifiable ID. The Belgium Gov. verifies the request and issues the ID Verifiable Credential, which will be stored in your wallet. With your digital ID, you get access to other services in EBSI platform.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/belgium-gov"
+              >
+                Belgian Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Flemish Government
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step3.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Bachelor Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the Flemish Government website and make a request to get your Bachelor Diploma. The Flemish Government verifies your request and your verifiable eID and issues the Bachelor Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/flemish-gov"
+              >
+                Flemish Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Spanish University
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step4.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Master Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can apply for a master study to a Spanish University. The university checks your verifiable eID and Bachelor Diploma VC and accepts you as a registered student. After graduation, you can request your master diploma. The Spanish University issues the Master Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/spanish-university"
+              >
+                Spanish Uni
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            EU Funding Institution
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step5.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Notarize your documents
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can participate in a call for proposals to get EU funding for your start-up. You can notarize documents, justifying the spending of the grant received, which the EU auditors can verify.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/eu-funding"
+              >
+                EU Funding
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p>
+      <button
+        className="button"
+        onClick={[Function]}
+        type="button"
+      >
+        Restart user journey
+      </button>
+      <a
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
+      >
+        Your Wallet Credentials
+      </a>
+    </p>
+  </main>
+</div>
+`;
+
+exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
+<div
+  className="app"
+>
+  <main
+    className="main"
+  >
+    <p
+      className="p disclaimer"
+    >
+      Disclaimer: this is a demo website to show the technical capabilities of the EBSI project. We use dummy data! All the public entities are simulated, there is no real interaction with any of them.
+    </p>
+    <h1
+      className="h1"
+    >
+      Test EBSI User Journey Demo by taking the following steps by order
+    </h1>
+    <ol
+      className="ol"
+    >
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            European Self-Sovereign Identity
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step1.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Open your EBSI Wallet account
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the EBSI Wallet and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/wallet"
+              >
+                Wallet
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Federal Government of Belgium
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step2.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your eID Verifiable Credential
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open a request on the Federal Government of Belgium website to get your verifiable ID. The Belgium Gov. verifies the request and issues the ID Verifiable Credential, which will be stored in your wallet. With your digital ID, you get access to other services in EBSI platform.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/belgium-gov"
+              >
+                Belgian Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Flemish Government
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step3.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Bachelor Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the Flemish Government website and make a request to get your Bachelor Diploma. The Flemish Government verifies your request and your verifiable eID and issues the Bachelor Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/flemish-gov"
+              >
+                Flemish Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li done"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Spanish University
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step4.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Master Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can apply for a master study to a Spanish University. The university checks your verifiable eID and Bachelor Diploma VC and accepts you as a registered student. After graduation, you can request your master diploma. The Spanish University issues the Master Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/spanish-university"
+              >
+                Spanish Uni
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            EU Funding Institution
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step5.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Notarize your documents
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can participate in a call for proposals to get EU funding for your start-up. You can notarize documents, justifying the spending of the grant received, which the EU auditors can verify.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/eu-funding"
+              >
+                EU Funding
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p>
+      <button
+        className="button"
+        onClick={[Function]}
+        type="button"
+      >
+        Restart user journey
+      </button>
+      <a
+        className="button"
+        href="https://app.ebsi.xyz/wallet/credentials"
+      >
+        Your Wallet Credentials
+      </a>
+    </p>
+  </main>
+</div>
+`;
+
+exports[`renders correctly without JWT 1`] = `
+<div
+  className="app"
+>
+  <main
+    className="main"
+  >
+    <p
+      className="p disclaimer"
+    >
+      Disclaimer: this is a demo website to show the technical capabilities of the EBSI project. We use dummy data! All the public entities are simulated, there is no real interaction with any of them.
+    </p>
+    <h1
+      className="h1"
+    >
+      Test EBSI User Journey Demo by taking the following steps by order
+    </h1>
+    <ol
+      className="ol"
+    >
+      <li
+        className="li"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            European Self-Sovereign Identity
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step1.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Open your EBSI Wallet account
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the EBSI Wallet and authenticate via EU Login, then setup your EBSI account to follow the user journey. In your wallet, you will create your own Decentralized ID and a set of public-private keys.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/wallet"
+              >
+                Wallet
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Federal Government of Belgium
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step2.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your eID Verifiable Credential
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open a request on the Federal Government of Belgium website to get your verifiable ID. The Belgium Gov. verifies the request and issues the ID Verifiable Credential, which will be stored in your wallet. With your digital ID, you get access to other services in EBSI platform.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/belgium-gov"
+              >
+                Belgian Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Flemish Government
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step3.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Bachelor Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                Open the Flemish Government website and make a request to get your Bachelor Diploma. The Flemish Government verifies your request and your verifiable eID and issues the Bachelor Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/flemish-gov"
+              >
+                Flemish Gov
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            Spanish University
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step4.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Get your Master Diploma
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can apply for a master study to a Spanish University. The university checks your verifiable eID and Bachelor Diploma VC and accepts you as a registered student. After graduation, you can request your master diploma. The Spanish University issues the Master Diploma Verifiable Attestation, which will be stored in your wallet.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/spanish-university"
+              >
+                Spanish Uni
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="li disabled"
+      >
+        <div>
+          <div
+            className="panelTitle"
+          >
+            EU Funding Institution
+          </div>
+          <div
+            className="panelBody"
+          >
+            <div
+              className="panelImageContainer"
+            >
+              <img
+                alt=""
+                className="panelImage"
+                role="presentation"
+                src="step5.svg"
+              />
+            </div>
+            <div
+              className="panelMainContent"
+            >
+              <h3
+                className="panelBodyTitle"
+              >
+                Notarize your documents
+              </h3>
+              <p
+                className="panelBodyText"
+              >
+                You can participate in a call for proposals to get EU funding for your start-up. You can notarize documents, justifying the spending of the grant received, which the EU auditors can verify.
+              </p>
+            </div>
+            <div
+              className="panelButtonContainer"
+            >
+              <a
+                className="panelLink"
+                href="https://app.ebsi.xyz/demo/eu-funding"
+              >
+                EU Funding
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </main>
+</div>
+`;
