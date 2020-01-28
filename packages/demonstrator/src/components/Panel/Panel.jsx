@@ -20,7 +20,12 @@ export const PanelBody = ({ icon, title, link, linkLabel, children }) => (
       <p className={styles.panelBodyText}>{children}</p>
     </div>
     <div className={styles.panelButtonContainer}>
-      <a className={styles.panelLink} href={link}>
+      <a
+        className={styles.panelLink}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {linkLabel}
       </a>
     </div>
