@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import {
   REACT_APP_WALLET_URL,
   REACT_APP_BELGIUM_GOV_URL,
@@ -29,21 +29,23 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <main style={{ maxWidth: "960px" }}>
-        <p className="disclaimer">
+    <div className={styles.app}>
+      <main className={styles.main}>
+        <p className={`${styles.p} ${styles.disclaimer}`}>
           Disclaimer: this is a demo website to show the technical capabilities
           of the EBSI project. We use dummy data! All the public entities are
           simulated, there is no real interaction with any of them.
         </p>
-        <h1 className="h1">European Blockchain Services Infrastructure</h1>
-        <h2 className="h2">User journey demonstrator</h2>
-        <p {...(isAuthenticated && { className: "done" })}>
-          To follow the User Journey, please go sequentially through each step
-          hereunder.
-        </p>
-        <ol>
-          <li {...(isAuthenticated && { className: "done" })}>
+        <h1 className={styles.h1}>
+          Test EBSI User Journey Demo by taking the following steps by order
+        </h1>
+        <ol className={styles.ol}>
+          <li
+            className={styles.li}
+            {...(isAuthenticated && {
+              className: `${styles.li} ${styles.done}`
+            })}
+          >
             <Panel>
               <PanelTitle>European Self-Sovereign Identity</PanelTitle>
               <PanelBody
@@ -60,8 +62,11 @@ function App() {
             </Panel>
           </li>
           <li
-            {...(!isAuthenticated && { className: "disabled" })}
-            {...(hasEIDVC && { className: "done" })}
+            className={styles.li}
+            {...(!isAuthenticated && {
+              className: `${styles.li} ${styles.disabled}`
+            })}
+            {...(hasEIDVC && { className: `${styles.li} ${styles.done}` })}
           >
             <Panel>
               <PanelTitle>Federal Government of Belgium</PanelTitle>
@@ -80,8 +85,11 @@ function App() {
             </Panel>
           </li>
           <li
-            {...(!(isAuthenticated && hasEIDVC) && { className: "disabled" })}
-            {...(hasBachelorVA && { className: "done" })}
+            className={styles.li}
+            {...(!(isAuthenticated && hasEIDVC) && {
+              className: `${styles.li} ${styles.disabled}`
+            })}
+            {...(hasBachelorVA && { className: `${styles.li} ${styles.done}` })}
           >
             <Panel>
               <PanelTitle>Flemish Government</PanelTitle>
@@ -91,18 +99,20 @@ function App() {
                 link={REACT_APP_FLEMISH_GOV_URL}
                 linkLabel="Flemish Gov"
               >
-                Visit the Flemish Government website to get your Bachelor
-                Diploma VC. You need to have a wallet account and an eID VC in
-                it.
+                Open the Flemish Government website and make a request to get
+                your Bachelor Diploma. The Flemish Government verifies your
+                request and your verifiable eID and issues the Bachelor Diploma
+                Verifiable Attestation, which will be stored in your wallet.
               </PanelBody>
             </Panel>
           </li>
           <li
+            className={styles.li}
             {...(!(isAuthenticated && hasEIDVC && hasBachelorVA) && {
-              className: "disabled"
+              className: `${styles.li} ${styles.disabled}`
             })}
             {...(hasMaster && {
-              className: "done"
+              className: `${styles.li} ${styles.done}`
             })}
           >
             <Panel>
@@ -113,41 +123,51 @@ function App() {
                 link={REACT_APP_SPANISH_UNIVERSITY_URL}
                 linkLabel="Spanish Uni"
               >
-                Visit the Spanish University website to register for a master's
-                study and to get your Master Diploma VA. You need to have a
-                wallet account, an eID VC and a Bachelor Diploma VC
+                You can apply for a master study to a Spanish University. The
+                university checks your verifiable eID and Bachelor Diploma VC
+                and accepts you as a registered student. After graduation, you
+                can request your master diploma. The Spanish University issues
+                the Master Diploma Verifiable Attestation, which will be stored
+                in your wallet.
               </PanelBody>
             </Panel>
           </li>
           <li
+            className={styles.li}
             {...(!(
               isAuthenticated &&
               hasEIDVC &&
               hasBachelorVA &&
               hasMaster
             ) && {
-              className: "disabled"
+              className: `${styles.li} ${styles.disabled}`
             })}
           >
             <Panel>
               <PanelTitle>EU Funding Institution</PanelTitle>
               <PanelBody
                 icon={step5SVG}
-                title="Notarise your documents"
+                title="Notarize your documents"
                 link={REACT_APP_EU_FUNDING_URL}
                 linkLabel="EU Funding"
               >
-                Visit the EU Funding website.
+                You can participate in a call for proposals to get EU funding
+                for your start-up. You can notarize documents, justifying the
+                spending of the grant received, which the EU auditors can
+                verify.
               </PanelBody>
             </Panel>
           </li>
         </ol>
         {isAuthenticated && (
           <p>
-            <button type="button" onClick={restart} className="button">
+            <button type="button" onClick={restart} className={styles.button}>
               Restart user journey
             </button>
-            <a href={`${REACT_APP_WALLET_URL}/credentials`} className="button">
+            <a
+              href={`${REACT_APP_WALLET_URL}/credentials`}
+              className={styles.button}
+            >
               Your Wallet Credentials
             </a>
           </p>

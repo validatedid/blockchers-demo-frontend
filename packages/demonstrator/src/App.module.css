@@ -1,8 +1,4 @@
-body {
-  background-color: #002f67;
-}
-
-.App {
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,62 +9,42 @@ body {
   position: relative;
 }
 
-.App::before {
-  position: absolute;
-  content: " ";
-  background-image: url(./assets/logo.svg);
-  background-repeat: no-repeat;
-  width: 48rem;
-  height: 36rem;
-  top: 20%;
-  left: 50%;
-  margin-left: -24rem;
-  margin-top: -10rem;
-  z-index: -1;
-  opacity: 0.1;
+.main {
+  width: 100%;
+  max-width: 960px;
 }
 
-.App-link {
-  color: #ffd617;
-}
-
-.App p {
+.p {
   line-height: 1.4;
   font-size: 1.375rem;
   max-width: 48rem;
 }
 
-.App ol {
+.ol {
   list-style: none;
   padding: 0;
 }
 
-.App li {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  padding: 0.25rem 0;
+.li {
+  padding: 0;
 }
 
-.App li + li {
-  margin-top: 2.5rem;
+.li.disabled {
+  filter: brightness(0.6);
 }
 
-.App li.disabled {
-  color: #cfcfcf;
-  font-weight: 400;
+.li.done {
+  filter: brightness(0.6);
 }
 
-.disabled .App-link {
-  color: #707070;
+.li + .li {
+  margin-top: 1rem;
 }
 
-.App li.done {
-  color: #cfcfcf;
-  font-weight: 400;
-}
-
-.done .App-link {
-  color: #707070;
+@media only screen and (min-width: 768px) {
+  .li + .li {
+    margin-top: 2rem;
+  }
 }
 
 .button {
@@ -91,21 +67,28 @@ body {
   outline-offset: -3px;
 }
 
-.App .disclaimer {
+.disclaimer {
   font-size: 1.125rem;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .disclaimer {
+    font-size: 1.25rem;
+    margin: 3rem 0;
+  }
 }
 
 .h1 {
-  font-size: 2.25rem;
-  margin: 0 0 1.5rem 0;
+  font-size: 1.875rem;
+  margin: 1.5rem 0 2rem;
   text-align: left;
   max-width: 48rem;
 }
 
-.h2 {
-  font-size: 1.875rem;
-  margin: 0 0 1rem 0;
-  text-align: left;
-  max-width: 48rem;
+@media only screen and (min-width: 768px) {
+  .h1 {
+    font-size: 2.25rem;
+    margin: 2rem 0 2.5rem;
+  }
 }
