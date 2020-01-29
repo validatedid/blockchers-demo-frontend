@@ -123,6 +123,10 @@ function RequestVC() {
       });
   };
 
+  const [defaultLastName = "", defaultFirstName = ""] = (
+    JWT.userName || ""
+  ).split("&");
+
   return (
     <Fragment>
       <H1>Request eID VC</H1>
@@ -148,11 +152,11 @@ function RequestVC() {
           <Form.Control
             type="text"
             name="currentFamilyName"
-            defaultValue={JWT.userName || ""}
+            defaultValue={defaultLastName}
             ref={register({ required: true })}
             isInvalid={!!errors.currentFamilyName}
           />
-          <Form.Text className="text-muted">e.g. Eva</Form.Text>
+          <Form.Text className="text-muted">e.g. van Blokketen</Form.Text>
           {errors.currentFamilyName && (
             <Form.Control.Feedback type="invalid">
               Current Family Name is required
@@ -164,10 +168,11 @@ function RequestVC() {
           <Form.Control
             type="text"
             name="currentGivenName"
+            defaultValue={defaultFirstName}
             ref={register({ required: true })}
             isInvalid={!!errors.currentGivenName}
           />
-          <Form.Text className="text-muted">e.g. Adams</Form.Text>
+          <Form.Text className="text-muted">e.g. Eva</Form.Text>
           {errors.currentGivenName && (
             <Form.Control.Feedback type="invalid">
               Current Given Name is required
@@ -176,8 +181,12 @@ function RequestVC() {
         </Form.Group>
         <Form.Group controlId="exampleForm.birthName">
           <Form.Label>Birth Name (optional)</Form.Label>
-          <Form.Control type="text" name="birthName" />
-          <Form.Text className="text-muted">e.g. Eva</Form.Text>
+          <Form.Control
+            type="text"
+            name="birthName"
+            defaultValue={defaultLastName}
+          />
+          <Form.Text className="text-muted">e.g. van Blokketen</Form.Text>
         </Form.Group>
         <Form.Group controlId="exampleForm.dateOfBirth">
           <Form.Label>Date of birth</Form.Label>

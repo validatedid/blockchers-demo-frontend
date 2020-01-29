@@ -8,8 +8,7 @@ export const LOGIN_CODES = {
   MISSING_JWT: 1,
   MALFORMED_JWT: 2,
   MISSING_PROPS_JWT: 3,
-  EXPIRED_JWT: 4,
-  MISSING_BE_TICKET: 5
+  EXPIRED_JWT: 4
 };
 
 function parseJwt(token) {
@@ -41,20 +40,12 @@ function isTokenMissingProperties(payload) {
 
 export default function Auth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [JWT, setJWT] = useState({});
 
-  // Check if "Ticket-BE" and JWT are present in session
   const checkAuth = () => {
     const hasJwt = !!localStorage.getItem("Jwt");
     if (!hasJwt) {
       setIsAuthenticated(false);
       return LOGIN_CODES.MISSING_JWT;
-    }
-
-    const hasBETicket = localStorage.getItem("Ticket-BE") === "fake-ticket";
-    if (!hasBETicket) {
-      setIsAuthenticated(false);
-      return LOGIN_CODES.MISSING_BE_TICKET;
     }
 
     try {
@@ -68,8 +59,6 @@ export default function Auth({ children }) {
         setIsAuthenticated(false);
         return LOGIN_CODES.EXPIRED_JWT;
       }
-
-      setJWT(payload);
     } catch (e) {
       // Unable to parse JWT (malformed)
       setIsAuthenticated(false);
@@ -80,24 +69,12 @@ export default function Auth({ children }) {
     return LOGIN_CODES.SUCCESS;
   };
 
-  const login = () => {
-    localStorage.setItem("Ticket-BE", "fake-ticket");
-    return checkAuth();
-  };
-
-  const logout = () => {
-    // Remove only BE Gov related items
-    localStorage.removeItem("Ticket-BE");
-    localStorage.removeItem("VC-issued");
-    setIsAuthenticated(false);
-  };
-
   useLayoutEffect(() => {
     checkAuth();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, JWT, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, checkAuth }}>
       {children}
     </AuthContext.Provider>
   );

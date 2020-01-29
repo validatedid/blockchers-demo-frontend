@@ -116,6 +116,7 @@ services:
       HTTPS: "OFF"
       PORT: ${NOTARY_PORT}
       NODE_ENV: development
+      PUBLIC_URL: ${NOTARY_PUBLIC_URL}
     depends_on:
       - mongodb
     # Wait 15 seconds before starting notary
