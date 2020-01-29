@@ -207,8 +207,6 @@ function Main() {
             <a
               href={`${REACT_APP_WALLET_URL}/credentials`}
               className={styles.button}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Your Wallet Credentials
             </a>
