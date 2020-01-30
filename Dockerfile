@@ -9,6 +9,7 @@ ARG REACT_APP_WALLET_API=https://api.ebsi.xyz/wallet
 ARG REACT_APP_WALLET_URL=https://app.ebsi.xyz/wallet
 ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
 ARG REACT_APP_BACKEND_URL=https://api.ebsi.xyz
+ARG REACT_APP_TAXUD_URL=http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main
 
 ## Stage 1: build Belgium Government website
 FROM node:12-alpine AS builder-belgium-gov
@@ -43,6 +44,7 @@ ARG REACT_APP_EU_FUNDING_URL=${EU_FUNDING_PUBLIC_URL}
 ARG REACT_APP_FLEMISH_GOV_URL=${FLEMISH_GOV_PUBLIC_URL}
 ARG REACT_APP_SPANISH_UNIVERSITY_URL=${SPANISH_UNIVERSITY_PUBLIC_URL}
 ARG REACT_APP_WALLET_URL
+ARG REACT_APP_TAXUD_URL
 RUN npm run build
 
 ## Stage 3: build Flemish Government website

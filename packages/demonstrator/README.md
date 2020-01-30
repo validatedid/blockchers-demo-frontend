@@ -57,3 +57,4 @@ You can customize the links displayed by the page by setting these environment v
 - `REACT_APP_FLEMISH_GOV_URL`
 - `REACT_APP_SPANISH_UNIVERSITY_URL`
 - `REACT_APP_WALLET_URL`
+- `REACT_APP_TAXUD_URL`

@@ -1,4 +1,10 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  Fragment
+} from "react";
 import { AuthContext } from "../../components/Auth/Auth";
 import styles from "./Main.module.css";
 import {
@@ -6,7 +12,8 @@ import {
   REACT_APP_BELGIUM_GOV_URL,
   REACT_APP_FLEMISH_GOV_URL,
   REACT_APP_SPANISH_UNIVERSITY_URL,
-  REACT_APP_EU_FUNDING_URL
+  REACT_APP_EU_FUNDING_URL,
+  REACT_APP_TAXUD_URL
 } from "../../env";
 import { Panel, PanelTitle, PanelBody } from "../../components/Panel/Panel";
 import step1SVG from "../../assets/step1.svg";
@@ -199,19 +206,24 @@ function Main() {
             </Panel>
           </li>
         </ol>
-        {isAuthenticated && (
-          <p>
-            <button type="button" onClick={restart} className={styles.button}>
-              Restart user journey
-            </button>
-            <a
-              href={`${REACT_APP_WALLET_URL}/credentials`}
-              className={styles.button}
-            >
-              Your Wallet Credentials
-            </a>
-          </p>
-        )}
+        <p>
+          {isAuthenticated && (
+            <Fragment>
+              <button type="button" onClick={restart} className={styles.button}>
+                Restart user journey
+              </button>
+              <a
+                href={`${REACT_APP_WALLET_URL}/credentials`}
+                className={styles.button}
+              >
+                Your Wallet Credentials
+              </a>
+            </Fragment>
+          )}
+          <a href={REACT_APP_TAXUD_URL} className={styles.button}>
+            Taxud Demo
+          </a>
+        </p>
       </main>
     </div>
   );

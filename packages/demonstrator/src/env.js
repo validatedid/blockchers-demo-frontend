@@ -12,7 +12,10 @@ const REQUIRED_VARIABLES = {
     "https://app.ebsi.xyz/demo/spanish-university",
   REACT_APP_EU_FUNDING_URL:
     process.env.REACT_APP_EU_FUNDING_URL ||
-    "https://app.ebsi.xyz/demo/eu-funding"
+    "https://app.ebsi.xyz/demo/eu-funding",
+  REACT_APP_TAXUD_URL:
+    process.env.REACT_APP_TAXUD_URL ||
+    "http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
 };
 
 module.exports = REQUIRED_VARIABLES;

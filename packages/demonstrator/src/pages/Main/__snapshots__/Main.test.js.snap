@@ -280,6 +280,12 @@ exports[`renders correctly with JWT 1`] = `
       >
         Your Wallet Credentials
       </a>
+      <a
+        className="button"
+        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+      >
+        Taxud Demo
+      </a>
     </p>
   </main>
 </div>
@@ -564,6 +570,12 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
         href="https://app.ebsi.xyz/wallet/credentials"
       >
         Your Wallet Credentials
+      </a>
+      <a
+        className="button"
+        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+      >
+        Taxud Demo
       </a>
     </p>
   </main>
@@ -850,6 +862,12 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
       >
         Your Wallet Credentials
       </a>
+      <a
+        className="button"
+        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+      >
+        Taxud Demo
+      </a>
     </p>
   </main>
 </div>
@@ -1135,6 +1153,12 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
       >
         Your Wallet Credentials
       </a>
+      <a
+        className="button"
+        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+      >
+        Taxud Demo
+      </a>
     </p>
   </main>
 </div>
@@ -1406,6 +1430,14 @@ exports[`renders correctly without JWT 1`] = `
         </div>
       </li>
     </ol>
+    <p>
+      <a
+        className="button"
+        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+      >
+        Taxud Demo
+      </a>
+    </p>
   </main>
 </div>
 `;
