@@ -185,6 +185,7 @@ function RequestVC() {
             type="text"
             name="birthName"
             defaultValue={defaultLastName}
+            ref={register({ required: false })}
           />
           <Form.Text className="text-muted">e.g. van Blokketen</Form.Text>
         </Form.Group>
