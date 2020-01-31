@@ -282,7 +282,7 @@ exports[`renders correctly with JWT 1`] = `
       </a>
       <a
         className="button"
-        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+        href="http://taxuddemo.ebsi.xyz:443/main"
       >
         Taxud Demo
       </a>
@@ -573,7 +573,7 @@ exports[`renders correctly with JWT and eID VC issued 1`] = `
       </a>
       <a
         className="button"
-        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+        href="http://taxuddemo.ebsi.xyz:443/main"
       >
         Taxud Demo
       </a>
@@ -864,7 +864,7 @@ exports[`renders correctly with JWT, eID VC and bachelor VA 1`] = `
       </a>
       <a
         className="button"
-        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+        href="http://taxuddemo.ebsi.xyz:443/main"
       >
         Taxud Demo
       </a>
@@ -1155,7 +1155,7 @@ exports[`renders correctly with JWT, eID VC, bachelor VA and Master VA 1`] = `
       </a>
       <a
         className="button"
-        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+        href="http://taxuddemo.ebsi.xyz:443/main"
       >
         Taxud Demo
       </a>
@@ -1433,7 +1433,7 @@ exports[`renders correctly without JWT 1`] = `
     <p>
       <a
         className="button"
-        href="http://ec2-52-29-105-34.eu-central-1.compute.amazonaws.com:443/main"
+        href="http://taxuddemo.ebsi.xyz:443/main"
       >
         Taxud Demo
       </a>
