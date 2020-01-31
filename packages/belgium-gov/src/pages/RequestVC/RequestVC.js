@@ -77,7 +77,7 @@ function RequestVC() {
           issuer: "did:ebsi:0x79475f0ffB15eD8c27D7Fe9A0Ceb1585Cc3fB1B3",
           credentialSubject: {
             ...data,
-            birthName: data.birthName || "", // Make sure to pass birthName
+            birthName: data.birthName || data.currentFamilyName, // Default to currentFamilyName
             id: JWT.did,
             govId: ""
           }

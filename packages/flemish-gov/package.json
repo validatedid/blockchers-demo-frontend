@@ -7,11 +7,11 @@
     "classnames": "^2.2.6",
     "query-string": "^6.10.1",
     "react": "^16.12.0",
-    "react-app-polyfill": "^1.0.5",
+    "react-app-polyfill": "^1.0.6",
     "react-bootstrap": "^1.0.0-beta.15",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
+    "react-scripts": "^3.3.1"
   },
   "scripts": {
     "lint:js": "eslint src",
@@ -37,6 +37,6 @@
     ]
   },
   "devDependencies": {
-    "jose": "^1.21.1"
+    "jose": "^1.22.0"
   }
 }
