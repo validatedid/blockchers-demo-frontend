@@ -14,7 +14,7 @@ const REQUIRED_VARIABLES = {
     process.env.REACT_APP_EU_FUNDING_URL ||
     "https://app.ebsi.xyz/demo/eu-funding",
   REACT_APP_TAXUD_URL:
-    process.env.REACT_APP_TAXUD_URL || "http://taxuddemo.ebsi.xyz:443/main"
+    process.env.REACT_APP_TAXUD_URL || "https://taxuddemo.ebsi.xyz/"
 };
 
 module.exports = REQUIRED_VARIABLES;

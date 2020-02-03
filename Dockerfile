@@ -9,7 +9,7 @@ ARG REACT_APP_WALLET_API=https://api.ebsi.xyz/wallet
 ARG REACT_APP_WALLET_URL=https://app.ebsi.xyz/wallet
 ARG REACT_APP_DIPLOMA_API_URL=https://api.ebsi.xyz/wallet/diploma
 ARG REACT_APP_BACKEND_URL=https://api.ebsi.xyz
-ARG REACT_APP_TAXUD_URL=http://taxuddemo.ebsi.xyz:443/main
+ARG REACT_APP_TAXUD_URL=https://taxuddemo.ebsi.xyz/
 
 ## Stage 1: build Belgium Government website
 FROM node:12-alpine AS builder-belgium-gov
